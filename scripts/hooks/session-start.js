@@ -8,6 +8,8 @@
  * files and notifies Claude of available context to load.
  */
 
+const path = require('path');
+const fs = require('fs');
 const {
   getSessionsDir,
   getLearnedSkillsDir,
@@ -50,6 +52,38 @@ async function main() {
     const aliasNames = aliases.map(a => a.name).join(', ');
     log(`[SessionStart] ${aliases.length} session alias(es) available: ${aliasNames}`);
     log(`[SessionStart] Use /sessions load <alias> to continue a previous session`);
+  }
+
+  // Auto-create Docs folder structure if missing
+  const cwd = process.cwd();
+  const docsDir = path.join(cwd, 'Docs');
+  const docsFolders = [
+    '01-Discovery',
+    '02-Frameworks',
+    '03-PRDs',
+    '04-Architecture',
+    '05-Design',
+    '06-Development',
+    '07-Tests',
+    '08-Feedback',
+    '99-Archive'
+  ];
+
+  if (!fs.existsSync(docsDir)) {
+    try {
+      fs.mkdirSync(docsDir, { recursive: true });
+      for (const folder of docsFolders) {
+        const folderPath = path.join(docsDir, folder);
+        fs.mkdirSync(folderPath, { recursive: true });
+        const gitkeep = path.join(folderPath, '.gitkeep');
+        if (!fs.existsSync(gitkeep)) {
+          fs.writeFileSync(gitkeep, '');
+        }
+      }
+      log(`[SessionStart] Created Docs/ folder with ${docsFolders.length} subfolders`);
+    } catch (_err) {
+      // Don't block session start if Docs creation fails
+    }
   }
 
   // Detect and report package manager

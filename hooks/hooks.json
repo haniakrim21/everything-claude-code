@@ -3,34 +3,44 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "tool == \"Bash\" && tool_input.command matches \"(npm run dev|pnpm( run)? dev|yarn dev|bun run dev)\"",
+        "matcher": "tool == \"Bash\" && tool_input.command matches \"(npm run dev|pnpm( run)? dev|yarn dev|bun run dev|next dev|vite|webpack serve|nodemon|ts-node-dev|python manage.py runserver|flask run|uvicorn|cargo watch)\"",
         "hooks": [
           {
             "type": "command",
-            "command": "node -e \"console.error('[Hook] BLOCKED: Dev server must run in tmux for log access');console.error('[Hook] Use: tmux new-session -d -s dev \\\"npm run dev\\\"');console.error('[Hook] Then: tmux attach -t dev');process.exit(1)\""
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/lib/hook-runner.js\" \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/block-dev-server.js\""
           }
         ],
-        "description": "Block dev servers outside tmux - ensures you can access logs"
+        "description": "Block dev servers outside tmux/screen"
       },
       {
         "matcher": "tool == \"Bash\" && tool_input.command matches \"(npm (install|test)|pnpm (install|test)|yarn (install|test)?|bun (install|test)|cargo build|make|docker|pytest|vitest|playwright)\"",
         "hooks": [
           {
             "type": "command",
-            "command": "node -e \"if(!process.env.TMUX){console.error('[Hook] Consider running in tmux for session persistence');console.error('[Hook] tmux new -s dev  |  tmux attach -t dev')}\""
+            "command": "node -e \"if(!process.env.TMUX&&!process.env.STY){console.error('[Hook] Consider running in tmux/screen for session persistence')}\""
           }
         ],
-        "description": "Reminder to use tmux for long-running commands"
+        "description": "Reminder to use tmux/screen for long-running commands"
       },
       {
         "matcher": "tool == \"Bash\" && tool_input.command matches \"git push\"",
         "hooks": [
           {
             "type": "command",
-            "command": "node -e \"console.error('[Hook] Review changes before push...');console.error('[Hook] Continuing with push (remove this hook to add interactive review)')\""
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/lib/hook-runner.js\" \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/pre-push-check.js\""
           }
         ],
-        "description": "Reminder before git push to review changes"
+        "description": "Block force push to main/master, warn on other risky pushes"
+      },
+      {
+        "matcher": "tool == \"Bash\" && tool_input.command matches \"git commit\"",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/lib/hook-runner.js\" \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/commit-guard.js\""
+          }
+        ],
+        "description": "Validate conventional commit message format"
       },
       {
         "matcher": "tool == \"Write\" && tool_input.file_path matches \"\\\\.(md|txt)$\" && !(tool_input.file_path matches \"README\\\\.md|CLAUDE\\\\.md|AGENTS\\\\.md|CONTRIBUTING\\\\.md\")",
@@ -51,30 +61,6 @@
           }
         ],
         "description": "Suggest manual compaction at logical intervals"
-      }
-    ],
-    "PreCompact": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/pre-compact.js\""
-          }
-        ],
-        "description": "Save state before context compaction"
-      }
-    ],
-    "SessionStart": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/session-start.js\""
-          }
-        ],
-        "description": "Load previous context and detect package manager on new session"
       }
     ],
     "PostToolUse": [
@@ -98,27 +84,31 @@
             "timeout": 30
           }
         ],
-        "description": "Example: async hook for build analysis (runs in background without blocking)"
+        "description": "Async build analysis notification"
       },
       {
-        "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\\\.(ts|tsx|js|jsx)$\"",
+        "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\\\.(ts|tsx|js|jsx|py|go|rs|css|scss|json)$\"",
         "hooks": [
           {
             "type": "command",
-            "command": "node -e \"const{execFileSync}=require('child_process');const fs=require('fs');let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const i=JSON.parse(d);const p=i.tool_input?.file_path;if(p&&fs.existsSync(p)){try{execFileSync('npx',['prettier','--write',p],{stdio:['pipe','pipe','pipe']})}catch(e){}}console.log(d)})\""
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/lib/hook-runner.js\" \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/lint-fix.js\"",
+            "async": true,
+            "timeout": 30
           }
         ],
-        "description": "Auto-format JS/TS files with Prettier after edits"
+        "description": "Auto-fix lint/format issues after edits (multi-language)"
       },
       {
         "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\\\.(ts|tsx)$\"",
         "hooks": [
           {
             "type": "command",
-            "command": "node -e \"const{execSync}=require('child_process');const fs=require('fs');const path=require('path');let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const i=JSON.parse(d);const p=i.tool_input?.file_path;if(p&&fs.existsSync(p)){let dir=path.dirname(p);while(dir!==path.dirname(dir)&&!fs.existsSync(path.join(dir,'tsconfig.json'))){dir=path.dirname(dir)}if(fs.existsSync(path.join(dir,'tsconfig.json'))){try{const r=execSync('npx tsc --noEmit --pretty false 2>&1',{cwd:dir,encoding:'utf8',stdio:['pipe','pipe','pipe']});const lines=r.split('\\n').filter(l=>l.includes(p)).slice(0,10);if(lines.length)console.error(lines.join('\\n'))}catch(e){const lines=(e.stdout||'').split('\\n').filter(l=>l.includes(p)).slice(0,10);if(lines.length)console.error(lines.join('\\n'))}}}console.log(d)})\""
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/lib/hook-runner.js\" \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/type-check.js\"",
+            "async": true,
+            "timeout": 30
           }
         ],
-        "description": "TypeScript check after editing .ts/.tsx files"
+        "description": "TypeScript type check after editing .ts/.tsx files"
       },
       {
         "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\\\.(ts|tsx|js|jsx)$\"",
@@ -129,18 +119,64 @@
           }
         ],
         "description": "Warn about console.log statements after edits"
+      },
+      {
+        "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\\\.(ts|tsx|js|jsx|py|go|rs)$\"",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/lib/hook-runner.js\" \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/auto-test.js\"",
+            "async": true,
+            "timeout": 60
+          }
+        ],
+        "description": "Auto-run related tests after editing source files"
+      },
+      {
+        "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\\\.(ts|tsx|js|jsx|css|scss)$\"",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/lib/hook-runner.js\" \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/bundle-check.js\"",
+            "async": true,
+            "timeout": 30
+          }
+        ],
+        "description": "Check bundle size after editing frontend files"
+      },
+      {
+        "matcher": "tool == \"Edit\" || tool == \"Write\"",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/lib/hook-runner.js\" \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/secret-scanner.js\"",
+            "async": true,
+            "timeout": 15
+          }
+        ],
+        "description": "Scan for leaked secrets after file changes"
       }
     ],
-    "Stop": [
+    "SessionStart": [
       {
         "matcher": "*",
         "hooks": [
           {
             "type": "command",
-            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/check-console-log.js\""
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/session-start.js\""
           }
         ],
-        "description": "Check for console.log in modified files after each response"
+        "description": "Load previous context and detect package manager on new session"
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/context-loader.js\""
+          }
+        ],
+        "description": "Load project context (CLAUDE.md, git state, project type)"
       }
     ],
     "SessionEnd": [
@@ -163,6 +199,50 @@
           }
         ],
         "description": "Evaluate session for extractable patterns"
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/learning-log.js\""
+          }
+        ],
+        "description": "Log session activity and learnings"
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/pre-compact.js\""
+          }
+        ],
+        "description": "Save state before context compaction"
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/check-console-log.js\""
+          }
+        ],
+        "description": "Check for console.log in modified files after each response"
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/stop-check.js\""
+          }
+        ],
+        "description": "Remind about running tests and checking unstaged changes"
       }
     ]
   }

@@ -1,0 +1,15 @@
+{
+  "name": "devboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Browser-based dev dashboard for full-stack development",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "pg": "^8.13.0",
+    "ws": "^8.18.0",
+    "node-pty": "^1.0.0"
+  }
+}
