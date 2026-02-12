@@ -73,6 +73,7 @@
     "./agents/dependency-manager.md",
     "./agents/deployment-engineer.md",
     "./agents/deployment-specialist.md",
+    "./agents/design-review.md",
     "./agents/design-system-architect.md",
     "./agents/developer-experience-optimizer.md",
     "./agents/devops-engineer.md",
