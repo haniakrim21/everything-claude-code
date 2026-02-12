@@ -15,7 +15,7 @@
 
 ### The most comprehensive Claude Code plugin ever built.
 
-**195 agents** &middot; **94 skills** &middot; **70 commands** &middot; **29 rules** &middot; **22 hooks**
+**196 agents** &middot; **1,032 skills** &middot; **89 commands** &middot; **29 rules** &middot; **22 hooks**
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)
@@ -49,9 +49,9 @@ After:   Claude knows what to do. It plans, tests, reviews, and ships.
 
 | Component | Count | What it does |
 |:--|--:|:--|
-| **Agents** | 195 | Specialized subagents — from `planner` to `penetration-tester` |
-| **Skills** | 94 | Reusable workflow knowledge — TDD, security, patterns, frameworks |
-| **Commands** | 70 | Slash commands — `/commit`, `/tdd`, `/fix-issue`, `/orchestrate` |
+| **Agents** | 196 | Specialized subagents — from `planner` to `penetration-tester` |
+| **Skills** | 1,032 | Reusable workflow knowledge — TDD, security, patterns, frameworks, automation |
+| **Commands** | 89 | Slash commands — `/commit`, `/tdd`, `/fix-issue`, `/orchestrate` |
 | **Rules** | 29 | Always-on guidelines — coding style, security, git, testing |
 | **Hooks** | 22 | Event-driven automations — lint on save, scan before commit |
 | **Tests** | 69 | Custom runner, zero deps, CI across 36 OS/Node/PM combinations |
@@ -102,7 +102,7 @@ Copy hooks from `hooks/hooks.json` into your `~/.claude/settings.json`.
 
 ## What's Inside
 
-### Agents (195)
+### Agents (196)
 
 Every agent is a single `.md` file with YAML frontmatter. Claude auto-routes to the right agent based on context.
 
@@ -184,7 +184,7 @@ Every agent is a single `.md` file with YAML frontmatter. Claude auto-routes to 
 <details>
 <summary><b>Architecture & Design</b></summary>
 
-`architect-reviewer` &middot; `microservices-architect` &middot; `graphql-architect` &middot; `micro-frontend-architect` &middot; `design-system-architect` &middot; `api-designer` &middot; `api-documenter` &middot; `workflow-orchestrator` &middot; `legacy-modernizer` &middot; `refactoring-specialist`
+`architect-reviewer` &middot; `microservices-architect` &middot; `graphql-architect` &middot; `micro-frontend-architect` &middot; `design-system-architect` &middot; `design-review` &middot; `api-designer` &middot; `api-documenter` &middot; `workflow-orchestrator` &middot; `legacy-modernizer` &middot; `refactoring-specialist`
 
 </details>
 
@@ -196,15 +196,15 @@ Every agent is a single `.md` file with YAML frontmatter. Claude auto-routes to 
 </details>
 
 <details>
-<summary><b>Full list (195)</b></summary>
+<summary><b>Full list (196)</b></summary>
 
-`accessibility-tester` `ad-security-reviewer` `agent-installer` `agent-organizer` `ai-engineer` `analytics-implementation-specialist` `angular-architect` `angular-expert` `api-designer` `api-documenter` `architect` `architect-reviewer` `azure-infra-engineer` `backend-developer` `blockchain-developer` `build-engineer` `build-error-resolver` `business-analyst` `business-intelligence-developer` `chaos-engineer` `cicd-pipeline-engineer` `cli-developer` `cloud-architect` `code-archaeologist-time-traveler` `code-reviewer` `competitive-analyst` `compliance-auditor` `computer-vision-specialist` `content-marketer` `context-manager` `cpp-pro` `csharp-developer` `customer-success-manager` `data-analyst` `data-engineer` `data-researcher` `data-scientist` `database-admin` `database-administrator` `database-architect` `database-optimizer` `database-reviewer` `debugger` `dependency-manager` `deployment-engineer` `deployment-specialist` `design-system-architect` `developer-experience-optimizer` `devops-engineer` `devops-incident-responder` `devops-troubleshooter` `devsecops-engineer` `django-developer` `django-expert` `doc-updater` `documentation-engineer` `dotnet-core-expert` `dotnet-framework-4.8-expert` `dx-optimizer` `e2e-runner` `electron-pro` `elixir-expert` `embedded-systems` `error-coordinator` `error-detective` `fastapi-expert` `fastify-expert` `fiber-expert` `financial-modeling-agent` `fintech-engineer` `flutter-expert` `frontend-developer` `fullstack-developer` `game-developer` `gin-expert` `git-expert` `git-workflow-manager` `go-build-resolver` `go-resilience-engineer` `go-reviewer` `go-zap-logging` `golang-pro` `graphql-architect` `healthcare-compliance-agent` `incident-responder` `iot-engineer` `it-ops-orchestrator` `java-architect` `javascript-pro` `knowledge-synthesizer` `kotlin-specialist` `kubernetes-specialist` `laravel-expert` `laravel-specialist` `legacy-modernizer` `legal-advisor` `llm-architect` `logging-concepts-engineer` `m365-admin` `machine-learning-engineer` `market-researcher` `mcp-developer` `micro-frontend-architect` `microservices-architect` `ml-engineer` `mlops-engineer` `mobile-app-developer` `mobile-developer` `multi-agent-coordinator` `network-engineer` `nextjs-developer` `nlp-engineer` `nlp-llm-integration-expert` `nodejs-expert` `observability-engineer` `payment-integration` `payment-integration-agent` `penetration-tester` `performance-engineer` `performance-monitor` `php-pro` `planner` `platform-engineer` `postgres-pro` `powershell-5.1-expert` `powershell-7-expert` `powershell-module-architect` `powershell-security-hardening` `powershell-ui-architect` `pr-description-composer` `pr-reviewer-specialist` `prisma-expert` `privacy-engineer` `product-manager` `project-analyst` `project-manager` `prompt-engineer` `pulumi-typescript-specialist` `pwa-specialist` `python-hyx-resilience` `python-pro` `python-reviewer` `qa-automation-engineer` `qa-expert` `quality-system-engineer` `quant-analyst` `rails-expert` `rapid-prototyper` `react-specialist` `refactor-cleaner` `refactoring-specialist` `release-manager` `research-analyst` `resilience-engineer` `risk-manager` `rubber-duck-debugger` `rust-engineer` `sales-engineer` `scrum-master` `search-specialist` `security-auditor` `security-engineer` `security-reviewer` `seo-specialist` `serverless-architect` `slack-expert` `software-engineering-expert` `spring-boot-engineer` `sql-pro` `sre-engineer` `swift-expert` `task-distributor` `tdd-guide` `team-configurator` `tech-lead-orchestrator` `technical-debt-collector` `technical-writer` `terraform-engineer` `terragrunt-expert` `test-automation-expert` `test-automator` `tooling-engineer` `trend-analyst` `typescript-cockatiel-resilience` `typescript-pino-logging` `typescript-pro` `ui-designer` `ux-designer` `ux-researcher` `vue-expert` `webassembly-specialist` `websocket-engineer` `windows-infra-admin` `wordpress-master` `workflow-orchestrator`
+`accessibility-tester` `ad-security-reviewer` `agent-installer` `agent-organizer` `ai-engineer` `analytics-implementation-specialist` `angular-architect` `angular-expert` `api-designer` `api-documenter` `architect` `architect-reviewer` `azure-infra-engineer` `backend-developer` `blockchain-developer` `build-engineer` `build-error-resolver` `business-analyst` `business-intelligence-developer` `chaos-engineer` `cicd-pipeline-engineer` `cli-developer` `cloud-architect` `code-archaeologist-time-traveler` `code-reviewer` `competitive-analyst` `compliance-auditor` `computer-vision-specialist` `content-marketer` `context-manager` `cpp-pro` `csharp-developer` `customer-success-manager` `data-analyst` `data-engineer` `data-researcher` `data-scientist` `database-admin` `database-administrator` `database-architect` `database-optimizer` `database-reviewer` `debugger` `dependency-manager` `deployment-engineer` `deployment-specialist` `design-review` `design-system-architect` `developer-experience-optimizer` `devops-engineer` `devops-incident-responder` `devops-troubleshooter` `devsecops-engineer` `django-developer` `django-expert` `doc-updater` `documentation-engineer` `dotnet-core-expert` `dotnet-framework-4.8-expert` `dx-optimizer` `e2e-runner` `electron-pro` `elixir-expert` `embedded-systems` `error-coordinator` `error-detective` `fastapi-expert` `fastify-expert` `fiber-expert` `financial-modeling-agent` `fintech-engineer` `flutter-expert` `frontend-developer` `fullstack-developer` `game-developer` `gin-expert` `git-expert` `git-workflow-manager` `go-build-resolver` `go-resilience-engineer` `go-reviewer` `go-zap-logging` `golang-pro` `graphql-architect` `healthcare-compliance-agent` `incident-responder` `iot-engineer` `it-ops-orchestrator` `java-architect` `javascript-pro` `knowledge-synthesizer` `kotlin-specialist` `kubernetes-specialist` `laravel-expert` `laravel-specialist` `legacy-modernizer` `legal-advisor` `llm-architect` `logging-concepts-engineer` `m365-admin` `machine-learning-engineer` `market-researcher` `mcp-developer` `micro-frontend-architect` `microservices-architect` `ml-engineer` `mlops-engineer` `mobile-app-developer` `mobile-developer` `multi-agent-coordinator` `network-engineer` `nextjs-developer` `nlp-engineer` `nlp-llm-integration-expert` `nodejs-expert` `observability-engineer` `payment-integration` `payment-integration-agent` `penetration-tester` `performance-engineer` `performance-monitor` `php-pro` `planner` `platform-engineer` `postgres-pro` `powershell-5.1-expert` `powershell-7-expert` `powershell-module-architect` `powershell-security-hardening` `powershell-ui-architect` `pr-description-composer` `pr-reviewer-specialist` `prisma-expert` `privacy-engineer` `product-manager` `project-analyst` `project-manager` `prompt-engineer` `pulumi-typescript-specialist` `pwa-specialist` `python-hyx-resilience` `python-pro` `python-reviewer` `qa-automation-engineer` `qa-expert` `quality-system-engineer` `quant-analyst` `rails-expert` `rapid-prototyper` `react-specialist` `refactor-cleaner` `refactoring-specialist` `release-manager` `research-analyst` `resilience-engineer` `risk-manager` `rubber-duck-debugger` `rust-engineer` `sales-engineer` `scrum-master` `search-specialist` `security-auditor` `security-engineer` `security-reviewer` `seo-specialist` `serverless-architect` `slack-expert` `software-engineering-expert` `spring-boot-engineer` `sql-pro` `sre-engineer` `swift-expert` `task-distributor` `tdd-guide` `team-configurator` `tech-lead-orchestrator` `technical-debt-collector` `technical-writer` `terraform-engineer` `terragrunt-expert` `test-automation-expert` `test-automator` `tooling-engineer` `trend-analyst` `typescript-cockatiel-resilience` `typescript-pino-logging` `typescript-pro` `ui-designer` `ux-designer` `ux-researcher` `vue-expert` `webassembly-specialist` `websocket-engineer` `windows-infra-admin` `wordpress-master` `workflow-orchestrator`
 
 </details>
 
 ---
 
-### Commands (70)
+### Commands (89)
 
 Slash commands orchestrate agents and skills into workflows.
 
@@ -227,28 +227,29 @@ Slash commands orchestrate agents and skills into workflows.
 | `/multi-agent` | Coordinate multiple agents on a task |
 
 <details>
-<summary>View all 70 commands</summary>
+<summary>View all 89 commands</summary>
 
-`/adr` `/analyze-issue` `/api-docs` `/audit` `/build-fix` `/changelog` `/ci-pipeline` `/cleanup` `/code-review` `/commit` `/create-docs` `/csp` `/dead-code` `/dependency-audit` `/deploy` `/design-review` `/diagram` `/doc-gen` `/dockerfile` `/evolve` `/extract` `/fix-issue` `/go-build` `/go-review` `/go-test` `/hardening` `/instinct-export` `/instinct-import` `/instinct-status` `/integration-test` `/k8s-manifest` `/learn` `/memory-bank` `/migrate` `/monitor` `/multi-agent` `/multi-backend` `/multi-execute` `/multi-frontend` `/multi-plan` `/multi-workflow` `/onboard` `/orchestrate` `/plan-feature` `/pm2` `/pr-create` `/pr-review` `/prime` `/refactor` `/release` `/rename` `/riper` `/secrets-scan` `/sessions` `/setup-pm` `/simplify` `/skill-create` `/snapshot-test` `/tdd` `/test-fix` `/update-codemap` `/update-docs` `/verify` `/worktree` `/wrap-up` and more...
+`/act` `/add-to-changelog` `/adr` `/api-docs` `/audit` `/build-fix` `/changelog` `/checkpoint` `/ci-pipeline` `/clean` `/cleanup` `/code-review` `/commit` `/context-prime` `/create-docs` `/create-hook` `/create-jtbd` `/create-pr` `/create-prd` `/create-prp` `/create-pull-request` `/create-worktrees` `/csp` `/dead-code` `/dependency-audit` `/deploy` `/design-review` `/diagram` `/doc-gen` `/dockerfile` `/e2e` `/eval` `/evolve` `/extract` `/fix-github-issue` `/fix-issue` `/go-build` `/go-review` `/go-test` `/hardening` `/husky` `/initref` `/instinct-export` `/instinct-import` `/instinct-status` `/integration-test` `/k8s-manifest` `/learn` `/load-llms-txt` `/memory-bank` `/migrate` `/monitor` `/multi-agent` `/multi-backend` `/multi-execute` `/multi-frontend` `/multi-plan` `/multi-workflow` `/onboard` `/optimize` `/orchestrate` `/plan` `/plan-feature` `/pm2` `/pr-create` `/pr-review` `/python-review` `/refactor` `/refactor-clean` `/release` `/rename` `/secrets-scan` `/sessions` `/setup-pm` `/simplify` `/skill-create` `/snapshot-test` `/tdd` `/test-coverage` `/test-fix` `/testing_plan_integration` `/todo` `/update-branch-name` `/update-codemap` `/update-codemaps` `/update-docs` `/verify` `/worktree` `/wrap-up`
 
 </details>
 
 ---
 
-### Skills (94)
+### Skills (1,032)
 
-Domain knowledge that agents and commands draw from.
+Domain knowledge that agents and commands draw from. Includes 940+ Composio automation skills for tool integrations.
 
 | Category | Skills |
 |:--|:--|
-| **Languages** | TypeScript, Python, Go, Rust, Java/Spring Boot, Django |
-| **Frontend** | React patterns, Next.js, responsive design, design systems, accessibility |
-| **Backend** | API design, database optimization, Redis, GraphQL, microservices |
-| **Testing** | TDD workflow, testing strategies, E2E, property-based testing |
-| **Security** | Security review, hardening, PCI compliance, authentication patterns |
-| **DevOps** | CI/CD pipelines, Docker, Kubernetes, monitoring, deployment |
-| **AI/ML** | LLM integration, RAG, embeddings, prompt engineering, evaluation |
-| **Workflow** | Continuous learning, verification loops, strategic compaction |
+| **Languages** | TypeScript, Python, Go, Rust, Java/Spring Boot, Django, PHP, Ruby, C/C++ |
+| **Frontend** | React patterns, Next.js, Vue, Svelte, responsive design, design systems, accessibility |
+| **Backend** | API design, database optimization, Redis, GraphQL, microservices, NestJS |
+| **Testing** | TDD workflow, testing strategies, E2E, property-based testing, Playwright |
+| **Security** | Security review, hardening, PCI compliance, authentication, penetration testing |
+| **DevOps** | CI/CD pipelines, Docker, Kubernetes, monitoring, deployment, Terraform |
+| **AI/ML** | LLM integration, RAG, embeddings, prompt engineering, evaluation, fine-tuning |
+| **Automation** | 940+ Composio skills — GitHub, Slack, Jira, Linear, Notion, Stripe, and more |
+| **Workflow** | Continuous learning, verification loops, strategic compaction, agent orchestration |
 
 ---
 
@@ -258,7 +259,7 @@ Always-on guidelines loaded into every session. Organized as `common/` (universa
 
 ```
 rules/
-  common/           # 20 rules — coding style, security, testing, git, agents
+  common/           # 14 rules — coding style, security, testing, git, agents
   typescript/        # 5 rules — TS/JS patterns, hooks, security
   python/            # 5 rules — PEP 8, pytest, type hints
   golang/            # 5 rules — gofmt, table-driven tests, error wrapping
@@ -297,9 +298,9 @@ Layer 1: Rules              Always loaded. Set constraints.
             |
 Layer 2: Skills             Reusable knowledge. Referenced by agents and commands.
             |
-Layer 3: Agents             195 specialists. Auto-routed by context.
+Layer 3: Agents             196 specialists. Auto-routed by context.
             |
-Layer 4: Commands           70 slash commands. Orchestrate agents + skills.
+Layer 4: Commands           89 slash commands. Orchestrate agents + skills.
             |
 Layer 5: Hooks              22 automations. Event-driven quality gates.
             |
@@ -341,7 +342,7 @@ node tests/hooks/hooks.test.js               # 19 hook validation tests
 
 Custom test runner. Zero framework dependencies. Runs in under 2 seconds.
 
-CI validators also check all 195 agents, 70 commands, 94 skills, and 29 rules for valid frontmatter and structure.
+CI validators also check all 196 agents, 89 commands, 1,032 skills, and 29 rules for valid frontmatter and structure.
 
 ---
 
