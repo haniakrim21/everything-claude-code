@@ -1,0 +1,65 @@
+# .clinerules - Files and directories to ignore for Claude Code
+# This reduces context window usage by excluding unnecessary files
+
+# Dependencies and build artifacts
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment and secrets
+.env
+.env.*
+*.key
+*.pem
+secrets.json
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+.git/
+
+# Large skill directories (read only when specifically needed)
+skills/*/examples/
+skills/*/node_modules/
+
+# Test coverage and artifacts
+coverage/
+*.test.js.map
+.nyc_output/
+
+# Documentation images (usually not code-relevant)
+assets/images/
+docs/images/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+# Build and distribution
+dist/
+build/
+*.min.js
+*.bundle.js
+
+# Temporary files
+*.tmp
+*.log
+.cache/
+
+# Personal/local directories
+personal/
+private/
+marketing/
+examples/sessions/*.tmp
+
+# Lock files (reference package.json instead)
+pnpm-lock.yaml
+yarn.lock
+bun.lockb

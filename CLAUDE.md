@@ -4,7 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Everything Claude Code is a Claude Code plugin providing production-ready agents, skills, hooks, commands, and rules. It is a configuration/content repository — no compiled output, no runtime dependencies. All scripts are Node.js (ES2022, CommonJS) for cross-platform compatibility (Windows, macOS, Linux).
+Everything Claude Code is a Claude Code plugin providing 196 agents, 1,035 skills, 89 commands, 29 rules, and 22 hooks. It is a configuration/content repository — no compiled output, zero runtime dependencies. All scripts are Node.js (ES2022, CommonJS) for cross-platform compatibility (Windows, macOS, Linux).
+
+**Component breakdown:**
+- 196 agents (specialized subagents — planner, security-reviewer, tdd-guide, code-reviewer, etc.)
+- 1,035 skills (includes 940+ Composio automation skills for tool integrations)
+- 89 commands (slash commands like `/commit`, `/tdd`, `/plan-feature`)
+- 29 rules (14 common + language-specific for TypeScript, Python, Go)
+- 22 hooks (PreToolUse, PostToolUse, SessionStart, SessionEnd, PreCompact, Stop)
+- 69 tests (custom runner, zero framework dependencies)
+- 21 scripts (cross-platform Node.js utilities powering hooks)
 
 ## Commands
 
@@ -53,7 +62,9 @@ The plugin follows a layered component model where each layer builds on the one 
 
 6. **Scripts** (`scripts/`) — Cross-platform Node.js utilities. `scripts/lib/` has shared code (utils, package-manager detection). `scripts/ci/` has CI validation scripts. `scripts/hooks/` has hook implementations.
 
-**Plugin manifest:** `.claude-plugin/plugin.json` registers agents and skill/command paths. Do NOT add a `"hooks"` field — Claude Code v2.1+ auto-loads `hooks/hooks.json` by convention. Adding it causes duplicate detection errors. This is enforced by a regression test.
+**Plugin manifest:** `.claude-plugin/plugin.json` registers agents and skill/command paths. **CRITICAL:** Do NOT add a `"hooks"` field to `.claude-plugin/plugin.json` — Claude Code v2.1+ auto-loads `hooks/hooks.json` by convention. Adding it causes duplicate detection errors. This is enforced by a regression test in `tests/hooks/hooks.test.js`.
+
+**Hooks auto-loading:** Hooks are loaded from `hooks/hooks.json` automatically. This avoids duplication and follows the Claude Code v2.1+ convention.
 
 ## Key Conventions
 
@@ -77,4 +88,35 @@ Lowercase with hyphens: `python-reviewer.md`, `tdd-workflow/SKILL.md`.
 - **Hook:** Add entries to `hooks/hooks.json`; implement logic in `scripts/hooks/`.
 
 ### Testing
-Tests use a custom Node.js test runner (no external framework). Test files follow `*.test.js` naming. CI runs tests across a matrix of OS (ubuntu, windows, macos), Node versions (18, 20, 22), and package managers (npm, pnpm, yarn, bun).
+Tests use a custom Node.js test runner (no external framework). Test files follow `*.test.js` naming. The runner in `tests/run-all.js` executes all tests and aggregates results. CI runs tests across a matrix of 3 OS (ubuntu, windows, macos) × 3 Node versions (18, 20, 22) × 4 package managers (npm, pnpm, yarn, bun) = 36 combinations.
+
+### Package manager detection
+Scripts auto-detect package manager using this priority:
+1. `CLAUDE_PACKAGE_MANAGER` env var
+2. `.claude/package-manager.json` (project-level)
+3. `package.json` `packageManager` field
+4. Lock file detection (package-lock.json, pnpm-lock.yaml, yarn.lock, bun.lockb)
+5. `~/.claude/package-manager.json` (global)
+6. Fallback: first available in PATH
+
+This enables cross-platform compatibility without hardcoded package manager assumptions.
+
+## Important Development Notes
+
+### Zero runtime dependencies
+The project has ZERO runtime dependencies. All functionality uses vanilla Node.js (ES2022, CommonJS). Only dev dependencies are for linting (ESLint, markdownlint). This is a core design principle — never add runtime dependencies.
+
+### Cross-platform scripts
+All scripts in `scripts/` must work on Windows, macOS, and Linux. Use Node.js APIs, not bash-specific commands. Use `path.join()` for paths, avoid hardcoded slashes.
+
+### CI validation
+Before merging, CI validates:
+- All agents have valid YAML frontmatter and required fields
+- All skills have valid frontmatter
+- All commands have valid frontmatter
+- All rules are well-formed
+- Hooks JSON is valid
+- Tests pass on all 36 OS/Node/PM combinations
+- No regression in hooks duplicate detection
+
+Run validation scripts locally: `node scripts/ci/validate-agents.js` (and similar for hooks, commands, skills, rules).
