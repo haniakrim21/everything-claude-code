@@ -15,7 +15,7 @@
 
 ### The most comprehensive Claude Code plugin ever built.
 
-**196 agents** &middot; **1,788 skills** &middot; **89 commands** &middot; **29 rules** &middot; **22 hooks**
+**196 agents** &middot; **1,789 skills** &middot; **89 commands** &middot; **29 rules** &middot; **22 hooks**
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)
@@ -50,7 +50,7 @@ After:   Claude knows what to do. It plans, tests, reviews, and ships.
 | Component | Count | What it does |
 |:--|--:|:--|
 | **Agents** | 196 | Specialized subagents — from `planner` to `penetration-tester` |
-| **Skills** | 1,788 | Reusable workflow knowledge — TDD, security, patterns, frameworks, automation |
+| **Skills** | 1,789 | Reusable workflow knowledge — TDD, security, patterns, frameworks, automation |
 | **Commands** | 89 | Slash commands — `/commit`, `/tdd`, `/fix-issue`, `/orchestrate` |
 | **Rules** | 29 | Always-on guidelines — coding style, security, git, testing |
 | **Hooks** | 22 | Event-driven automations — lint on save, scan before commit |
@@ -235,7 +235,7 @@ Slash commands orchestrate agents and skills into workflows.
 
 ---
 
-### Skills (1,788)
+### Skills (1,789)
 
 Domain knowledge that agents and commands draw from. Includes 940+ Composio automation skills for tool integrations.
 
@@ -342,7 +342,7 @@ node tests/hooks/hooks.test.js               # 19 hook validation tests
 
 Custom test runner. Zero framework dependencies. Runs in under 2 seconds.
 
-CI validators also check all 196 agents, 89 commands, 1,788 skills, and 29 rules for valid frontmatter and structure.
+CI validators also check all 196 agents, 89 commands, 1,789 skills, and 29 rules for valid frontmatter and structure.
 
 ---
 

@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Everything Claude Code is a Claude Code plugin providing 196 agents, 1,788 skills, 89 commands, 29 rules, and 22 hooks. It is a configuration/content repository — no compiled output, zero runtime dependencies. All scripts are Node.js (ES2022, CommonJS) for cross-platform compatibility (Windows, macOS, Linux).
+Everything Claude Code is a Claude Code plugin providing 196 agents, 1,789 skills, 89 commands, 29 rules, and 22 hooks. It is a configuration/content repository — no compiled output, zero runtime dependencies. All scripts are Node.js (ES2022, CommonJS) for cross-platform compatibility (Windows, macOS, Linux).
 
 **Component breakdown:**
 - 196 agents (specialized subagents — planner, security-reviewer, tdd-guide, code-reviewer, etc.)
-- 1,788 skills (includes 940+ Composio automation skills for tool integrations)
+- 1,789 skills (includes 940+ Composio automation skills for tool integrations)
 - 89 commands (slash commands like `/commit`, `/tdd`, `/plan-feature`)
 - 29 rules (14 common + language-specific for TypeScript, Python, Go)
 - 22 hooks (PreToolUse, PostToolUse, SessionStart, SessionEnd, PreCompact, Stop)
