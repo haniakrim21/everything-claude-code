@@ -8,13 +8,13 @@
  * CLAUDE_PLUGIN_ROOT env var is set in settings.json pointing to this repo.
  *
  * Usage:
- *   node scripts/install.js           # symlink skills + commands + hooks (default)
- *   node scripts/install.js --all     # everything: skills + commands + agents + hooks
- *   node scripts/install.js --copy    # copy instead of symlink
- *   node scripts/install.js --skills  # skills only
+ *   node scripts/install.js              # curated skills + commands + hooks (default, ~300 skills)
+ *   node scripts/install.js --all        # every skill including automation stubs (1,789 skills)
+ *   node scripts/install.js --copy       # copy instead of symlink
+ *   node scripts/install.js --skills     # skills only
  *   node scripts/install.js --commands
  *   node scripts/install.js --agents
- *   node scripts/install.js --hooks   # hooks + scripts only
+ *   node scripts/install.js --hooks      # hooks + scripts only
  *   node scripts/install.js --dry-run
  *   node scripts/install.js --uninstall
  *   node scripts/install.js --status
@@ -56,7 +56,7 @@ const flags = {
   uninstall: args.includes('--uninstall'),
   status:    args.includes('--status'),
   help:      args.includes('--help') || args.includes('-h'),
-  all:       args.includes('--all'),
+  all:       args.includes('--all'),   // install ALL skills including automation stubs
   skills:    args.includes('--skills'),
   commands:  args.includes('--commands'),
   agents:    args.includes('--agents'),
@@ -69,6 +69,34 @@ const installSkills   = flags.all || flags.skills   || !anySpecific;
 const installCommands = flags.all || flags.commands || !anySpecific;
 const installAgents   = flags.all || flags.agents;
 const installHooks    = flags.all || flags.hooks    || !anySpecific;
+
+// ─── Curated filter ───────────────────────────────────────────────────────────
+// By default, skip integration stubs that balloon the prompt.
+// These are ~1,076 vendor-specific API wrappers (Composio, Azure SDK, etc.)
+// that have no instructional value as loaded context.
+// Pass --all to install everything.
+
+const CURATED_EXCLUDE = [
+  // Composio automation stubs (~914 skills)
+  /^.+-automation$/,
+  // Azure SDK skills (~116 skills — language-specific SDK reference)
+  /^azure-/,
+  /^azure_/,
+  // Google vendor wrappers
+  /^google_/,
+  // Zoho wrappers
+  /^zoho_/,
+  // Microsoft 365 / m365 wrappers
+  /^microsoft_/,
+  // Other high-volume vendor stubs
+  /^m365-agents-/,
+  /^microsoft-azure-/,
+];
+
+function isCurated(name) {
+  if (flags.all) return true; // --all: no filtering
+  return !CURATED_EXCLUDE.some(re => re.test(name));
+}
 
 // ─── Logging ──────────────────────────────────────────────────────────────────
 
@@ -89,6 +117,8 @@ function listEntries(srcDir, type) {
   return fs.readdirSync(srcDir).filter(name => {
     if (name.startsWith('.') || name === 'README.md') return false;
     const stat = fs.statSync(path.join(srcDir, name));
+    // Apply curated filter to skills only (never filter commands/agents/hooks)
+    if (type === 'skills' && !isCurated(name)) return false;
     if (type === 'agents' || type === 'commands') return stat.isFile() && name.endsWith('.md');
     return stat.isDirectory();
   });
@@ -335,13 +365,17 @@ Everything Claude Code — Install Script
 Installs skills, commands, agents, and hooks globally into ~/.claude/
 so they auto-activate in every Claude Code project on this machine.
 
+The default "curated" mode skips ~1,076 vendor API stubs (Composio
+automation skills, Azure SDK skills, etc.) that would make the context
+window too long. This leaves ~700 high-value instructional skills.
+
 Usage:
   node scripts/install.js [options]
 
 Options:
-  (none)         Skills + commands + hooks (default)
-  --all          Everything: skills + commands + agents + hooks
-  --skills       Skills only
+  (none)         Curated skills (~700) + commands + hooks (default)
+  --all          ALL skills (1,789) including automation stubs — WARNING: very long prompt
+  --skills       Skills only (curated by default)
   --commands     Commands only
   --agents       Agents only
   --hooks        Hooks + scripts only
@@ -352,9 +386,9 @@ Options:
   --help         Show this message
 
 npm shortcuts:
-  npm run install-skills   # skills + commands + hooks
-  npm run install-all      # include agents too
-  npm run install-copy     # copy instead of symlink
+  npm run install-skills   # curated skills + commands + hooks (recommended)
+  npm run install-all      # all 1,789 skills + agents (may cause long prompt)
+  npm run install-copy     # curated, copy instead of symlink
   npm run uninstall        # remove everything
   npm run status           # check what's installed
 `);
