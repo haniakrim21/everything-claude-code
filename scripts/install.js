@@ -1,28 +1,22 @@
 #!/usr/bin/env node
 /**
- * Install Everything Claude Code globally — commands, agents, hooks, and scripts.
+ * Install Everything Claude Code globally — hooks, scripts, and optionally commands.
  *
- * WHY SKILLS ARE NOT INSTALLED GLOBALLY:
- *   Claude Code loads full SKILL.md content into the prompt for every skill
- *   in ~/.claude/skills/. With 1,789 skills averaging 7KB each = 12MB of
- *   prompt content, which is 15× over Claude's context window. Even 100 skills
- *   = 700KB which causes "Prompt is too long" errors.
+ * PROMPT SIZE BUDGET (Claude context window ≈ 800KB usable for system prompt):
+ *   - Hooks     22 JSON entries in settings.json          →   ~0KB (zero cost)
+ *   - Scripts   symlink only, not loaded into prompt      →   ~0KB (zero cost)
+ *   - Commands  89 files × 2.6KB avg                     → ~230KB (safe)
+ *   - Agents    196 files × 11KB avg                     →  2.1MB (TOO LARGE — opt-in)
+ *   - Skills    1,789 files × 7KB avg                    →  12MB  (TOO LARGE — opt-in)
  *
- *   Skills in this repo are available for on-demand use — reference them by
- *   path or name in conversation. Do NOT install them globally.
- *
- * What IS installed globally (safe, won't bloat the prompt):
- *   - Commands  (~89 slash commands, ~2KB each = ~180KB total — manageable)
- *   - Agents    (frontmatter only loaded, ~1KB each = ~200KB total — fine)
- *   - Hooks     (22 entries in settings.json — zero prompt cost)
- *   - Scripts   (hook runner utilities — zero prompt cost)
+ * Default install: hooks + commands only (~230KB prompt cost — safe for all projects)
  *
  * Usage:
- *   node scripts/install.js              # commands + agents + hooks (default)
- *   node scripts/install.js --commands   # commands only
- *   node scripts/install.js --agents     # agents only
+ *   node scripts/install.js              # hooks + commands (default, safe)
  *   node scripts/install.js --hooks      # hooks + scripts only
- *   node scripts/install.js --skills     # WARNING: skills only (will bloat prompt)
+ *   node scripts/install.js --commands   # commands only
+ *   node scripts/install.js --agents     # WARNING: 2.1MB prompt cost
+ *   node scripts/install.js --skills     # WARNING: 12MB prompt cost
  *   node scripts/install.js --copy       # copy instead of symlink
  *   node scripts/install.js --dry-run    # preview without writing
  *   node scripts/install.js --uninstall  # remove everything installed
@@ -71,11 +65,12 @@ const flags = {
   hooks:     args.includes('--hooks'),
 };
 
-// Default: commands + agents + hooks (NO skills — they bloat the prompt)
-const anySpecific    = flags.skills || flags.commands || flags.agents || flags.hooks;
-const installSkills  = flags.skills;  // never default — must be explicit
+// Default: hooks + commands only (~230KB — safe for all projects)
+// Agents (2.1MB) and skills (12MB) are explicit opt-in only.
+const anySpecific     = flags.skills || flags.commands || flags.agents || flags.hooks;
+const installSkills   = flags.skills;   // never default — 12MB prompt cost
+const installAgents   = flags.agents;   // never default — 2.1MB prompt cost
 const installCommands = flags.commands || !anySpecific;
-const installAgents   = flags.agents   || !anySpecific;
 const installHooks    = flags.hooks    || !anySpecific;
 
 // ─── Logging ──────────────────────────────────────────────────────────────────
@@ -328,34 +323,30 @@ function showHelp() {
   log(`
 Everything Claude Code — Install Script
 
-Installs commands, agents, and hooks globally. Skills are intentionally
-excluded from global install — Claude Code loads full SKILL.md content
-for every skill in ~/.claude/skills/, and 1,789 skills × 7KB average
-= 12MB which is 15× over the context window ("Prompt is too long").
+Installs hooks and commands globally (~230KB prompt cost — safe).
+Agents and skills are opt-in only due to prompt size:
 
-Skills are still available in this repo — reference them by name in
-conversation and Claude will use them from the repo path.
+  Component   Count   Avg size   Total     Safe?
+  ─────────────────────────────────────────────
+  Hooks         22    JSON only    ~0KB    YES (default)
+  Commands      89      2.6KB    230KB    YES (default)
+  Agents       196       11KB    2.1MB    NO  (--agents, opt-in)
+  Skills     1,789        7KB     12MB    NO  (--skills, opt-in)
 
 Usage:
   node scripts/install.js [options]
 
 Options:
-  (none)         Commands + agents + hooks (default, safe)
-  --commands     Commands only
-  --agents       Agents only
+  (none)         Hooks + commands (default, safe — ~230KB)
   --hooks        Hooks + scripts only
-  --skills       WARNING: installs skills globally (will cause long prompt)
+  --commands     Commands only
+  --agents       WARNING: 2.1MB prompt cost per project
+  --skills       WARNING: 12MB prompt cost — will always fail
   --copy         Copy files instead of symlinking
   --dry-run      Preview without writing
   --uninstall    Remove everything installed by this script
   --status       Show current installation state
   --help         Show this message
-
-npm shortcuts:
-  npm run install-skills   # commands + agents + hooks (recommended)
-  npm run install-all      # same — no skills by default
-  npm run uninstall        # remove everything
-  npm run status           # check what's installed
 `);
 }
 
@@ -369,8 +360,10 @@ function main() {
   log(`Target: ${CLAUDE_DIR}`);
 
   if (installSkills) {
-    warn('--skills flag detected: installing skills globally will cause "Prompt is too long".');
-    warn('Skills are available in the repo without global install.');
+    warn('--skills: 1,789 skills × 7KB = 12MB prompt cost. Will cause "Prompt is too long".');
+  }
+  if (installAgents) {
+    warn('--agents: 196 agents × 11KB = 2.1MB prompt cost. May cause "Prompt is too long".');
   }
 
   if (flags.status) { showStatus(); process.exit(0); }
