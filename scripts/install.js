@@ -1,23 +1,32 @@
 #!/usr/bin/env node
 /**
- * Install Everything Claude Code globally — skills, commands, agents, hooks, and scripts.
+ * Install Everything Claude Code globally — commands, agents, hooks, and scripts.
  *
- * Skills/commands/agents are symlinked (or copied) into ~/.claude/.
- * Hooks are merged into ~/.claude/settings.json so they auto-activate on every project.
- * Scripts are symlinked to ~/.claude/scripts/ (required by hooks).
- * CLAUDE_PLUGIN_ROOT env var is set in settings.json pointing to this repo.
+ * WHY SKILLS ARE NOT INSTALLED GLOBALLY:
+ *   Claude Code loads full SKILL.md content into the prompt for every skill
+ *   in ~/.claude/skills/. With 1,789 skills averaging 7KB each = 12MB of
+ *   prompt content, which is 15× over Claude's context window. Even 100 skills
+ *   = 700KB which causes "Prompt is too long" errors.
+ *
+ *   Skills in this repo are available for on-demand use — reference them by
+ *   path or name in conversation. Do NOT install them globally.
+ *
+ * What IS installed globally (safe, won't bloat the prompt):
+ *   - Commands  (~89 slash commands, ~2KB each = ~180KB total — manageable)
+ *   - Agents    (frontmatter only loaded, ~1KB each = ~200KB total — fine)
+ *   - Hooks     (22 entries in settings.json — zero prompt cost)
+ *   - Scripts   (hook runner utilities — zero prompt cost)
  *
  * Usage:
- *   node scripts/install.js              # curated skills + commands + hooks (default, ~300 skills)
- *   node scripts/install.js --all        # every skill including automation stubs (1,789 skills)
- *   node scripts/install.js --copy       # copy instead of symlink
- *   node scripts/install.js --skills     # skills only
- *   node scripts/install.js --commands
- *   node scripts/install.js --agents
+ *   node scripts/install.js              # commands + agents + hooks (default)
+ *   node scripts/install.js --commands   # commands only
+ *   node scripts/install.js --agents     # agents only
  *   node scripts/install.js --hooks      # hooks + scripts only
- *   node scripts/install.js --dry-run
- *   node scripts/install.js --uninstall
- *   node scripts/install.js --status
+ *   node scripts/install.js --skills     # WARNING: skills only (will bloat prompt)
+ *   node scripts/install.js --copy       # copy instead of symlink
+ *   node scripts/install.js --dry-run    # preview without writing
+ *   node scripts/install.js --uninstall  # remove everything installed
+ *   node scripts/install.js --status     # show current state
  */
 
 'use strict';
@@ -56,47 +65,18 @@ const flags = {
   uninstall: args.includes('--uninstall'),
   status:    args.includes('--status'),
   help:      args.includes('--help') || args.includes('-h'),
-  all:       args.includes('--all'),   // install ALL skills including automation stubs
-  skills:    args.includes('--skills'),
+  skills:    args.includes('--skills'),   // explicit opt-in only
   commands:  args.includes('--commands'),
   agents:    args.includes('--agents'),
   hooks:     args.includes('--hooks'),
 };
 
-const anySpecific = flags.skills || flags.commands || flags.agents || flags.hooks;
-
-const installSkills   = flags.all || flags.skills   || !anySpecific;
-const installCommands = flags.all || flags.commands || !anySpecific;
-const installAgents   = flags.all || flags.agents;
-const installHooks    = flags.all || flags.hooks    || !anySpecific;
-
-// ─── Curated filter ───────────────────────────────────────────────────────────
-// By default, skip integration stubs that balloon the prompt.
-// These are ~1,076 vendor-specific API wrappers (Composio, Azure SDK, etc.)
-// that have no instructional value as loaded context.
-// Pass --all to install everything.
-
-const CURATED_EXCLUDE = [
-  // Composio automation stubs (~914 skills)
-  /^.+-automation$/,
-  // Azure SDK skills (~116 skills — language-specific SDK reference)
-  /^azure-/,
-  /^azure_/,
-  // Google vendor wrappers
-  /^google_/,
-  // Zoho wrappers
-  /^zoho_/,
-  // Microsoft 365 / m365 wrappers
-  /^microsoft_/,
-  // Other high-volume vendor stubs
-  /^m365-agents-/,
-  /^microsoft-azure-/,
-];
-
-function isCurated(name) {
-  if (flags.all) return true; // --all: no filtering
-  return !CURATED_EXCLUDE.some(re => re.test(name));
-}
+// Default: commands + agents + hooks (NO skills — they bloat the prompt)
+const anySpecific    = flags.skills || flags.commands || flags.agents || flags.hooks;
+const installSkills  = flags.skills;  // never default — must be explicit
+const installCommands = flags.commands || !anySpecific;
+const installAgents   = flags.agents   || !anySpecific;
+const installHooks    = flags.hooks    || !anySpecific;
 
 // ─── Logging ──────────────────────────────────────────────────────────────────
 
@@ -117,8 +97,6 @@ function listEntries(srcDir, type) {
   return fs.readdirSync(srcDir).filter(name => {
     if (name.startsWith('.') || name === 'README.md') return false;
     const stat = fs.statSync(path.join(srcDir, name));
-    // Apply curated filter to skills only (never filter commands/agents/hooks)
-    if (type === 'skills' && !isCurated(name)) return false;
     if (type === 'agents' || type === 'commands') return stat.isFile() && name.endsWith('.md');
     return stat.isDirectory();
   });
@@ -145,7 +123,7 @@ function installHooksAndScripts() {
     return;
   }
 
-  // 1. Symlink scripts/ → ~/.claude/scripts so hook-runner.js resolves
+  // Symlink scripts/ → ~/.claude/scripts so hook-runner.js resolves
   const scriptsDest = DEST.scripts;
   if (!fs.existsSync(scriptsDest)) {
     if (!flags.dryRun) fs.symlinkSync(SRC.scripts, scriptsDest);
@@ -161,7 +139,7 @@ function installHooksAndScripts() {
     } catch { skip('scripts/ exists'); }
   }
 
-  // 2. Set CLAUDE_PLUGIN_ROOT in settings.json env
+  // Set CLAUDE_PLUGIN_ROOT in settings.json env
   const settings = readSettings();
   if (!settings.env) settings.env = {};
 
@@ -172,7 +150,7 @@ function installHooksAndScripts() {
     ok(`set CLAUDE_PLUGIN_ROOT = ${REPO_ROOT}`);
   }
 
-  // 3. Merge hooks from hooks.json into settings.json
+  // Merge hooks from hooks.json into settings.json
   const repoHooks = JSON.parse(fs.readFileSync(SRC.hooks, 'utf8')).hooks || {};
   if (!settings.hooks) settings.hooks = {};
 
@@ -180,15 +158,10 @@ function installHooksAndScripts() {
   for (const [event, hookList] of Object.entries(repoHooks)) {
     if (!settings.hooks[event]) settings.hooks[event] = [];
     const existingJson = settings.hooks[event].map(h => JSON.stringify(h));
-
     for (const hook of hookList) {
-      const hookJson = JSON.stringify(hook);
-      if (existingJson.includes(hookJson)) {
-        skipped++;
-      } else {
-        settings.hooks[event].push(hook);
-        added++;
-      }
+      JSON.stringify(hook) in new Set(existingJson) || existingJson.includes(JSON.stringify(hook))
+        ? skipped++
+        : (settings.hooks[event].push(hook), added++);
     }
   }
 
@@ -198,18 +171,15 @@ function installHooksAndScripts() {
 }
 
 function uninstallHooksAndScripts() {
-  // Remove scripts symlink
   if (fs.existsSync(DEST.scripts)) {
     try {
-      const lstat = fs.lstatSync(DEST.scripts);
-      if (lstat.isSymbolicLink()) {
+      if (fs.lstatSync(DEST.scripts).isSymbolicLink()) {
         if (!flags.dryRun) fs.unlinkSync(DEST.scripts);
         ok('removed symlink: scripts/');
       }
     } catch { /* ignore */ }
   }
 
-  // Remove CLAUDE_PLUGIN_ROOT and hooks from settings
   const settings = readSettings();
   let changed = false;
 
@@ -219,22 +189,19 @@ function uninstallHooksAndScripts() {
     changed = true;
   }
 
-  if (settings.hooks && Object.keys(settings.hooks).length > 0) {
-    // Load repo hooks to know which ones to remove
-    if (fs.existsSync(SRC.hooks)) {
-      const repoHooks = JSON.parse(fs.readFileSync(SRC.hooks, 'utf8')).hooks || {};
-      let removed = 0;
-      for (const [event, hookList] of Object.entries(repoHooks)) {
-        if (!settings.hooks[event]) continue;
-        const repoSet = new Set(hookList.map(h => JSON.stringify(h)));
-        const before = settings.hooks[event].length;
-        settings.hooks[event] = settings.hooks[event].filter(h => !repoSet.has(JSON.stringify(h)));
-        removed += before - settings.hooks[event].length;
-        if (settings.hooks[event].length === 0) delete settings.hooks[event];
-      }
-      ok(`removed ${removed} hook entries`);
-      changed = true;
+  if (settings.hooks && fs.existsSync(SRC.hooks)) {
+    const repoHooks = JSON.parse(fs.readFileSync(SRC.hooks, 'utf8')).hooks || {};
+    let removed = 0;
+    for (const [event, hookList] of Object.entries(repoHooks)) {
+      if (!settings.hooks[event]) continue;
+      const repoSet = new Set(hookList.map(h => JSON.stringify(h)));
+      const before = settings.hooks[event].length;
+      settings.hooks[event] = settings.hooks[event].filter(h => !repoSet.has(JSON.stringify(h)));
+      removed += before - settings.hooks[event].length;
+      if (settings.hooks[event].length === 0) delete settings.hooks[event];
     }
+    ok(`removed ${removed} hook entries`);
+    changed = true;
   }
 
   if (changed) writeSettings(settings);
@@ -246,12 +213,13 @@ function showStatus() {
   log('\nEverything Claude Code — installation status\n');
 
   const cats = [
-    { label: 'Skills',   src: SRC.skills,   dest: DEST.skills,   type: 'skills' },
     { label: 'Commands', src: SRC.commands, dest: DEST.commands, type: 'commands' },
     { label: 'Agents',   src: SRC.agents,   dest: DEST.agents,   type: 'agents' },
+    { label: 'Skills',   src: SRC.skills,   dest: DEST.skills,   type: 'skills',
+      note: '(not installed by default — bloats prompt)' },
   ];
 
-  for (const { label, src, dest, type } of cats) {
+  for (const { label, src, dest, type, note } of cats) {
     const entries = listEntries(src, type);
     let linked = 0, copied = 0, missing = 0;
     for (const name of entries) {
@@ -260,22 +228,20 @@ function showStatus() {
       try { fs.lstatSync(dp).isSymbolicLink() ? linked++ : copied++; }
       catch { missing++; }
     }
-    log(`${label} (${entries.length} total):`);
+    log(`${label} (${entries.length} total)${note ? ' ' + note : ''}:`);
     if (linked)  log(`    ${linked} symlinked`);
     if (copied)  log(`    ${copied} copied`);
-    if (missing) log(`    ${missing} not installed`);
+    if (missing && (linked || copied)) log(`    ${missing} not installed`);
     if (!linked && !copied) log('    none installed');
     log('');
   }
 
-  // Hooks status
   const settings = readSettings();
   const pluginRoot = settings.env && settings.env.CLAUDE_PLUGIN_ROOT;
   const hookCount  = Object.values(settings.hooks || {}).reduce((s, a) => s + a.length, 0);
-
   log('Hooks:');
   log(`    CLAUDE_PLUGIN_ROOT: ${pluginRoot || 'not set'}`);
-  log(`    Active hook entries in settings.json: ${hookCount}`);
+  log(`    Active hook entries: ${hookCount}`);
   log(`    Scripts linked: ${fs.existsSync(DEST.scripts) ? 'yes' : 'no'}`);
   log('');
 }
@@ -314,7 +280,7 @@ function installEntry(srcPath, destPath, name) {
         return 'skip';
       }
       if (lstat.isSymbolicLink()) {
-        if (!flags.dryRun) fs.unlinkSync(destPath); // replace stale link
+        if (!flags.dryRun) fs.unlinkSync(destPath);
       } else {
         skip(`already exists: ${name}`);
         return 'skip';
@@ -362,23 +328,23 @@ function showHelp() {
   log(`
 Everything Claude Code — Install Script
 
-Installs skills, commands, agents, and hooks globally into ~/.claude/
-so they auto-activate in every Claude Code project on this machine.
+Installs commands, agents, and hooks globally. Skills are intentionally
+excluded from global install — Claude Code loads full SKILL.md content
+for every skill in ~/.claude/skills/, and 1,789 skills × 7KB average
+= 12MB which is 15× over the context window ("Prompt is too long").
 
-The default "curated" mode skips ~1,076 vendor API stubs (Composio
-automation skills, Azure SDK skills, etc.) that would make the context
-window too long. This leaves ~700 high-value instructional skills.
+Skills are still available in this repo — reference them by name in
+conversation and Claude will use them from the repo path.
 
 Usage:
   node scripts/install.js [options]
 
 Options:
-  (none)         Curated skills (~700) + commands + hooks (default)
-  --all          ALL skills (1,789) including automation stubs — WARNING: very long prompt
-  --skills       Skills only (curated by default)
+  (none)         Commands + agents + hooks (default, safe)
   --commands     Commands only
   --agents       Agents only
   --hooks        Hooks + scripts only
+  --skills       WARNING: installs skills globally (will cause long prompt)
   --copy         Copy files instead of symlinking
   --dry-run      Preview without writing
   --uninstall    Remove everything installed by this script
@@ -386,9 +352,8 @@ Options:
   --help         Show this message
 
 npm shortcuts:
-  npm run install-skills   # curated skills + commands + hooks (recommended)
-  npm run install-all      # all 1,789 skills + agents (may cause long prompt)
-  npm run install-copy     # curated, copy instead of symlink
+  npm run install-skills   # commands + agents + hooks (recommended)
+  npm run install-all      # same — no skills by default
   npm run uninstall        # remove everything
   npm run status           # check what's installed
 `);
@@ -403,6 +368,11 @@ function main() {
   log(`Mode: ${flags.dryRun ? 'DRY RUN  ' : ''}${flags.copy ? 'copy' : 'symlink'}`);
   log(`Target: ${CLAUDE_DIR}`);
 
+  if (installSkills) {
+    warn('--skills flag detected: installing skills globally will cause "Prompt is too long".');
+    warn('Skills are available in the repo without global install.');
+  }
+
   if (flags.status) { showStatus(); process.exit(0); }
 
   if (flags.uninstall) {
@@ -411,7 +381,7 @@ function main() {
     if (installSkills)   total += uninstallCategory(SRC.skills,   DEST.skills,   'skills');
     if (installCommands) total += uninstallCategory(SRC.commands, DEST.commands, 'commands');
     if (installAgents)   total += uninstallCategory(SRC.agents,   DEST.agents,   'agents');
-    if (installHooks)    uninstallHooksAndScripts();
+    uninstallHooksAndScripts();
     log(`\nDone. Removed ${total} file entries.`);
     process.exit(0);
   }
@@ -427,8 +397,8 @@ function main() {
   log(`Total: ${totalDone} installed, ${totalSkipped} skipped`);
   if (flags.dryRun) log('\n(dry run — nothing was written)');
   log('');
-  log('Everything is installed. Skills, commands, and hooks are now');
-  log('active in every Claude Code project on this machine.');
+  log('Commands, agents, and hooks are now active in every Claude Code project.');
+  log('Skills are available in the repo — reference them by name in conversation.');
   log('Reload Claude Code if it is currently open.\n');
 }
 

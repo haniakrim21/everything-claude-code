@@ -1,9 +1,9 @@
 {
   "scripts": {
     "install-skills": "node scripts/install.js",
-    "install-all": "node scripts/install.js --all --agents",
+    "install-all": "node scripts/install.js",
     "install-copy": "node scripts/install.js --copy",
-    "uninstall": "node scripts/install.js --uninstall --all",
+    "uninstall": "node scripts/install.js --uninstall",
     "status": "node scripts/install.js --status"
   },
   "devDependencies": {
