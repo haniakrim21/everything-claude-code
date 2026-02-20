@@ -1,4 +1,11 @@
 {
+  "scripts": {
+    "install-skills": "node scripts/install.js",
+    "install-all": "node scripts/install.js --all",
+    "install-copy": "node scripts/install.js --copy",
+    "uninstall": "node scripts/install.js --uninstall --all",
+    "status": "node scripts/install.js --status"
+  },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
     "eslint": "^9.39.2",
