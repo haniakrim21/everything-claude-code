@@ -2,7 +2,7 @@
   "scripts": {
     "install-skills": "node scripts/install.js",
     "install-all": "node scripts/install.js --all",
-    "install-copy": "node scripts/install.js --copy",
+    "install-copy": "node scripts/install.js --all --copy",
     "uninstall": "node scripts/install.js --uninstall --all",
     "status": "node scripts/install.js --status"
   },
