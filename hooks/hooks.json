@@ -61,6 +61,16 @@
           }
         ],
         "description": "Suggest manual compaction at logical intervals"
+      },
+      {
+        "matcher": "tool == \"Bash\" || tool == \"Read\" || tool == \"Grep\" || tool == \"Task\"",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/context-guard.js\""
+          }
+        ],
+        "description": "Block tool calls when context window fills up — prevents Prompt is too long errors"
       }
     ],
     "PostToolUse": [

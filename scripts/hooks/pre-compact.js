@@ -9,6 +9,8 @@
  */
 
 const path = require('path');
+const os   = require('os');
+const fs   = require('fs');
 const {
   getSessionsDir,
   getDateTimeString,
@@ -37,6 +39,13 @@ async function main() {
     const timeStr = getTimeString();
     appendFile(activeSession, `\n---\n**[Compaction occurred at ${timeStr}]** - Context was summarized\n`);
   }
+
+  // Reset context-guard counters so tool calls proceed after compact
+  const sessionId = process.env.CLAUDE_SESSION_ID || String(process.ppid || 'default');
+  const tmpDir = os.tmpdir();
+  try { fs.unlinkSync(path.join(tmpDir, `ctx-guard-count-${sessionId}`)); } catch { /* already gone */ }
+  try { fs.unlinkSync(path.join(tmpDir, `ctx-guard-block-${sessionId}`)); } catch { /* already gone */ }
+  log('[PreCompact] Context-guard counters reset');
 
   log('[PreCompact] State saved before compaction');
   process.exit(0);
