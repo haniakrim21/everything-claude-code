@@ -21,8 +21,8 @@ const os   = require('os');
 const fs   = require('fs');
 const path = require('path');
 
-const THRESHOLD = parseInt(process.env.CONTEXT_GUARD_THRESHOLD || '35', 10);
-const GRACE     = 5; // Allow N calls after blocking so Claude can /compact
+const THRESHOLD = parseInt(process.env.CONTEXT_GUARD_THRESHOLD || '60', 10);
+const GRACE     = 8; // Allow N calls after blocking so Claude can /compact
 
 const sessionId = process.env.CLAUDE_SESSION_ID || String(process.ppid || 'default');
 const tmpDir    = os.tmpdir();
