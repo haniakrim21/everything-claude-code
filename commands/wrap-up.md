@@ -1,3 +1,7 @@
+---
+description: "End the current session with a structured summary of accomplishments, deferred items, learnings, and a handoff note for the next session."
+---
+
 End the current session with a structured summary and memory update.
 
 ## Steps

@@ -71,6 +71,16 @@
           }
         ],
         "description": "Block tool calls when context window fills up — prevents Prompt is too long errors"
+      },
+      {
+        "matcher": "tool == \"Write\"",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/lib/hook-runner.js\" \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/block-md-creation.js\""
+          }
+        ],
+        "description": "Warn about creating .md files outside standard documentation directories"
       }
     ],
     "PostToolUse": [
@@ -165,6 +175,18 @@
           }
         ],
         "description": "Scan for leaked secrets after file changes"
+      },
+      {
+        "matcher": "tool == \"Edit\" && tool_input.file_path matches \"\\\\.(ts|tsx|js|jsx|py|go|rs)$\"",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/lib/hook-runner.js\" \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/post-edit-check.js\"",
+            "async": true,
+            "timeout": 30
+          }
+        ],
+        "description": "Report lint issues after editing source files"
       }
     ],
     "SessionStart": [
@@ -253,6 +275,18 @@
           }
         ],
         "description": "Remind about running tests and checking unstaged changes"
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/hooks/notification-log.js\"",
+            "async": true,
+            "timeout": 10
+          }
+        ],
+        "description": "Log session stop events for audit trail to ~/.claude/notification-log.json"
       }
     ]
   }

@@ -44,11 +44,11 @@ Before building a custom server, check if Microsoft already provides one:
 | AI Foundry agents/evals | Use **Foundry MCP** remote server |
 | Custom internal APIs | Build **custom server** (this guide) |
 | Third-party SaaS integration | Build **custom server** (this guide) |
-| Extending Azure MCP | Follow [Microsoft MCP Patterns](./reference/microsoft_mcp_patterns.md)
+| Extending Azure MCP | Follow [Microsoft MCP Patterns](./reference/microsoft_mcp_patterns.md) |
 
 ---
 
-# Process
+## Process
 
 ## 🚀 High-Level Workflow
 
@@ -244,7 +244,7 @@ Create an XML file with this structure:
 
 ---
 
-# Reference Files
+## Reference Files
 
 ## 📚 Documentation Library
 

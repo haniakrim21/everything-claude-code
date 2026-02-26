@@ -116,6 +116,7 @@ bot.action('opt_1', (ctx) => {
 ```
 
 ### Keyboard Patterns
+
 | Pattern | Use Case |
 |---------|----------|
 | Single column | Simple menus |

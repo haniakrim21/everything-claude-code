@@ -10,17 +10,17 @@ metadata:
 ---
 
 # Download from vendor
-wget http://vendor.com/firmware/update.bin
+wget <http://vendor.com/firmware/update.bin>
 
-# Extract from device via debug interface
-# UART console access
+## Extract from device via debug interface
+## UART console access
 screen /dev/ttyUSB0 115200
-# Copy firmware partition
+## Copy firmware partition
 dd if=/dev/mtd0 of=/tmp/firmware.bin
 
-# Extract via network protocols
-# TFTP during boot
-# HTTP/FTP from device web interface
+## Extract via network protocols
+## TFTP during boot
+## HTTP/FTP from device web interface
 ```
 
 ### Hardware Methods
@@ -54,85 +54,85 @@ Logic analyzer     - Protocol capture and analysis
 
 ### Phase 1: Identification
 ```bash
-# Basic file identification
+## Basic file identification
 file firmware.bin
 binwalk firmware.bin
 
-# Entropy analysis (detect compression/encryption)
-# Binwalk v3: generates entropy PNG graph
+## Entropy analysis (detect compression/encryption)
+## Binwalk v3: generates entropy PNG graph
 binwalk --entropy firmware.bin
 binwalk -E firmware.bin  # Short form
 
-# Identify embedded file systems and auto-extract
+## Identify embedded file systems and auto-extract
 binwalk --extract firmware.bin
 binwalk -e firmware.bin  # Short form
 
-# String analysis
+## String analysis
 strings -a firmware.bin | grep -i "password\|key\|secret"
 ```
 
-### Phase 2: Extraction
+## Phase 2: Extraction
 ```bash
-# Binwalk v3 recursive extraction (matryoshka mode)
+## Binwalk v3 recursive extraction (matryoshka mode)
 binwalk --extract --matryoshka firmware.bin
 binwalk -eM firmware.bin  # Short form
 
-# Extract to custom directory
+## Extract to custom directory
 binwalk -e -C ./extracted firmware.bin
 
-# Verbose output during recursive extraction
+## Verbose output during recursive extraction
 binwalk -eM --verbose firmware.bin
 
-# Manual extraction for specific formats
-# SquashFS
+## Manual extraction for specific formats
+## SquashFS
 unsquashfs filesystem.squashfs
 
-# JFFS2
+## JFFS2
 jefferson filesystem.jffs2 -d output/
 
-# UBIFS
+## UBIFS
 ubireader_extract_images firmware.ubi
 
-# YAFFS
+## YAFFS
 unyaffs filesystem.yaffs
 
-# Cramfs
+## Cramfs
 cramfsck -x output/ filesystem.cramfs
 ```
 
 ### Phase 3: File System Analysis
 ```bash
-# Explore extracted filesystem
+## Explore extracted filesystem
 find . -name "*.conf" -o -name "*.cfg"
 find . -name "passwd" -o -name "shadow"
 find . -type f -executable
 
-# Find hardcoded credentials
+## Find hardcoded credentials
 grep -r "password" .
 grep -r "api_key" .
 grep -rn "BEGIN RSA PRIVATE KEY" .
 
-# Analyze web interface
+## Analyze web interface
 find . -name "*.cgi" -o -name "*.php" -o -name "*.lua"
 
-# Check for vulnerable binaries
+## Check for vulnerable binaries
 checksec --dir=./bin/
 ```
 
 ### Phase 4: Binary Analysis
 ```bash
-# Identify architecture
+## Identify architecture
 file bin/httpd
 readelf -h bin/httpd
 
-# Load in Ghidra with correct architecture
-# For ARM: specify ARM:LE:32:v7 or similar
-# For MIPS: specify MIPS:BE:32:default
+## Load in Ghidra with correct architecture
+## For ARM: specify ARM:LE:32:v7 or similar
+## For MIPS: specify MIPS:BE:32:default
 
-# Set up cross-compilation for testing
-# ARM
+## Set up cross-compilation for testing
+## ARM
 arm-linux-gnueabi-gcc exploit.c -o exploit
-# MIPS
+## MIPS
 mipsel-linux-gnu-gcc exploit.c -o exploit
 ```
 
@@ -221,33 +221,33 @@ ChipWhisperer        - Side-channel analysis
 
 ### QEMU User-Mode Emulation
 ```bash
-# Install QEMU user-mode
+## Install QEMU user-mode
 apt install qemu-user-static
 
-# Copy QEMU static binary to extracted rootfs
+## Copy QEMU static binary to extracted rootfs
 cp /usr/bin/qemu-arm-static ./squashfs-root/usr/bin/
 
-# Chroot into firmware filesystem
+## Chroot into firmware filesystem
 sudo chroot squashfs-root /usr/bin/qemu-arm-static /bin/sh
 
-# Run specific binary
+## Run specific binary
 sudo chroot squashfs-root /usr/bin/qemu-arm-static /bin/httpd
 ```
 
 ### Full System Emulation with Firmadyne
 ```bash
-# Extract firmware
+## Extract firmware
 ./sources/extractor/extractor.py -b brand -sql 127.0.0.1 \
     -np -nk "firmware.bin" images
 
-# Identify architecture and create QEMU image
+## Identify architecture and create QEMU image
 ./scripts/getArch.sh ./images/1.tar.gz
 ./scripts/makeImage.sh 1
 
-# Infer network configuration
+## Infer network configuration
 ./scripts/inferNetwork.sh 1
 
-# Run emulation
+## Run emulation
 ./scratch/1/run.sh
 ```
 
@@ -270,7 +270,7 @@ sudo chroot squashfs-root /usr/bin/qemu-arm-static /bin/httpd
 
 ### Reporting Template
 ```markdown
-# Firmware Security Assessment
+## Firmware Security Assessment
 
 ## Device Information
 - Manufacturer:

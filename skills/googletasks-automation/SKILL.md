@@ -119,6 +119,7 @@ Parameters:
 - The default task list is typically named "My Tasks" but its ID is an opaque string, not "default" or "primary".
 
 ## Quick Reference
+
 | Action | Tool | Key Parameters |
 |--------|------|----------------|
 | List task lists | `GOOGLETASKS_LIST_TASK_LISTS` | `maxResults`, `pageToken` |

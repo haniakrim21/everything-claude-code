@@ -119,7 +119,6 @@ This ensures users can install dependencies with one confirmation, or opt for ma
 
 Proceed to Step 0b (CLI Detection).
 
-
 ### Step 1: Validate Audio File
 
 **Objective:** Verify file exists, check format, and extract metadata.
@@ -182,7 +181,6 @@ if [[ ! " ${SUPPORTED_FORMATS[@]} " =~ " ${EXTENSION,,} " ]]; then
     fi
 fi
 ```
-
 
 ### Step 3: Generate Markdown Output
 
@@ -294,7 +292,6 @@ if [[ -n "$ATA_CONTENT" ]]; then
 fi
 ```
 
-
 #### **SCENARIO A: User Provided Custom Prompt**
 
 **Workflow:**
@@ -337,7 +334,6 @@ fi
 5. **Process with selected prompt:**
    - If "s": use improved
    - If "n": use original
-
 
 #### **LLM Processing (Both Scenarios)**
 
@@ -388,7 +384,6 @@ def process_with_llm(transcript, prompt, cli_tool='claude'):
 ✅ Ata gerada com sucesso!
 ```
 
-
 #### **Final Output**
 
 **Success (both files):**
@@ -417,7 +412,6 @@ def process_with_llm(transcript, prompt, cli_tool='claude'):
 
 ✅ Concluído!
 ```
-
 
 ### Step 5: Display Results Summary
 
@@ -448,7 +442,6 @@ echo "  1. Review meeting minutes and action items"
 echo "  2. Share report with participants"
 echo "  3. Track action items to completion"
 ```
-
 
 ## Example Usage
 
@@ -495,7 +488,6 @@ copilot> transcribe audio to markdown: meeting-2026-02-02.mp3
   3. Track action items to completion
 ```
 
-
 ### **Example 3: Batch Processing**
 
 **User Input:**
@@ -526,7 +518,6 @@ copilot> transcreva estes áudios: recordings/*.mp3
 ⏱️  Total processing time: 6m 15s
 ```
 
-
 ### **Example 5: Large File Warning**
 
 **User Input:**
@@ -553,6 +544,5 @@ Continue? [Y/n]:
 🎙️  Processing... (this may take 10-15 minutes)
 [████░░░░░░░░░░░░░░░░] 20% - Estimated time remaining: 12m
 ```
-
 
 This skill is **platform-agnostic** and works in any terminal context where GitHub Copilot CLI is available. It does not depend on specific project configurations or external APIs, following the zero-configuration philosophy.

@@ -83,7 +83,6 @@ const bridgeProtocol = {
    - Output: Continuous quality improvement and technical debt prevention
 ```
 
-
 ## Advanced Project Analysis Capabilities
 
 ### 1. Intelligent Requirements Analysis

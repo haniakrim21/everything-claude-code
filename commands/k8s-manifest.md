@@ -1,3 +1,7 @@
+---
+description: "Generate Kubernetes manifests (Deployment, Service, ConfigMap, Secret, Ingress, HPA) for the current application with resource limits and health probes."
+---
+
 Generate Kubernetes manifests for deploying the current application.
 
 ## Steps

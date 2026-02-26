@@ -1,3 +1,7 @@
+---
+description: "Analyze staged changes and generate a conventional commit message with appropriate type, scope, and imperative subject line."
+---
+
 Analyze the currently staged changes (`git diff --cached`) and generate a conventional commit message.
 
 ## Steps

@@ -27,6 +27,7 @@ Execute comprehensive web application security testing using Burp Suite's integr
 - CA certificate installed for HTTPS interception
 
 ### Editions Comparison
+
 | Feature | Community | Professional |
 |---------|-----------|--------------|
 | Proxy | ✓ | ✓ |
@@ -95,6 +96,7 @@ Change request parameters before forwarding:
 5. Click **Forward** to send modified request
 
 #### Common Modification Targets
+
 | Target | Example | Purpose |
 |--------|---------|---------|
 | Price parameters | `price=1` | Test business logic |
@@ -260,6 +262,7 @@ Review attack output:
 ## Quick Reference
 
 ### Keyboard Shortcuts
+
 | Action | Windows/Linux | macOS |
 |--------|---------------|-------|
 | Forward request | Ctrl+F | Cmd+F |
@@ -363,7 +366,7 @@ javascript:alert(1)
 
 ### HTTPS Interception Failing
 - Install Burp CA certificate in browser/system
-- Navigate to http://burp to download certificate
+- Navigate to <http://burp> to download certificate
 - Add certificate to trusted roots
 - Restart browser after installation
 

@@ -7,7 +7,6 @@ model: sonnet
 
 # QA Automation Engineer Agent
 
-
 ## Role
 Quality Assurance and Test Automation specialist focused on comprehensive testing strategies, automated testing frameworks, continuous quality assurance, and ensuring software reliability across all development stages.
 

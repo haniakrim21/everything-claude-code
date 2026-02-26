@@ -5,7 +5,7 @@ description: Discover and query toolkits, categories, and authentication require
 tags: [toolkits, discovery, metadata, categories, apps]
 ---
 
-# Toolkit Management
+## Toolkit Management
 
 Toolkits are collections of related tools (GitHub, Gmail, Slack). Use the `toolkits` API to discover and query toolkit metadata.
 

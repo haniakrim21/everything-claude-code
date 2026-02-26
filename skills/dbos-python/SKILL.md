@@ -98,5 +98,5 @@ references/queue-concurrency.md
 
 ## References
 
-- https://docs.dbos.dev/
-- https://github.com/dbos-inc/dbos-transact-py
+- <https://docs.dbos.dev/>
+- <https://github.com/dbos-inc/dbos-transact-py>

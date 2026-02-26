@@ -156,4 +156,3 @@ Pick 1 winner and 3 runner-ups from the list
 - Beta tester selection
 - Focus group participant selection
 - Random prize distribution at events
-

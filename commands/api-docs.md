@@ -1,3 +1,7 @@
+---
+description: "Generate API documentation from route definitions and handlers, supporting OpenAPI/Swagger and Markdown output with request/response examples."
+---
+
 Generate API documentation from route definitions and handlers.
 
 ## Steps

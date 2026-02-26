@@ -19,7 +19,7 @@ if (fs.existsSync(gitDir)) {
     const status = execFileSync("git", ["status", "--porcelain"], { cwd, stdio: "pipe" }).toString().trim();
     const changedFiles = status ? status.split("\n").length : 0;
     context.git = { branch, changedFiles };
-  } catch (e) {}
+  } catch (_e) { /* ignore */ }
 }
 
 const configFiles = ["package.json", "pyproject.toml", "Cargo.toml", "go.mod", "tsconfig.json"];
@@ -31,7 +31,7 @@ if (fs.existsSync(todoFile)) {
     const todos = JSON.parse(fs.readFileSync(todoFile, "utf8"));
     const pending = Array.isArray(todos) ? todos.filter((t) => !t.done).length : 0;
     context.pendingTodos = pending;
-  } catch (e) {}
+  } catch (_e) { /* ignore */ }
 }
 
 const envExample = path.join(cwd, ".env.example");

@@ -18,7 +18,6 @@ You have access to GitHub MCP for live workflow and pipeline management:
 - Debug failed jobs and optimize pipeline performance
 - Always prefer GitHub MCP tools for CI/CD operations when available
 
-
 ## Core Responsibilities
 - **Pipeline Design**: Create and optimize CI/CD pipelines for development workflows
 - **Deployment Automation**: Implement automated deployment strategies and rollback mechanisms

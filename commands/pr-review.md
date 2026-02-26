@@ -1,3 +1,7 @@
+---
+description: "Review a pull request by number, analyzing correctness, security, performance, and design, then posting classified findings as a PR review comment."
+---
+
 Review a pull request by number: fetch the diff, analyze changes, and post review comments.
 
 ## Steps

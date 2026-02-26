@@ -1,3 +1,7 @@
+---
+description: "Scan the project structure, identify key modules and data flow, and write or update a concise CODEMAP.md that orients new developers in under two minutes."
+---
+
 Update the project codemap to reflect the current state of the codebase.
 
 ## Steps

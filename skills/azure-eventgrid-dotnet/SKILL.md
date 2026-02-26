@@ -481,8 +481,8 @@ catch (RequestFailedException)
 
 | Resource | URL |
 |----------|-----|
-| NuGet Package | https://www.nuget.org/packages/Azure.Messaging.EventGrid |
-| API Reference | https://learn.microsoft.com/dotnet/api/azure.messaging.eventgrid |
-| Quickstart | https://learn.microsoft.com/azure/event-grid/custom-event-quickstart |
-| Pull Delivery | https://learn.microsoft.com/azure/event-grid/pull-delivery-overview |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.Messaging.EventGrid |
+| NuGet Package | <https://www.nuget.org/packages/Azure.Messaging.EventGrid> |
+| API Reference | <https://learn.microsoft.com/dotnet/api/azure.messaging.eventgrid> |
+| Quickstart | <https://learn.microsoft.com/azure/event-grid/custom-event-quickstart> |
+| Pull Delivery | <https://learn.microsoft.com/azure/event-grid/pull-delivery-overview> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.Messaging.EventGrid> |

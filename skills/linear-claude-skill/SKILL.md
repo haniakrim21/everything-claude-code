@@ -49,8 +49,7 @@ linear issues list
 
 ---
 
-
-## When to Use This Skill
+## When to Use This Skill (⚠️ Tool Availability (READ FIRST))
 
 Manage Linear issues, projects, and teams
 
@@ -175,8 +174,7 @@ See [Project Management Commands](#project-management-commands) for full referen
 
 ---
 
-
-## When to Use This Skill
+## When to Use This Skill (Quick Start (First-Time Users))
 
 Manage Linear issues, projects, and teams
 
@@ -240,6 +238,7 @@ npx tsx scripts/linear-ops.ts project-status <project-name> <state>
 ```
 
 **Valid States:**
+
 | Input | Description | API Value |
 |-------|-------------|-----------|
 | `backlog` | Not yet started | backlog |
@@ -327,8 +326,7 @@ npx tsx scripts/linear-ops.ts link-initiative "Phase 11" "Q2 Goals"
 
 ---
 
-
-## When to Use This Skill
+## When to Use This Skill (Project Management Commands)
 
 Manage Linear issues, projects, and teams
 
@@ -507,8 +505,7 @@ npx tsx scripts/linear-ops.ts unlink-initiative "Phase X" "Old Initiative"
 
 ---
 
-
-## When to Use This Skill
+## When to Use This Skill (Projects & Initiatives)
 
 Manage Linear issues, projects, and teams
 

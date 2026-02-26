@@ -2,11 +2,11 @@ const stdinData = [];
 process.stdin.on("data", (chunk) => stdinData.push(chunk));
 process.stdin.on("end", () => {
   const input = Buffer.concat(stdinData).toString().trim();
-  let prompt = "";
+  let prompt;
   try {
     const parsed = JSON.parse(input);
     prompt = parsed.prompt || parsed.message || input;
-  } catch (e) {
+  } catch (_e) {
     prompt = input;
   }
 

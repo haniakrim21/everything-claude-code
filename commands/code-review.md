@@ -1,3 +1,7 @@
+---
+description: "Perform a comprehensive security and quality review of uncommitted changes, flagging issues by severity and blocking commits with critical findings."
+---
+
 # Code Review
 
 Comprehensive security and quality review of uncommitted changes:

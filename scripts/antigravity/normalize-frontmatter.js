@@ -3,7 +3,7 @@ const path = require('path');
 const yaml = require('yaml');
 const { listSkillIds, parseFrontmatter } = require('../lib/skill-utils');
 
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = path.resolve(__dirname, '../..');
 const SKILLS_DIR = path.join(ROOT, 'skills');
 const ALLOWED_FIELDS = new Set([
   'name',

@@ -49,7 +49,7 @@ Retrieve all orders with optional filtering by store, user email, or order numbe
 **Tools:** `LEMON_SQUEEZY_LIST_ALL_ORDERS`, `LEMON_SQUEEZY_LIST_ALL_ORDER_ITEMS`
 
 **Example prompt:**
-> "Show all orders from johndoe@example.com in my Lemon Squeezy store"
+> "Show all orders from <johndoe@example.com> in my Lemon Squeezy store"
 
 **Key parameters for orders:**
 - `filter[store_id]` -- Filter by store ID
@@ -86,7 +86,7 @@ Retrieve customer records with details including email, MRR, total revenue, and 
 **Tool:** `LEMON_SQUEEZY_LIST_ALL_CUSTOMERS`
 
 **Example prompt:**
-> "Find the Lemon Squeezy customer with email johndoe@example.com"
+> "Find the Lemon Squeezy customer with email <johndoe@example.com>"
 
 **Key parameters:**
 - `filter[email]` -- Filter by exact email address

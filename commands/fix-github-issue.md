@@ -1,3 +1,7 @@
+---
+description: "Fetch a GitHub issue, understand the problem, implement a fix with tests, verify linting and types, and create a descriptive commit."
+---
+
 Please analyze and fix the GitHub issue: $ARGUMENTS.
 
 Follow these steps:

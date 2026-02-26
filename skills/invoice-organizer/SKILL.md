@@ -82,13 +82,13 @@ Organize these invoices:
 When a user requests invoice organization:
 
 1. **Scan the Folder**
-   
+
    Identify all invoice files:
    ```bash
    # Find all invoice-related files
    find . -type f \( -name "*.pdf" -o -name "*.jpg" -o -name "*.png" \) -print
    ```
-   
+
    Report findings:
    - Total number of files
    - File types
@@ -96,9 +96,9 @@ When a user requests invoice organization:
    - Current organization (or lack thereof)
 
 2. **Extract Information from Each File**
-   
+
    For each invoice, extract:
-   
+
    **From PDF invoices**:
    - Use text extraction to read invoice content
    - Look for common patterns:
@@ -107,22 +107,22 @@ When a user requests invoice organization:
      - Company name (usually at top)
      - "Amount Due:", "Total:", "Amount:"
      - "Description:", "Service:", "Product:"
-   
+
    **From image receipts**:
    - Read visible text from images
    - Identify vendor name (often at top)
    - Look for date (common formats)
    - Find total amount
-   
+
    **Fallback for unclear files**:
    - Use filename clues
    - Check file creation/modification date
    - Flag for manual review if critical info missing
 
 3. **Determine Organization Strategy**
-   
+
    Ask user preference if not specified:
-   
+
    ```markdown
    I found [X] invoices from [date range].
    
@@ -138,18 +138,18 @@ When a user requests invoice organization:
    ```
 
 4. **Create Standardized Filename**
-   
+
    For each invoice, create a filename following this pattern:
-   
+
    ```
    YYYY-MM-DD Vendor - Invoice - Description.ext
    ```
-   
+
    Examples:
    - `2024-03-15 Adobe - Invoice - Creative Cloud.pdf`
    - `2024-01-10 Amazon - Receipt - Office Supplies.pdf`
    - `2023-12-01 Stripe - Invoice - Monthly Payment Processing.pdf`
-   
+
    **Filename Best Practices**:
    - Remove special characters except hyphens
    - Capitalize vendor names properly
@@ -158,9 +158,9 @@ When a user requests invoice organization:
    - Preserve original file extension
 
 5. **Execute Organization**
-   
+
    Before moving files, show the plan:
-   
+
    ```markdown
    # Organization Plan
    
@@ -191,7 +191,7 @@ When a user requests invoice organization:
    
    Process [X] files? (yes/no)
    ```
-   
+
    After approval:
    ```bash
    # Create folder structure
@@ -205,16 +205,16 @@ When a user requests invoice organization:
    ```
 
 6. **Generate Summary Report**
-   
+
    Create a CSV file with all invoice details:
-   
+
    ```csv
    Date,Vendor,Invoice Number,Description,Amount,Category,File Path
    2024-03-15,Adobe,INV-12345,Creative Cloud,52.99,Software,Invoices/2024/Software/Adobe/2024-03-15 Adobe - Invoice - Creative Cloud.pdf
    2024-03-10,Amazon,123-4567890-1234567,Office Supplies,127.45,Office,Invoices/2024/Office/Amazon/2024-03-10 Amazon - Receipt - Office Supplies.pdf
    ...
    ```
-   
+
    This CSV is useful for:
    - Importing into accounting software
    - Sharing with accountants
@@ -222,7 +222,7 @@ When a user requests invoice organization:
    - Tax preparation
 
 7. **Provide Completion Summary**
-   
+
    ```markdown
    # Organization Complete! 📊
    
@@ -443,4 +443,3 @@ For unusual receipt formats:
 - Archiving old financial records
 - Preparing for audits
 - Tracking subscription costs over time
-

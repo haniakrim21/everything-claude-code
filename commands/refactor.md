@@ -1,3 +1,7 @@
+---
+description: "Perform a systematic refactoring by identifying code smells, verifying test coverage, and applying incremental behavior-preserving changes."
+---
+
 Perform a systematic refactoring of the specified code area.
 
 ## Steps

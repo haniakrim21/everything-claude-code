@@ -110,6 +110,53 @@ function validateHooks() {
     process.exit(1);
   }
 
+  // Verify hook scripts exist on disk
+  const PLUGIN_ROOT = path.resolve(__dirname, '..', '..');
+  let scriptErrors = 0;
+  for (const [, hookArray] of Object.entries(hooks)) {
+    if (!Array.isArray(hookArray)) continue;
+    for (const entry of hookArray) {
+      if (!entry.hooks || !Array.isArray(entry.hooks)) continue;
+      for (const hook of entry.hooks) {
+        if (hook.type === 'command' && typeof hook.command === 'string' && hook.command.includes('scripts/hooks/')) {
+          const resolved = hook.command
+            .replace(/\$\{CLAUDE_PLUGIN_ROOT\}/g, PLUGIN_ROOT)
+            .split(' ')
+            .map(p => p.replace(/^"|"$/g, ''))
+            .find(p => p.includes('scripts/hooks/'));
+          if (resolved && !fs.existsSync(resolved)) {
+            console.error(`  ERROR: Hook script not found: ${resolved}`);
+            scriptErrors++;
+          }
+        }
+      }
+    }
+  }
+  if (scriptErrors > 0) process.exit(1);
+
+  // Detect hook scripts on disk that are not referenced in hooks.json
+  const HOOKS_SCRIPTS_DIR = path.join(PLUGIN_ROOT, 'scripts', 'hooks');
+  if (fs.existsSync(HOOKS_SCRIPTS_DIR)) {
+    const referenced = new Set();
+    for (const [, hookArray] of Object.entries(hooks)) {
+      if (!Array.isArray(hookArray)) continue;
+      for (const entry of hookArray) {
+        if (!entry.hooks || !Array.isArray(entry.hooks)) continue;
+        for (const hook of entry.hooks) {
+          if (typeof hook.command === 'string') {
+            const m = hook.command.match(/scripts\/hooks\/([a-z0-9-]+\.js)/);
+            if (m) referenced.add(m[1]);
+          }
+        }
+      }
+    }
+    const onDisk = fs.readdirSync(HOOKS_SCRIPTS_DIR).filter(f => f.endsWith('.js'));
+    const orphaned = onDisk.filter(f => !referenced.has(f));
+    if (orphaned.length > 0) {
+      console.warn(`  WARN: ${orphaned.length} hook script(s) not referenced in hooks.json: ${orphaned.join(', ')}`);
+    }
+  }
+
   console.log(`Validated ${totalMatchers} hook matchers`);
 }
 

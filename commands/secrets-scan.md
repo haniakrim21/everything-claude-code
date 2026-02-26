@@ -1,3 +1,7 @@
+---
+description: "Scan the codebase for leaked secrets, API keys, tokens, and credentials, reporting severity-ranked findings with masked values and remediation steps."
+---
+
 Scan the codebase for leaked secrets, API keys, tokens, and credentials.
 
 ## Steps

@@ -1,3 +1,7 @@
+---
+description: "Fix a GitHub issue by number: read the issue, create a branch, implement a focused fix with tests, and open a pull request referencing the issue."
+---
+
 Fix a GitHub issue by number: read the issue, create a branch, implement the fix, and open a PR.
 
 ## Steps

@@ -332,8 +332,8 @@ All credential implementations are thread-safe. A single credential instance can
 
 | Resource | URL |
 |----------|-----|
-| NuGet Package | https://www.nuget.org/packages/Azure.Identity |
-| API Reference | https://learn.microsoft.com/dotnet/api/azure.identity |
-| Credential Chains | https://learn.microsoft.com/dotnet/azure/sdk/authentication/credential-chains |
-| Best Practices | https://learn.microsoft.com/dotnet/azure/sdk/authentication/best-practices |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity |
+| NuGet Package | <https://www.nuget.org/packages/Azure.Identity> |
+| API Reference | <https://learn.microsoft.com/dotnet/api/azure.identity> |
+| Credential Chains | <https://learn.microsoft.com/dotnet/azure/sdk/authentication/credential-chains> |
+| Best Practices | <https://learn.microsoft.com/dotnet/azure/sdk/authentication/best-practices> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity> |

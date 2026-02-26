@@ -5,7 +5,7 @@ description: Control trigger states, update configurations, and manage trigger i
 tags: [triggers, lifecycle, enable, disable, update, management]
 ---
 
-# Manage Trigger Lifecycle
+## Manage Trigger Lifecycle
 
 Control trigger states and configurations without recreating triggers.
 

@@ -128,6 +128,7 @@ Parameters:
 - **Password requirements**: `GOOGLE_ADMIN_CREATE_USER` requires a password that meets the domain's password policy. Weak passwords will be rejected.
 
 ## Quick Reference
+
 | Action | Tool | Key Parameters |
 |--------|------|----------------|
 | List users | `GOOGLE_ADMIN_LIST_USERS` | `customer`, `domain`, `query`, `max_results` |

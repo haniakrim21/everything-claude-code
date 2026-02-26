@@ -5,7 +5,7 @@ description: Prefer native tools over MCP for faster execution, full control, an
 tags: [tool-router, mcp, integration, providers, performance]
 ---
 
-# Use Native Tools for Performance and Control
+## Use Native Tools for Performance and Control
 
 Tool Router supports two approaches: **Native tools (recommended)** for performance and control, or MCP clients for framework independence.
 

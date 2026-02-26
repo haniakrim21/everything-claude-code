@@ -1,3 +1,7 @@
+---
+description: "Generate Content Security Policy (CSP) headers by scanning project assets and external domains, outputting both enforcing and report-only header formats."
+---
+
 Generate Content Security Policy headers for a web application.
 
 ## Steps

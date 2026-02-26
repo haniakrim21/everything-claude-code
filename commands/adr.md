@@ -1,3 +1,7 @@
+---
+description: "Write an Architecture Decision Record (ADR) documenting a significant technical decision with context, decision rationale, and consequences."
+---
+
 Write an Architecture Decision Record documenting a significant technical decision.
 
 ## Steps

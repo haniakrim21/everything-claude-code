@@ -14,20 +14,17 @@ Use @wire decorator for reactive data binding with Lightning Data Service
 or Apex methods. @wire fits LWC's reactive architecture and enables
 Salesforce performance optimizations.
 
-
 ### Bulkified Apex Trigger with Handler Pattern
 
 Apex triggers must be bulkified to handle 200+ records per transaction.
 Use handler pattern for separation of concerns, testability, and
 recursion prevention.
 
-
 ### Queueable Apex for Async Processing
 
 Use Queueable Apex for async processing with support for non-primitive
 types, monitoring via AsyncApexJob, and job chaining. Limit: 50 jobs
 per transaction, 1 child job when chaining.
-
 
 ## Anti-Patterns
 

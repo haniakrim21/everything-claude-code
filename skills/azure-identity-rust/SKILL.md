@@ -110,6 +110,6 @@ let credential = ClientSecretCredential::new(
 
 | Resource | Link |
 |----------|------|
-| API Reference | https://docs.rs/azure_identity |
-| Source Code | https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/identity/azure_identity |
-| crates.io | https://crates.io/crates/azure_identity |
+| API Reference | <https://docs.rs/azure_identity> |
+| Source Code | <https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/identity/azure_identity> |
+| crates.io | <https://crates.io/crates/azure_identity> |

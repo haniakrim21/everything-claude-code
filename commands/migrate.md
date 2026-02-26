@@ -1,3 +1,7 @@
+---
+description: "Plan and execute an incremental framework or library migration by auditing breaking changes, ordering updates safely, and verifying at each step."
+---
+
 Plan and execute a framework or library migration incrementally.
 
 ## Steps

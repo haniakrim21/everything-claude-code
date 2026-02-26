@@ -1,3 +1,7 @@
+---
+description: "Set up, list, or remove git worktrees for parallel development on multiple branches, copying env files and installing dependencies automatically."
+---
+
 Set up git worktrees for parallel development on multiple branches simultaneously.
 
 ## Steps

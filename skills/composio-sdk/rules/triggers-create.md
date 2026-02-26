@@ -5,7 +5,7 @@ description: Set up trigger instances to receive real-time events from connected
 tags: [triggers, events, webhooks, real-time, notifications]
 ---
 
-# Create Triggers for Real-Time Events
+## Create Triggers for Real-Time Events
 
 Triggers receive real-time events from connected accounts (Gmail, GitHub, Slack, etc.). Create trigger instances to subscribe to specific events.
 

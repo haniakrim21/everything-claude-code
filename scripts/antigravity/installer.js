@@ -153,7 +153,7 @@ function installSkillsIntoTarget(tempDir, target) {
 
 function run(cmd, args, opts = {}) {
   const r = spawnSync(cmd, args, { stdio: "inherit", ...opts });
-  if (r.status !== 0) process.exit(r.status == null ? 1 : r.status);
+  if (r.status !== 0) process.exit(r.status === null ? 1 : r.status);
 }
 
 function main() {
@@ -246,7 +246,7 @@ function main() {
           fs.rmdirSync(tempDir, { recursive: true });
         }
       }
-    } catch (e) {
+    } catch (_e) {
       // ignore cleanup errors
     }
   }

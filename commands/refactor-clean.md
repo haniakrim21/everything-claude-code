@@ -1,3 +1,7 @@
+---
+description: "Safely identify and remove dead code using knip, depcheck, and ts-prune, verifying tests pass before and after each deletion."
+---
+
 # Refactor Clean
 
 Safely identify and remove dead code with test verification:

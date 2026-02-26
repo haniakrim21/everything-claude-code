@@ -236,9 +236,15 @@ async function runTests() {
   })) passed++; else failed++;
 
   if (await asyncTest('blocking hooks output BLOCKED message', async () => {
-    // Test the dev server blocking hook
-    const blockingCommand = hooks.hooks.PreToolUse[0].hooks[0].command;
-    const match = blockingCommand.match(/^node -e "(.+)"$/s);
+    // Find the inline .md-creation blocking hook (it has process.exit(1) and is a node -e command)
+    const blockingEntry = hooks.hooks.PreToolUse.find(entry =>
+      entry.hooks[0].command.startsWith('node -e') &&
+      entry.hooks[0].command.includes('process.exit(1)')
+    );
+    assert.ok(blockingEntry, 'Should have an inline blocking hook');
+
+    const match = blockingEntry.hooks[0].command.match(/^node -e "(.+)"$/s);
+    assert.ok(match, 'Blocking hook should be an inline node -e command');
 
     const proc = spawn('node', ['-e', match[1]], {
       stdio: ['pipe', 'pipe', 'pipe']
@@ -248,6 +254,10 @@ async function runTests() {
     let code = null;
     proc.stderr.on('data', data => stderr += data);
 
+    // Send a .md file path that triggers the block (not an allowed filename)
+    proc.stdin.write(JSON.stringify({
+      tool_input: { file_path: '/project/notes.md' }
+    }));
     proc.stdin.end();
 
     await new Promise(resolve => {
@@ -272,15 +282,23 @@ async function runTests() {
   })) passed++; else failed++;
 
   if (await asyncTest('blocking hooks exit with code 1', async () => {
-    // The dev server blocker always blocks
-    const blockingCommand = hooks.hooks.PreToolUse[0].hooks[0].command;
-    const match = blockingCommand.match(/^node -e "(.+)"$/s);
+    // Find the inline blocking hook and trigger it with an input that causes a block
+    const blockingEntry = hooks.hooks.PreToolUse.find(entry =>
+      entry.hooks[0].command.startsWith('node -e') &&
+      entry.hooks[0].command.includes('process.exit(1)')
+    );
+    assert.ok(blockingEntry, 'Should have an inline blocking hook');
+
+    const match = blockingEntry.hooks[0].command.match(/^node -e "(.+)"$/s);
 
     const proc = spawn('node', ['-e', match[1]], {
       stdio: ['pipe', 'pipe', 'pipe']
     });
 
     let code = null;
+    proc.stdin.write(JSON.stringify({
+      tool_input: { file_path: '/project/notes.md' }
+    }));
     proc.stdin.end();
 
     await new Promise(resolve => {

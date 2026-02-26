@@ -1,3 +1,7 @@
+---
+description: "Update the project CLAUDE.md memory bank with decisions, problems solved, patterns, and commands discovered in the current session."
+---
+
 Update the project's CLAUDE.md memory bank with current session learnings.
 
 ## Steps

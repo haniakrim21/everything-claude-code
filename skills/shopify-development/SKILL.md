@@ -358,9 +358,9 @@ For detailed implementation guides, read these files:
 
 ## Official Documentation Links
 
-- Shopify Developer Docs: https://shopify.dev/docs
-- GraphQL Admin API Reference: https://shopify.dev/docs/api/admin-graphql
-- Shopify CLI Reference: https://shopify.dev/docs/api/shopify-cli
-- Polaris Design System: https://polaris.shopify.com
+- Shopify Developer Docs: <https://shopify.dev/docs>
+- GraphQL Admin API Reference: <https://shopify.dev/docs/api/admin-graphql>
+- Shopify CLI Reference: <https://shopify.dev/docs/api/shopify-cli>
+- Polaris Design System: <https://polaris.shopify.com>
 
 API Version: 2026-01 (quarterly releases, 12-month deprecation window)

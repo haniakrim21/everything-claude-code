@@ -90,8 +90,8 @@ model Post {
 ```
 
 **Resources:**
-- https://www.prisma.io/docs/concepts/components/prisma-schema
-- https://www.prisma.io/docs/concepts/components/prisma-schema/relations
+- <https://www.prisma.io/docs/concepts/components/prisma-schema>
+- <https://www.prisma.io/docs/concepts/components/prisma-schema/relations>
 
 ### Migrations
 **Common Issues:**
@@ -132,8 +132,8 @@ npx prisma migrate resolve --rolled-back "migration_name"
 ```
 
 **Resources:**
-- https://www.prisma.io/docs/concepts/components/prisma-migrate
-- https://www.prisma.io/docs/guides/deployment/deploy-database-changes
+- <https://www.prisma.io/docs/concepts/components/prisma-migrate>
+- <https://www.prisma.io/docs/guides/deployment/deploy-database-changes>
 
 ### Query Optimization
 **Common Issues:**
@@ -202,8 +202,8 @@ const result = await prisma.$queryRaw`
 ```
 
 **Resources:**
-- https://www.prisma.io/docs/guides/performance-and-optimization
-- https://www.prisma.io/docs/concepts/components/prisma-client/raw-database-access
+- <https://www.prisma.io/docs/guides/performance-and-optimization>
+- <https://www.prisma.io/docs/concepts/components/prisma-client/raw-database-access>
 
 ### Connection Management
 **Common Issues:**
@@ -250,8 +250,8 @@ DATABASE_URL="postgresql://user:pass@host:5432/db?connection_limit=5&pool_timeou
 ```
 
 **Resources:**
-- https://www.prisma.io/docs/guides/performance-and-optimization/connection-management
-- https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-vercel
+- <https://www.prisma.io/docs/guides/performance-and-optimization/connection-management>
+- <https://www.prisma.io/docs/guides/deployment/deployment-guides/deploying-to-vercel>
 
 ### Transaction Patterns
 **Common Issues:**
@@ -314,7 +314,7 @@ const updateWithVersion = await prisma.post.update({
 ```
 
 **Resources:**
-- https://www.prisma.io/docs/concepts/components/prisma-client/transactions
+- <https://www.prisma.io/docs/concepts/components/prisma-client/transactions>
 
 ## Code Review Checklist
 

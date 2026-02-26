@@ -426,7 +426,7 @@ string connectionString = $"Host={server.Data.FullyQualifiedDomainName};" +
 
 | Resource | URL |
 |----------|-----|
-| NuGet Package | https://www.nuget.org/packages/Azure.ResourceManager.PostgreSql |
-| API Reference | https://learn.microsoft.com/dotnet/api/azure.resourcemanager.postgresql |
-| Product Documentation | https://learn.microsoft.com/azure/postgresql/flexible-server/ |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/postgresql/Azure.ResourceManager.PostgreSql |
+| NuGet Package | <https://www.nuget.org/packages/Azure.ResourceManager.PostgreSql> |
+| API Reference | <https://learn.microsoft.com/dotnet/api/azure.resourcemanager.postgresql> |
+| Product Documentation | <https://learn.microsoft.com/azure/postgresql/flexible-server/> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/postgresql/Azure.ResourceManager.PostgreSql> |

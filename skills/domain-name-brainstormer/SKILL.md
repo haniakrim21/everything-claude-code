@@ -209,4 +209,3 @@ After picking a domain:
 - Verify social media handles
 - Research trademark availability
 - Plan brand identity colors/fonts
-

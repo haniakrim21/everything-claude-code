@@ -480,7 +480,7 @@ builder.Services.AddApplicationInsightsTelemetry(options =>
 
 | Resource | URL |
 |----------|-----|
-| NuGet Package | https://www.nuget.org/packages/Azure.ResourceManager.ApplicationInsights |
-| API Reference | https://learn.microsoft.com/dotnet/api/azure.resourcemanager.applicationinsights |
-| Product Documentation | https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/applicationinsights/Azure.ResourceManager.ApplicationInsights |
+| NuGet Package | <https://www.nuget.org/packages/Azure.ResourceManager.ApplicationInsights> |
+| API Reference | <https://learn.microsoft.com/dotnet/api/azure.resourcemanager.applicationinsights> |
+| Product Documentation | <https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/applicationinsights/Azure.ResourceManager.ApplicationInsights> |

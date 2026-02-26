@@ -1,3 +1,7 @@
+---
+description: "Find and remove dead code, unused imports, unreachable branches, and unused dependencies with confidence-based analysis."
+---
+
 Find and remove dead code, unused imports, and unreachable branches.
 
 ## Steps

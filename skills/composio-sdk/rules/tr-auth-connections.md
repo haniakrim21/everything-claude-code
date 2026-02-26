@@ -5,7 +5,7 @@ description: Understand manageConnections settings to control authentication beh
 tags: [authentication, tool-router, connections, configuration]
 ---
 
-# Configure Connection Management Properly
+## Configure Connection Management Properly
 
 The `manageConnections` setting determines how Tool Router handles missing toolkit connections. Configure it correctly based on your application type.
 

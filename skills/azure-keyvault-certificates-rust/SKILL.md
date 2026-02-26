@@ -172,6 +172,6 @@ Assign these Key Vault roles:
 
 | Resource | Link |
 |----------|------|
-| API Reference | https://docs.rs/azure_security_keyvault_certificates |
-| Source Code | https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/keyvault/azure_security_keyvault_certificates |
-| crates.io | https://crates.io/crates/azure_security_keyvault_certificates |
+| API Reference | <https://docs.rs/azure_security_keyvault_certificates> |
+| Source Code | <https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/keyvault/azure_security_keyvault_certificates> |
+| crates.io | <https://crates.io/crates/azure_security_keyvault_certificates> |

@@ -22,7 +22,6 @@ This ensures consistent behavior and avoids potential issues with shell aliases 
 **Escalation**: Use Opus for complex workflow redesign and architectural DX decisions
 **Cost Optimization**: Use Haiku for simple tool configuration and documentation updates
 
-
 ## Core DX Optimization Philosophy
 
 ### The Developer-First Mindset

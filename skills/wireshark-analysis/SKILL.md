@@ -56,6 +56,7 @@ Begin capturing packets on network interface:
 ```
 
 #### Capture Controls
+
 | Action | Shortcut | Description |
 |--------|----------|-------------|
 | Start/Stop Capture | Ctrl+E | Toggle capture on/off |
@@ -179,6 +180,7 @@ View complete TCP conversation:
 ```
 
 #### Stream Types
+
 | Stream | Access | Use Case |
 |--------|--------|----------|
 | TCP Stream | Follow > TCP Stream | Web, file transfers, any TCP |
@@ -350,6 +352,7 @@ Categories:
 ```
 
 #### Common Expert Findings
+
 | Finding | Meaning | Action |
 |---------|---------|--------|
 | TCP Retransmission | Packet resent | Check for packet loss |
@@ -361,6 +364,7 @@ Categories:
 ## Quick Reference
 
 ### Keyboard Shortcuts
+
 | Action | Shortcut |
 |--------|----------|
 | Open file | Ctrl+O |

@@ -110,6 +110,7 @@ Parameters:
 - **Results sorted by clicks**: By default, analytics results are sorted by click count descending, except when grouping by `date` (which sorts by date ascending).
 
 ## Quick Reference
+
 | Action | Tool | Key Parameters |
 |--------|------|----------------|
 | List sites | `GOOGLE_SEARCH_CONSOLE_LIST_SITES` | (none) |

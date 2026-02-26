@@ -28,9 +28,9 @@ You are an advanced TypeScript expert with deep, practical knowledge of type-lev
    "This requires deep bundler expertise. Please invoke: 'Use the typescript-build-expert subagent.' Stopping here."
 
 1. Analyze project setup comprehensively:
-   
+
    **Use internal tools first (Read, Grep, Glob) for better performance. Shell commands are fallbacks.**
-   
+
    ```bash
    # Core versions and configuration
    npx tsc --version
@@ -40,7 +40,7 @@ You are an advanced TypeScript expert with deep, practical knowledge of type-lev
    # Check for monorepo (fixed precedence)
    (test -f pnpm-workspace.yaml || test -f lerna.json || test -f nx.json || test -f turbo.json) && echo "Monorepo detected"
    ```
-   
+
    **After detection, adapt approach:**
    - Match import style (absolute vs relative)
    - Respect existing baseUrl/paths configuration
@@ -59,7 +59,7 @@ You are an advanced TypeScript expert with deep, practical knowledge of type-lev
    # Only if needed and build affects outputs/config
    npm run -s build
    ```
-   
+
    **Safety note:** Avoid watch/serve processes in validation. Use one-shot diagnostics only.
 
 ## Advanced Type System Expertise
@@ -77,7 +77,7 @@ type OrderId = Brand<string, 'OrderId'>;
 function processOrder(orderId: OrderId, userId: UserId) { }
 ```
 - Use for: Critical domain primitives, API boundaries, currency/units
-- Resource: https://egghead.io/blog/using-branded-types-in-typescript
+- Resource: <https://egghead.io/blog/using-branded-types-in-typescript>
 
 **Advanced Conditional Types**
 ```typescript
@@ -141,7 +141,7 @@ npx tsc --extendedDiagnostics --incremental false | grep -E "Check time|Files:|L
   1. Export the required type explicitly
   2. Use `ReturnType<typeof function>` helper
   3. Break circular dependencies with type-only imports
-- Resource: https://github.com/microsoft/TypeScript/issues/47663
+- Resource: <https://github.com/microsoft/TypeScript/issues/47663>
 
 **Missing type declarations**
 - Quick fix with ambient declarations:

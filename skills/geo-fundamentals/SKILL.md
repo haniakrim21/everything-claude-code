@@ -33,7 +33,7 @@ allowed-tools: Read, Glob, Grep
 
 | Engine | Citation Style | Opportunity |
 |--------|----------------|-------------|
-| **Perplexity** | Numbered [1][2] | Highest citation rate |
+| **Perplexity** | Numbered 1, 2 | Highest citation rate |
 | **ChatGPT** | Inline/footnotes | Custom GPTs |
 | **Claude** | Contextual | Long-form content |
 | **Gemini** | Sources section | SEO crossover |
@@ -153,4 +153,3 @@ How AI engines select content to cite:
 | Script | Purpose | Command |
 |--------|---------|---------|
 | `scripts/geo_checker.py` | GEO audit (AI citation readiness) | `python scripts/geo_checker.py <project_path>` |
-

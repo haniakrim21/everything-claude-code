@@ -5,9 +5,9 @@ description: Build stunning animated React UIs using the react-bits component li
 
 # React Bits
 
-**React Bits** (https://reactbits.dev) is the largest open-source library of animated, interactive React components. 110+ components across four categories, fully customizable via props, copy-paste ready.
+**React Bits** (<https://reactbits.dev>) is the largest open-source library of animated, interactive React components. 110+ components across four categories, fully customizable via props, copy-paste ready.
 
-> GitHub: https://github.com/DavidHDev/react-bits — 35k+ stars
+> GitHub: <https://github.com/DavidHDev/react-bits> — 35k+ stars
 
 ---
 
@@ -247,7 +247,7 @@ npm install ogl
 ## Component Source URLs
 
 Browse and copy source at:
-- **Docs**: https://reactbits.dev
+- **Docs**: <https://reactbits.dev>
 - **GitHub source**: `https://github.com/DavidHDev/react-bits/tree/main/src/ts-tailwind/<Category>/<ComponentName>/`
 
 Categories in source: `Animations/`, `Backgrounds/`, `Components/`, `TextAnimations/`
@@ -256,7 +256,7 @@ Categories in source: `Animations/`, `Backgrounds/`, `Components/`, `TextAnimati
 
 ## Creative Tools
 
-React Bits also provides free browser-based tools at https://reactbits.dev/tools:
+React Bits also provides free browser-based tools at <https://reactbits.dev/tools>:
 - **Background Studio** — customize animated backgrounds, export as video/image/code
 - **Shape Magic** — inner rounded corners between shapes, export SVG/React/clip-path
 - **Texture Lab** — apply noise, dithering, ASCII effects to images/videos

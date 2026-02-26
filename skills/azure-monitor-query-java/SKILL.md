@@ -409,9 +409,9 @@ try {
 
 | Resource | URL |
 |----------|-----|
-| Maven Package | https://central.sonatype.com/artifact/com.azure/azure-monitor-query |
-| GitHub | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-query |
-| API Reference | https://learn.microsoft.com/java/api/com.azure.monitor.query |
-| Kusto Query Language | https://learn.microsoft.com/azure/data-explorer/kusto/query/ |
-| Log Analytics Limits | https://learn.microsoft.com/azure/azure-monitor/service-limits#la-query-api |
-| Troubleshooting | https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-query/TROUBLESHOOTING.md |
+| Maven Package | <https://central.sonatype.com/artifact/com.azure/azure-monitor-query> |
+| GitHub | <https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-query> |
+| API Reference | <https://learn.microsoft.com/java/api/com.azure.monitor.query> |
+| Kusto Query Language | <https://learn.microsoft.com/azure/data-explorer/kusto/query/> |
+| Log Analytics Limits | <https://learn.microsoft.com/azure/azure-monitor/service-limits#la-query-api> |
+| Troubleshooting | <https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-query/TROUBLESHOOTING.md> |

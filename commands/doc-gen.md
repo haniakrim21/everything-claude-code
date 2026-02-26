@@ -1,3 +1,7 @@
+---
+description: "Generate API documentation, README sections, and inline comments from codebase analysis, focusing on public-facing modules and exported functions."
+---
+
 Generate documentation from the codebase for the specified scope.
 
 ## Steps

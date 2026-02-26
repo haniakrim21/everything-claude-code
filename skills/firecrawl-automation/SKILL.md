@@ -43,7 +43,7 @@ Key parameters:
 - `includeTags` / `excludeTags` -- filter by HTML tags
 - `jsonOptions` -- for structured extraction with `schema` and/or `prompt`
 
-Example prompt: *"Scrape the main content from https://example.com/pricing as markdown"*
+Example prompt: *"Scrape the main content from <https://example.com/pricing> as markdown"*
 
 ---
 
@@ -85,7 +85,7 @@ At least one of `prompt` or `schema` must be provided.
 
 Check extraction status with `FIRECRAWL_EXTRACT_GET` using the returned job `id`.
 
-Example prompt: *"Extract company name, pricing tiers, and feature lists from https://example.com/pricing"*
+Example prompt: *"Extract company name, pricing tiers, and feature lists from <https://example.com/pricing>"*
 
 ---
 

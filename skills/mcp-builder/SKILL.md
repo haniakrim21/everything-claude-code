@@ -12,7 +12,7 @@ To create high-quality MCP (Model Context Protocol) servers that enable LLMs to 
 
 ---
 
-# Process
+## Process
 
 ## 🚀 High-Level Workflow
 
@@ -284,7 +284,7 @@ Create an XML file with this structure:
 
 ---
 
-# Reference Files
+## Reference Files
 
 ## 📚 Documentation Library
 

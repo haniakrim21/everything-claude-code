@@ -1,3 +1,7 @@
+---
+description: "Create an integration testing plan with inline Rust-style test cases for the specified code, proposing refactoring if needed and seeking review before writing tests."
+---
+
 I need you to create an integration testing plan for $ARGUMENTS
 
 These are integration tests and I want them to be inline in rust fashion.

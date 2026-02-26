@@ -1,3 +1,7 @@
+---
+description: "Analyze the current session to extract reusable patterns, debugging techniques, and workarounds, saving them as skill files for future sessions."
+---
+
 # /learn - Extract Reusable Patterns
 
 Analyze the current session and extract any patterns worth saving as skills.

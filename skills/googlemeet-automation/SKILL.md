@@ -95,6 +95,7 @@ Parameters:
 - **Event IDs are opaque**: To update or delete events, you must first retrieve the event ID using a search or list tool.
 
 ## Quick Reference
+
 | Action | Tool | Key Parameters |
 |--------|------|----------------|
 | Create Meet space | `GOOGLEMEET_CREATE_MEET` | (see full schema via RUBE_SEARCH_TOOLS) |

@@ -15,7 +15,7 @@
  *   new-project    - Architecture + Tech stack + Setup
  */
 
-import { execSync } from "child_process";
+import { execSync, spawnSync } from "child_process";
 import { readFileSync, readdirSync } from "fs";
 import { join } from "path";
 
@@ -96,14 +96,14 @@ async function runAgent(agentName, task, projectContext) {
   console.log(`  [${agentName}] Starting...`);
 
   try {
-    const result = execSync(
-      `claude --print "${prompt.replace(/"/g, '\\"')}"`,
-      {
-        encoding: "utf8",
-        timeout: 120000,
-        maxBuffer: 1024 * 1024 * 10,
-      }
-    );
+    const proc = spawnSync("claude", ["--print", prompt], {
+      encoding: "utf8",
+      timeout: 120000,
+      maxBuffer: 1024 * 1024 * 10,
+    });
+    if (proc.error) throw proc.error;
+    if (proc.status !== 0) throw new Error(proc.stderr || `claude exited with code ${proc.status}`);
+    const result = proc.stdout;
 
     const elapsed = ((Date.now() - start) / 1000).toFixed(1);
     console.log(`  [${agentName}] Done (${elapsed}s)`);

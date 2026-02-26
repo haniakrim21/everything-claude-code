@@ -42,7 +42,6 @@ Grep "it.*should.*behavior" tests/ --include="*.test.*"
 - Build upon existing test utilities and helpers
 - Update existing tests rather than replacing them
 
-
 ## Core Expertise
 
 ### Testing Frameworks & Tools

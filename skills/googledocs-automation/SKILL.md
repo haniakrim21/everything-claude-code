@@ -108,6 +108,7 @@ Parameters:
 - `GOOGLEDOCS_SEARCH_DOCUMENTS` uses Google Drive search syntax for the `query` parameter (e.g., `name contains 'report'`).
 
 ## Quick Reference
+
 | Action | Tool | Key Parameters |
 |--------|------|----------------|
 | Create document | `GOOGLEDOCS_CREATE_DOCUMENT` | `title`, `text` |

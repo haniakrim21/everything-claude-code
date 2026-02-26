@@ -36,7 +36,7 @@ Built from production experience running Buzz BD Agent by SolCex Exchange —
 an autonomous agent on decentralized infrastructure with 13 intelligence
 sources, x402 micropayments, and dual-chain ERC-8004 registration.
 
-Reference implementation: https://github.com/buzzbysolcex/buzz-bd-agent
+Reference implementation: <https://github.com/buzzbysolcex/buzz-bd-agent>
 
 ## When to Use This Skill
 
@@ -245,4 +245,4 @@ Buzz BD Agent (SolCex Exchange):
 - LLM cascade: MiniMax M2.5 → Llama 70B → Haiku 4.5 → Opus 4.5
 - 24/7 live stream: retake.tv/BuzzBD
 - Verify: 8004scan.io
-- GitHub: https://github.com/buzzbysolcex/buzz-bd-agent
+- GitHub: <https://github.com/buzzbysolcex/buzz-bd-agent>

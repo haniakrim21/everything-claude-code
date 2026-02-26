@@ -1,3 +1,7 @@
+---
+description: "Apply security hardening measures covering HTTP headers, rate limiting, input validation, output encoding, authentication, and dependency pinning."
+---
+
 Apply security hardening measures to the codebase.
 
 ## Steps

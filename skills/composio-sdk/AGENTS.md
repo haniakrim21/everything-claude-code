@@ -3,6 +3,7 @@ name: composio
 description: Build AI agents and apps with Composio - access 200+ external tools with Tool Router or direct execution
 tags: [composio, tool-router, agents, mcp, tools, api, automation]
 ---
+<!-- markdownlint-disable MD024 -->
 
 # composio
 
@@ -56,7 +57,7 @@ Build AI agents and apps with Composio - access 200+ external tools with Tool Ro
 
 > Use proper user IDs to ensure data isolation, security, and correct session management
 
-# Choose User IDs Carefully for Security and Isolation
+## Choose User IDs Carefully for Security and Isolation
 
 User IDs are the **foundation of Tool Router isolation**. They determine which user's connections, data, and permissions are used for tool execution. Choose them carefully to ensure security and proper data isolation.
 
@@ -536,7 +537,7 @@ const teamSession = await composio.create(req.user.organizationId, {
 
 > Essential pattern for initializing Tool Router sessions with proper user isolation
 
-# Create Basic Tool Router Sessions
+## Create Basic Tool Router Sessions
 
 Always create isolated Tool Router sessions per user to ensure proper data isolation and scoped tool access.
 
@@ -614,7 +615,7 @@ print(f"MCP URL: {session.mcp.url}")
 
 > Create new sessions frequently for better logging, debugging, and configuration management
 
-# Treat Sessions as Short-Lived and Disposable
+## Treat Sessions as Short-Lived and Disposable
 
 Tool Router sessions should be **short-lived and disposable**. Create new sessions frequently rather than caching or reusing them across different contexts.
 
@@ -1003,7 +1004,7 @@ export class ConversationSession {
 
 > Use session configuration options to control toolkit access, tools, and behavior
 
-# Configure Tool Router Sessions Properly
+## Configure Tool Router Sessions Properly
 
 Tool Router sessions support rich configuration for fine-grained control over toolkit and tool access.
 
@@ -1172,7 +1173,7 @@ session = composio.tool_router.create(
 
 > Prefer native tools over MCP for faster execution, full control, and modifier support
 
-# Use Native Tools for Performance and Control
+## Use Native Tools for Performance and Control
 
 Tool Router supports two approaches: **Native tools (recommended)** for performance and control, or MCP clients for framework independence.
 
@@ -1424,7 +1425,7 @@ With native tools, modifiers enable:
 
 > Connect Tool Router sessions with popular AI frameworks using MCP or native tools
 
-# Integrate Tool Router with AI Frameworks
+## Integrate Tool Router with AI Frameworks
 
 Tool Router works with any AI framework through two methods: **Native Tools** (recommended for speed) or **MCP** (for framework flexibility). Choose native tools when available for better performance and control.
 
@@ -2244,7 +2245,7 @@ const client3 = hostedMcpTool({
 
 > Allow users to authenticate toolkits directly within chat conversations
 
-# Enable Auto Authentication in Chat
+## Enable Auto Authentication in Chat
 
 Enable `manageConnections` to allow users to authenticate toolkits on-demand during agent conversations.
 
@@ -2358,7 +2359,7 @@ session = composio.tool_router.create(
 
 > Control authentication flows explicitly using session.authorize() for onboarding and settings pages
 
-# Use Manual Authorization for Explicit Control
+## Use Manual Authorization for Explicit Control
 
 Use `session.authorize()` to explicitly control when users authenticate toolkits - perfect for onboarding flows, settings pages, or when you want authentication before starting agent workflows.
 
@@ -2523,7 +2524,7 @@ async def settings_page_handler(user_id: str, toolkit: str):
 
 > Understand manageConnections settings to control authentication behavior in Tool Router
 
-# Configure Connection Management Properly
+## Configure Connection Management Properly
 
 The `manageConnections` setting determines how Tool Router handles missing toolkit connections. Configure it correctly based on your application type.
 
@@ -2694,7 +2695,7 @@ With `manageConnections: true`, **you never need to check connections before age
 
 > Best practices for building chat applications with toolkit selection, connection management, and session handling
 
-# Building Chat UIs with Tool Router
+## Building Chat UIs with Tool Router
 
 Build chat applications with Tool Router using **Vercel AI SDK**, create **sessions per message** with dynamic configuration, and provide **toolkit selection** and **connection management** UI.
 
@@ -3045,7 +3046,7 @@ if (!result.successful) {
 
 > Use session.toolkits() to build connection management UIs showing which toolkits are connected
 
-# Query Toolkit Connection States for UI
+## Query Toolkit Connection States for UI
 
 Use `session.toolkits()` to check connection status and build UIs showing which toolkits are connected. With `manageConnections: true`, agents handle missing connections automatically.
 
@@ -3184,7 +3185,7 @@ With `manageConnections: true` (default), you don't need to check connections be
 
 > Set up trigger instances to receive real-time events from connected accounts
 
-# Create Triggers for Real-Time Events
+## Create Triggers for Real-Time Events
 
 Triggers receive real-time events from connected accounts (Gmail, GitHub, Slack, etc.). Create trigger instances to subscribe to specific events.
 
@@ -3428,7 +3429,7 @@ async function setupUserTriggers(userId: string) {
 
 > Listen to real-time trigger events during development using subscribe()
 
-# Subscribe to Trigger Events
+## Subscribe to Trigger Events
 
 Use `subscribe()` to listen to trigger events in **development only**. For production, use webhooks via `listenToTriggers()`.
 
@@ -3605,7 +3606,7 @@ app.listen(3000);
 
 > Use webhook verification for reliable, scalable event delivery in production
 
-# Webhook Verification for Production
+## Webhook Verification for Production
 
 Webhooks are the **production-ready** way to receive trigger events. Provides reliable delivery, automatic retries, and works with serverless.
 
@@ -3836,7 +3837,7 @@ app.listen(3000, () => {
 
 > Control trigger states, update configurations, and manage trigger instances
 
-# Manage Trigger Lifecycle
+## Manage Trigger Lifecycle
 
 Control trigger states and configurations without recreating triggers.
 
@@ -4119,7 +4120,7 @@ async function handleUpgrade(userId: string) {
 
 > Essential patterns for discovering and retrieving tools from Composio for direct execution in traditional applications
 
-# Fetching Tools for Applications
+## Fetching Tools for Applications
 
 When building traditional applications (non-agent workflows), use direct tool fetching methods to discover and retrieve tools from Composio.
 
@@ -4258,7 +4259,7 @@ const customizedTools = await composio.tools.get('default', {
 
 > Core patterns for manually executing Composio tools in traditional applications without agent frameworks
 
-# Direct Tool Execution for Applications
+## Direct Tool Execution for Applications
 
 When building traditional applications without agent frameworks, use `composio.tools.execute()` to manually execute tools.
 
@@ -4473,7 +4474,7 @@ async function sendSlackMessage(userId, channel, text) {
 
 > Critical strategies for version pinning to ensure workflow stability and prevent runtime errors in production
 
-# Tool Version Management
+## Tool Version Management
 
 > **⚠️ CRITICAL:** Never assume or make up version numbers. Always use `composio.toolkits.get('toolkit_name')` to fetch available versions, or check the [dashboard](https://platform.composio.dev) to view versions and changes. Using non-existent versions will cause runtime errors.
 
@@ -4815,7 +4816,7 @@ if (!validateToolVersion(version)) {
 
 > Comprehensive guide to CRUD operations on connected accounts with emphasis on secure authentication flows
 
-# Connected Accounts Management
+## Connected Accounts Management
 
 > **Using Tool Router?** If you're using Tool Router, you can use `session.toolkits()` to view the auth configs and connected accounts being used by the Tool Router. You only need to use the methods below if you're managing connected accounts outside of Tool Router.
 
@@ -5053,10 +5054,10 @@ async function isToolkitConnected(userId, toolkit) {
 
 > Advanced programmatic management of authentication configurations for multi-tenant applications
 
-# Auth Config Management
+## Auth Config Management
 
 > **Note:** This is an **advanced use case**. Most users should create and manage auth configs through the Composio dashboard at [platform.composio.dev](https://platform.composio.dev). Use the SDK methods below only when you need programmatic auth config management.
-
+>
 > **Using Tool Router?** If you're using Tool Router, you can use `session.toolkits()` to view the auth configs and connected accounts being used by the Tool Router. You only need to use the methods below if you're creating custom auth configs to be used with Tool Router.
 
 Auth configs define how authentication works for a toolkit. They specify the authentication scheme (OAuth2, API Key, etc.) and control which tools can be accessed.
@@ -5281,7 +5282,7 @@ await composio.authConfigs.delete('auth_config_123');
 
 > Discover and query toolkits, categories, and authentication requirements for application integration
 
-# Toolkit Management
+## Toolkit Management
 
 Toolkits are collections of related tools (GitHub, Gmail, Slack). Use the `toolkits` API to discover and query toolkit metadata.
 
@@ -5469,7 +5470,7 @@ async function getToolkitsByCategory(categoryId: string) {
 
 > Build standalone and toolkit-based custom tools with proper authentication and validation
 
-# Creating Custom Tools
+## Creating Custom Tools
 
 Create your own tools that integrate with Composio:
 - **Standalone tools** - No external authentication required
@@ -5687,7 +5688,7 @@ execute: async (input) => {
 
 > Advanced patterns for customizing tool behavior with schema modifications and execution hooks
 
-# Tool Modifiers
+## Tool Modifiers
 
 Modifiers customize tool behavior through schema transformations, pre-execution hooks, and post-execution hooks.
 
@@ -5839,7 +5840,7 @@ await composio.tools.execute('GITHUB_GET_REPO', { ... }, {
 
 > Set up trigger instances to receive real-time events from connected accounts
 
-# Create Triggers for Real-Time Events
+## Create Triggers for Real-Time Events
 
 Triggers receive real-time events from connected accounts (Gmail, GitHub, Slack, etc.). Create trigger instances to subscribe to specific events.
 
@@ -6083,7 +6084,7 @@ async function setupUserTriggers(userId: string) {
 
 > Listen to real-time trigger events during development using subscribe()
 
-# Subscribe to Trigger Events
+## Subscribe to Trigger Events
 
 Use `subscribe()` to listen to trigger events in **development only**. For production, use webhooks via `listenToTriggers()`.
 
@@ -6260,7 +6261,7 @@ app.listen(3000);
 
 > Use webhook verification for reliable, scalable event delivery in production
 
-# Webhook Verification for Production
+## Webhook Verification for Production
 
 Webhooks are the **production-ready** way to receive trigger events. Provides reliable delivery, automatic retries, and works with serverless.
 
@@ -6491,7 +6492,7 @@ app.listen(3000, () => {
 
 > Control trigger states, update configurations, and manage trigger instances
 
-# Manage Trigger Lifecycle
+## Manage Trigger Lifecycle
 
 Control trigger states and configurations without recreating triggers.
 
@@ -6770,7 +6771,7 @@ async function handleUpgrade(userId: string) {
 
 > Critical patterns for user identification, multi-tenancy, and data isolation in production applications
 
-# User Context and ID Patterns
+## User Context and ID Patterns
 
 Every Composio operation requires a `userId` parameter for security and data isolation. Users can only access their own connected accounts.
 
@@ -7011,7 +7012,6 @@ Examples
 **Shared:**
 - [Triggers API](https://docs.composio.dev/sdk/typescript/api/triggers)
 - [Webhook Verification](https://docs.composio.dev/sdk/typescript/advanced/webhook-verification)
-
 
 ---
 

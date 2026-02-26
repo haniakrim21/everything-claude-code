@@ -834,7 +834,7 @@ Include if open source or team project.
 Generate a complete README.md file with:
 
 - Proper markdown formatting
-- Code blocks with language hints (`bash, `typescript, etc.)
+- Code blocks with language hints (`bash,`typescript, etc.)
 - Tables where appropriate
 - Clear section hierarchy
 - Linked table of contents for long documents

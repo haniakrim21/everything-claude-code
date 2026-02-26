@@ -166,6 +166,7 @@ nmap --script=vuln target.com
 ```
 
 **Common Port Reference**
+
 | Port | Service | Notes |
 |------|---------|-------|
 | 21 | FTP | File transfer |

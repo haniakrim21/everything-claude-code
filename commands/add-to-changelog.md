@@ -1,3 +1,7 @@
+---
+description: "Add a new entry to the project CHANGELOG.md following Keep a Changelog conventions for a given version, change type, and message."
+---
+
 # Update Changelog
 
 This command adds a new entry to the project's CHANGELOG.md file.

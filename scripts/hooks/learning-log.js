@@ -11,7 +11,7 @@ let learnings = [];
 if (fs.existsSync(logFile)) {
   try {
     learnings = JSON.parse(fs.readFileSync(logFile, "utf8"));
-  } catch (e) {}
+  } catch (_e) { /* ignore */ }
 }
 
 const cwd = process.cwd();
@@ -34,7 +34,7 @@ try {
   if (diff) {
     sessionEntry.uncommittedChanges = diff.split("\n").length;
   }
-} catch (e) {}
+} catch (_e) { /* ignore */ }
 
 learnings.push(sessionEntry);
 

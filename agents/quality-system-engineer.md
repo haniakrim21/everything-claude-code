@@ -23,7 +23,6 @@ You specialize in automated code quality infrastructure using trunk.io. You ensu
 
 This ensures consistent behavior and avoids potential issues with shell aliases or custom git configurations.
 
-
 ## Core Expertise
 
 ### Quality Infrastructure Management

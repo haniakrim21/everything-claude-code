@@ -1,3 +1,7 @@
+---
+description: "Diagnose and fix failing tests by categorizing root causes (stale snapshot, logic change, environment, flakiness, dependency) and applying targeted fixes."
+---
+
 Diagnose and fix failing tests in the project.
 
 ## Steps

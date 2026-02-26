@@ -8,10 +8,10 @@ const stdinData = [];
 process.stdin.on("data", (chunk) => stdinData.push(chunk));
 process.stdin.on("end", () => {
   const input = Buffer.concat(stdinData).toString().trim();
-  let notification = {};
+  let notification;
   try {
     notification = JSON.parse(input);
-  } catch (e) {
+  } catch (_e) {
     notification = { message: input };
   }
 
@@ -22,7 +22,7 @@ process.stdin.on("end", () => {
   if (fs.existsSync(logFile)) {
     try {
       logs = JSON.parse(fs.readFileSync(logFile, "utf8"));
-    } catch (e) {
+    } catch (_e) {
       logs = [];
     }
   }

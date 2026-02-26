@@ -5,7 +5,7 @@ description: Best practices for building chat applications with toolkit selectio
 tags: [tool-router, chat-ui, vercel-ai-sdk, toolkit-selection, authentication, session]
 ---
 
-# Building Chat UIs with Tool Router
+## Building Chat UIs with Tool Router
 
 Build chat applications with Tool Router using **Vercel AI SDK**, create **sessions per message** with dynamic configuration, and provide **toolkit selection** and **connection management** UI.
 

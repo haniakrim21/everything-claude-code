@@ -1,3 +1,7 @@
+---
+description: "Create git worktrees for all open pull requests or a new branch, enabling parallel development across multiple PRs."
+---
+
 # Git Worktree Commands
 
 ## Create Worktrees for All Open PRs

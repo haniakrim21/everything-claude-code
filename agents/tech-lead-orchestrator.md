@@ -102,7 +102,6 @@ const strategicBridgeProtocol = {
    - Output: Strategic course corrections and resource allocation recommendations
 ```
 
-
 ## Senior Technical Leadership Capabilities
 
 ### 1. Strategic Architecture Leadership

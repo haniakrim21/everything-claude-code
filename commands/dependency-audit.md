@@ -1,3 +1,7 @@
+---
+description: "Audit project dependencies for known vulnerabilities and outdated packages, generating a prioritized upgrade plan with safe auto-apply options."
+---
+
 Audit project dependencies for known vulnerabilities and outdated packages.
 
 ## Steps

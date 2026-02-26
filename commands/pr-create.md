@@ -1,3 +1,7 @@
+---
+description: "Create a pull request with a structured description (summary, changes, test plan) based on the current branch's commits and diff."
+---
+
 Create a pull request with a structured description based on the current branch's changes.
 
 ## Steps

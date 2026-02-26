@@ -100,7 +100,7 @@ char s[8];
 *(DWORD*)(s+4) = 0x6F;     // "o\0"
 ```
 
-### Calling Conventions
+## Calling Conventions
 - **x86 cdecl**: Args on stack, caller cleans
 - **x86 stdcall**: Args on stack, callee cleans
 - **x64 Windows**: RCX, RDX, R8, R9, then stack

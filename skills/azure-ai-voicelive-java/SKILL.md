@@ -221,5 +221,5 @@ session.receiveEvents()
 
 | Resource | URL |
 |----------|-----|
-| GitHub Source | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai/azure-ai-voicelive |
-| Samples | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai/azure-ai-voicelive/src/samples |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai/azure-ai-voicelive> |
+| Samples | <https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai/azure-ai-voicelive/src/samples> |

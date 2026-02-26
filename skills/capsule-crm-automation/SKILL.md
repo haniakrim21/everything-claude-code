@@ -76,7 +76,7 @@ Add people or organizations to your Capsule CRM with full details including emai
 **Tool:** `CAPSULE_CRM_CREATE_PARTY`
 
 **Example prompt:**
-> "Create a new person in Capsule CRM: John Smith, VP of Sales at Acme Corp, john@acme.com"
+> "Create a new person in Capsule CRM: John Smith, VP of Sales at Acme Corp, <john@acme.com>"
 
 **Key parameters:**
 - `type` (required) -- "person" or "organisation"
@@ -99,7 +99,7 @@ Modify any aspect of a party record including adding/removing emails, phones, ta
 **Tool:** `CAPSULE_CRM_UPDATE_PARTY`
 
 **Example prompt:**
-> "Update Capsule CRM party 11587: add a work email john.new@acme.com and remove tag 'prospect'"
+> "Update Capsule CRM party 11587: add a work email <john.new@acme.com> and remove tag 'prospect'"
 
 **Key parameters:**
 - `partyId` (required) -- Integer ID of the party to update

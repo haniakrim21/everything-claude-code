@@ -419,11 +419,9 @@ MCP servers that connect to external services should implement proper authentica
 
 These best practices represent the comprehensive guidelines for building secure, efficient, and compliant MCP servers that work well within the ecosystem. Developers should follow these guidelines to ensure their MCP servers meet the standards for inclusion in the MCP directory and provide a safe, reliable experience for users.
 
+---
 
-----------
-
-
-# Tools
+## Tools
 
 > Enable LLMs to perform actions through your server
 
@@ -433,13 +431,13 @@ Tools are a powerful primitive in the Model Context Protocol (MCP) that enable s
   Tools are designed to be **model-controlled**, meaning that tools are exposed from servers to clients with the intention of the AI model being able to automatically invoke them (with a human in the loop to grant approval).
 </Note>
 
-## Overview
+## Overview (Tools)
 
 Tools in MCP allow servers to expose executable functions that can be invoked by clients and used by LLMs to perform actions. Key aspects of tools include:
 
-* **Discovery**: Clients can obtain a list of available tools by sending a `tools/list` request
-* **Invocation**: Tools are called using the `tools/call` request, where servers perform the requested operation and return results
-* **Flexibility**: Tools can range from simple calculations to complex API interactions
+- **Discovery**: Clients can obtain a list of available tools by sending a `tools/list` request
+- **Invocation**: Tools are called using the `tools/call` request, where servers perform the requested operation and return results
+- **Flexibility**: Tools can range from simple calculations to complex API interactions
 
 Like [resources](/docs/concepts/resources), tools are identified by unique names and can include descriptions to guide their usage. However, unlike resources, tools represent dynamic operations that can modify state or interact with external systems.
 
@@ -469,89 +467,91 @@ Each tool is defined with the following structure:
 
 Here's an example of implementing a basic tool in an MCP server:
 
+<!-- markdownlint-disable MD046 -->
 <Tabs>
   <Tab title="TypeScript">
-    ```typescript
-    const server = new Server({
-      name: "example-server",
-      version: "1.0.0"
-    }, {
-      capabilities: {
-        tools: {}
-      }
-    });
+```typescript
+const server = new Server({
+  name: "example-server",
+  version: "1.0.0"
+}, {
+  capabilities: {
+    tools: {}
+  }
+});
 
-    // Define available tools
-    server.setRequestHandler(ListToolsRequestSchema, async () => {
-      return {
-        tools: [{
-          name: "calculate_sum",
-          description: "Add two numbers together",
-          inputSchema: {
-            type: "object",
-            properties: {
-              a: { type: "number" },
-              b: { type: "number" }
-            },
-            required: ["a", "b"]
-          }
-        }]
-      };
-    });
-
-    // Handle tool execution
-    server.setRequestHandler(CallToolRequestSchema, async (request) => {
-      if (request.params.name === "calculate_sum") {
-        const { a, b } = request.params.arguments;
-        return {
-          content: [
-            {
-              type: "text",
-              text: String(a + b)
-            }
-          ]
-        };
+// Define available tools
+server.setRequestHandler(ListToolsRequestSchema, async () => {
+  return {
+    tools: [{
+      name: "calculate_sum",
+      description: "Add two numbers together",
+      inputSchema: {
+        type: "object",
+        properties: {
+          a: { type: "number" },
+          b: { type: "number" }
+        },
+        required: ["a", "b"]
       }
-      throw new Error("Tool not found");
-    });
-    ```
+    }]
+  };
+});
+
+// Handle tool execution
+server.setRequestHandler(CallToolRequestSchema, async (request) => {
+  if (request.params.name === "calculate_sum") {
+    const { a, b } = request.params.arguments;
+    return {
+      content: [
+        {
+          type: "text",
+          text: String(a + b)
+        }
+      ]
+    };
+  }
+  throw new Error("Tool not found");
+});
+```
   </Tab>
 
   <Tab title="Python">
-    ```python
-    app = Server("example-server")
+```python
+app = Server("example-server")
 
-    @app.list_tools()
-    async def list_tools() -> list[types.Tool]:
-        return [
-            types.Tool(
-                name="calculate_sum",
-                description="Add two numbers together",
-                inputSchema={
-                    "type": "object",
-                    "properties": {
-                        "a": {"type": "number"},
-                        "b": {"type": "number"}
-                    },
-                    "required": ["a", "b"]
-                }
-            )
-        ]
+@app.list_tools()
+async def list_tools() -> list[types.Tool]:
+    return [
+        types.Tool(
+            name="calculate_sum",
+            description="Add two numbers together",
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "a": {"type": "number"},
+                    "b": {"type": "number"}
+                },
+                "required": ["a", "b"]
+            }
+        )
+    ]
 
-    @app.call_tool()
-    async def call_tool(
-        name: str,
-        arguments: dict
-    ) -> list[types.TextContent | types.ImageContent | types.EmbeddedResource]:
-        if name == "calculate_sum":
-            a = arguments["a"]
-            b = arguments["b"]
-            result = a + b
-            return [types.TextContent(type="text", text=str(result))]
-        raise ValueError(f"Tool not found: {name}")
-    ```
+@app.call_tool()
+async def call_tool(
+    name: str,
+    arguments: dict
+) -> list[types.TextContent | types.ImageContent | types.EmbeddedResource]:
+    if name == "calculate_sum":
+        a = arguments["a"]
+        b = arguments["b"]
+        result = a + b
+        return [types.TextContent(type="text", text=str(result))]
+    raise ValueError(f"Tool not found: {name}")
+```
   </Tab>
 </Tabs>
+<!-- markdownlint-enable MD046 -->
 
 ## Example tool patterns
 
@@ -638,9 +638,9 @@ MCP client applications and MCP server proxies may encounter tool name conflicts
 
 Applications may disambiguiate tools with one of the following strategies (among others; not an exhaustive list):
 
-* Concatenating a unique, user-defined server name with the tool name, e.g. `web1___search_web` and `web2___search_web`. This strategy may be preferable when unique server names are already provided by the user in a configuration file.
-* Generating a random prefix for the tool name, e.g. `jrwxs___search_web` and `6cq52___search_web`. This strategy may be preferable in server proxies where user-defined unique names are not available.
-* Using the server URI as a prefix for the tool name, e.g. `web1.example.com:search_web` and `web2.example.com:search_web`. This strategy may be suitable when working with remote MCP servers.
+- Concatenating a unique, user-defined server name with the tool name, e.g. `web1___search_web` and `web2___search_web`. This strategy may be preferable when unique server names are already provided by the user in a configuration file.
+- Generating a random prefix for the tool name, e.g. `jrwxs___search_web` and `6cq52___search_web`. This strategy may be preferable in server proxies where user-defined unique names are not available.
+- Using the server URI as a prefix for the tool name, e.g. `web1.example.com:search_web` and `web2.example.com:search_web`. This strategy may be suitable when working with remote MCP servers.
 
 Note that the server-provided name from the initialization flow is not guaranteed to be unique and is not generally suitable for disambiguation purposes.
 
@@ -650,27 +650,27 @@ When exposing tools:
 
 ### Input validation
 
-* Validate all parameters against the schema
-* Sanitize file paths and system commands
-* Validate URLs and external identifiers
-* Check parameter sizes and ranges
-* Prevent command injection
+- Validate all parameters against the schema
+- Sanitize file paths and system commands
+- Validate URLs and external identifiers
+- Check parameter sizes and ranges
+- Prevent command injection
 
 ### Access control
 
-* Implement authentication where needed
-* Use appropriate authorization checks
-* Audit tool usage
-* Rate limit requests
-* Monitor for abuse
+- Implement authentication where needed
+- Use appropriate authorization checks
+- Audit tool usage
+- Rate limit requests
+- Monitor for abuse
 
 ### Error handling
 
-* Don't expose internal errors to clients
-* Log security-relevant errors
-* Handle timeouts appropriately
-* Clean up resources after errors
-* Validate return values
+- Don't expose internal errors to clients
+- Log security-relevant errors
+- Handle timeouts appropriately
+- Clean up resources after errors
+- Validate return values
 
 ## Tool discovery and updates
 
@@ -690,60 +690,62 @@ Tool errors should be reported within the result object, not as MCP protocol-lev
 
 Here's an example of proper error handling for tools:
 
+<!-- markdownlint-disable MD046 -->
 <Tabs>
   <Tab title="TypeScript">
-    ```typescript
-    try {
-      // Tool operation
-      const result = performOperation();
-      return {
-        content: [
-          {
-            type: "text",
-            text: `Operation successful: ${result}`
-          }
-        ]
-      };
-    } catch (error) {
-      return {
-        isError: true,
-        content: [
-          {
-            type: "text",
-            text: `Error: ${error.message}`
-          }
-        ]
-      };
-    }
-    ```
+```typescript
+try {
+  // Tool operation
+  const result = performOperation();
+  return {
+    content: [
+      {
+        type: "text",
+        text: `Operation successful: ${result}`
+      }
+    ]
+  };
+} catch (error) {
+  return {
+    isError: true,
+    content: [
+      {
+        type: "text",
+        text: `Error: ${error.message}`
+      }
+    ]
+  };
+}
+```
   </Tab>
 
   <Tab title="Python">
-    ```python
-    try:
-        # Tool operation
-        result = perform_operation()
-        return types.CallToolResult(
-            content=[
-                types.TextContent(
-                    type="text",
-                    text=f"Operation successful: {result}"
-                )
-            ]
-        )
-    except Exception as error:
-        return types.CallToolResult(
-            isError=True,
-            content=[
-                types.TextContent(
-                    type="text",
-                    text=f"Error: {str(error)}"
-                )
-            ]
-        )
-    ```
+```python
+try:
+    # Tool operation
+    result = perform_operation()
+    return types.CallToolResult(
+        content=[
+            types.TextContent(
+                type="text",
+                text=f"Operation successful: {result}"
+            )
+        ]
+    )
+except Exception as error:
+    return types.CallToolResult(
+        isError=True,
+        content=[
+            types.TextContent(
+                type="text",
+                text=f"Error: {str(error)}"
+            )
+        ]
+    )
+```
   </Tab>
 </Tabs>
+<!-- markdownlint-enable MD046 -->
 
 This approach allows the LLM to see that an error occurred and potentially take corrective action or request human intervention.
 
@@ -839,58 +841,60 @@ Here's how to define tools with annotations for different scenarios:
 
 ### Integrating annotations in server implementation
 
+<!-- markdownlint-disable MD046 -->
 <Tabs>
   <Tab title="TypeScript">
-    ```typescript
-    server.setRequestHandler(ListToolsRequestSchema, async () => {
-      return {
-        tools: [{
-          name: "calculate_sum",
-          description: "Add two numbers together",
-          inputSchema: {
-            type: "object",
-            properties: {
-              a: { type: "number" },
-              b: { type: "number" }
-            },
-            required: ["a", "b"]
-          },
-          annotations: {
-            title: "Calculate Sum",
-            readOnlyHint: true,
-            openWorldHint: false
-          }
-        }]
-      };
-    });
-    ```
+```typescript
+server.setRequestHandler(ListToolsRequestSchema, async () => {
+  return {
+    tools: [{
+      name: "calculate_sum",
+      description: "Add two numbers together",
+      inputSchema: {
+        type: "object",
+        properties: {
+          a: { type: "number" },
+          b: { type: "number" }
+        },
+        required: ["a", "b"]
+      },
+      annotations: {
+        title: "Calculate Sum",
+        readOnlyHint: true,
+        openWorldHint: false
+      }
+    }]
+  };
+});
+```
   </Tab>
 
   <Tab title="Python">
-    ```python
-    from mcp.server.fastmcp import FastMCP
+```python
+from mcp.server.fastmcp import FastMCP
 
-    mcp = FastMCP("example-server")
+mcp = FastMCP("example-server")
 
-    @mcp.tool(
-        annotations={
-            "title": "Calculate Sum",
-            "readOnlyHint": True,
-            "openWorldHint": False
-        }
-    )
-    async def calculate_sum(a: float, b: float) -> str:
-        """Add two numbers together.
+@mcp.tool(
+    annotations={
+        "title": "Calculate Sum",
+        "readOnlyHint": True,
+        "openWorldHint": False
+    }
+)
+async def calculate_sum(a: float, b: float) -> str:
+    """Add two numbers together.
 
-        Args:
-            a: First number to add
-            b: Second number to add
-        """
-        result = a + b
-        return str(result)
-    ```
+    Args:
+        a: First number to add
+        b: Second number to add
+    """
+    result = a + b
+    return str(result)
+```
   </Tab>
 </Tabs>
+<!-- markdownlint-enable MD046 -->
 
 ### Best practices for tool annotations
 
@@ -908,8 +912,8 @@ Here's how to define tools with annotations for different scenarios:
 
 A comprehensive testing strategy for MCP tools should cover:
 
-* **Functional testing**: Verify tools execute correctly with valid inputs and handle invalid inputs appropriately
-* **Integration testing**: Test tool interaction with external systems using both real and mocked dependencies
-* **Security testing**: Validate authentication, authorization, input sanitization, and rate limiting
-* **Performance testing**: Check behavior under load, timeout handling, and resource cleanup
-* **Error handling**: Ensure tools properly report errors through the MCP protocol and clean up resources
+- **Functional testing**: Verify tools execute correctly with valid inputs and handle invalid inputs appropriately
+- **Integration testing**: Test tool interaction with external systems using both real and mocked dependencies
+- **Security testing**: Validate authentication, authorization, input sanitization, and rate limiting
+- **Performance testing**: Check behavior under load, timeout handling, and resource cleanup
+- **Error handling**: Ensure tools properly report errors through the MCP protocol and clean up resources

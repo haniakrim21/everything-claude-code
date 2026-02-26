@@ -107,5 +107,5 @@ references/queue-concurrency.md
 
 ## References
 
-- https://docs.dbos.dev/
-- https://github.com/dbos-inc/dbos-transact-ts
+- <https://docs.dbos.dev/>
+- <https://github.com/dbos-inc/dbos-transact-ts>

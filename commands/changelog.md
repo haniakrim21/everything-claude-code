@@ -1,3 +1,7 @@
+---
+description: "Generate a changelog from git history since the last tag, grouping commits by type and formatting output in Keep a Changelog format."
+---
+
 Generate a changelog from git history since the last tag or a specified reference point.
 
 ## Steps

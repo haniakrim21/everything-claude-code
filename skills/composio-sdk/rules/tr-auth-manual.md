@@ -5,7 +5,7 @@ description: Control authentication flows explicitly using session.authorize() f
 tags: [authentication, tool-router, authorization, oauth]
 ---
 
-# Use Manual Authorization for Explicit Control
+## Use Manual Authorization for Explicit Control
 
 Use `session.authorize()` to explicitly control when users authenticate toolkits - perfect for onboarding flows, settings pages, or when you want authentication before starting agent workflows.
 

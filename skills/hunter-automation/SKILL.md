@@ -72,10 +72,10 @@ Check whether an email address is valid, deliverable, and safe to send to.
 **Tool:** `HUNTER_EMAIL_VERIFIER`
 
 **Example prompt:**
-> "Verify if john.doe@example.com is a valid email address"
+> "Verify if <john.doe@example.com> is a valid email address"
 
 **Key parameters:**
-- `email` (required) -- The email address to verify (e.g., "john.doe@example.com")
+- `email` (required) -- The email address to verify (e.g., "<john.doe@example.com>")
 
 **Response includes:** verification status, deliverability score, MX record validation, and risk assessment.
 
@@ -104,7 +104,7 @@ Create or update leads by email in a single upsert call -- no need to check exis
 **Tool:** `HUNTER_UPSERT_LEAD`
 
 **Example prompt:**
-> "Save john@stripe.com as a lead in Hunter with name John Doe, position CTO"
+> "Save <john@stripe.com> as a lead in Hunter with name John Doe, position CTO"
 
 **Key parameters:**
 - `email` -- Lead's email address (primary identifier for upsert)

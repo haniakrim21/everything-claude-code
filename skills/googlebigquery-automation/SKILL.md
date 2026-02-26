@@ -114,6 +114,7 @@ Note: Call RUBE_SEARCH_TOOLS to get the full schema for this tool.
 - Metabase field IDs used in MBQL `aggregation`, `breakout`, and `filter` arrays must be integers obtained from metadata responses.
 
 ## Quick Reference
+
 | Action | Tool | Key Parameters |
 |--------|------|----------------|
 | Run SQL query | `METABASE_POST_API_DATASET` | `database`, `type: "native"`, `native.query` |

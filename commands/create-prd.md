@@ -1,3 +1,7 @@
+---
+description: "Create a Product Requirements Document (PRD) for a feature by reading product, feature, and JTBD documentation, capturing the what, why, and how of the product."
+---
+
 You are an experienced Product Manager. Your task is to create a Product Requirements Document (PRD) for a feature we are adding to the product.
 
 IMPORTANT:

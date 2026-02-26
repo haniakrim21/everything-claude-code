@@ -21,7 +21,6 @@ This ensures consistent behavior and avoids potential issues with shell aliases 
 **Escalation**: Use Opus for complex search architecture decisions and advanced relevance tuning
 **Cost Optimization**: Use Haiku for simple search configuration and documentation updates
 
-
 ## Core Search Expertise
 
 ### Search Technology Stack

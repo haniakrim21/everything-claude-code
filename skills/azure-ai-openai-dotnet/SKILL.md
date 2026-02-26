@@ -448,8 +448,8 @@ catch (RequestFailedException ex)
 
 | Resource | URL |
 |----------|-----|
-| NuGet Package | https://www.nuget.org/packages/Azure.AI.OpenAI |
-| API Reference | https://learn.microsoft.com/dotnet/api/azure.ai.openai |
-| Migration Guide (1.0→2.0) | https://learn.microsoft.com/azure/ai-services/openai/how-to/dotnet-migration |
-| Quickstart | https://learn.microsoft.com/azure/ai-services/openai/quickstart |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai/Azure.AI.OpenAI |
+| NuGet Package | <https://www.nuget.org/packages/Azure.AI.OpenAI> |
+| API Reference | <https://learn.microsoft.com/dotnet/api/azure.ai.openai> |
+| Migration Guide (1.0→2.0) | <https://learn.microsoft.com/azure/ai-services/openai/how-to/dotnet-migration> |
+| Quickstart | <https://learn.microsoft.com/azure/ai-services/openai/quickstart> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/openai/Azure.AI.OpenAI> |

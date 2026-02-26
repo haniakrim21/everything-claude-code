@@ -5,7 +5,7 @@ description: Use webhook verification for reliable, scalable event delivery in p
 tags: [triggers, webhooks, production, security, verification, hmac]
 ---
 
-# Webhook Verification for Production
+## Webhook Verification for Production
 
 Webhooks are the **production-ready** way to receive trigger events. Provides reliable delivery, automatic retries, and works with serverless.
 

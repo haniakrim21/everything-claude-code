@@ -1,3 +1,7 @@
+---
+description: "Generate a GitHub Actions CI pipeline configuration with lint, test, build, and deploy stages tailored to the detected project stack."
+---
+
 Generate a CI pipeline configuration for GitHub Actions.
 
 ## Steps

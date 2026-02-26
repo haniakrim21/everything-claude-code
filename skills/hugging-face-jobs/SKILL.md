@@ -211,7 +211,7 @@ print(f"Token starts with: {token[:7]}...")  # Should start with "hf_"
 **Error: 403 Forbidden**
 - **Cause:** Token lacks required permissions
 - **Fix:** Ensure token has write permissions for push operations
-- **Check:** Token type at https://huggingface.co/settings/tokens
+- **Check:** Token type at <https://huggingface.co/settings/tokens>
 
 **Error: Token not found in environment**
 - **Cause:** `secrets` not passed or wrong key name
@@ -1035,4 +1035,3 @@ Add to PEP 723 header:
 | Cancel job | `hf_jobs("cancel", {...})` | `hf jobs cancel <id>` | `cancel_job(job_id)` |
 | Schedule UV | `hf_jobs("scheduled uv", {...})` | - | `create_scheduled_uv_job()` |
 | Schedule Docker | `hf_jobs("scheduled run", {...})` | - | `create_scheduled_job()` |
-

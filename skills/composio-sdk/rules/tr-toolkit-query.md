@@ -5,7 +5,7 @@ description: Use session.toolkits() to build connection management UIs showing w
 tags: [tool-router, toolkits, connections, ui]
 ---
 
-# Query Toolkit Connection States for UI
+## Query Toolkit Connection States for UI
 
 Use `session.toolkits()` to check connection status and build UIs showing which toolkits are connected. With `manageConnections: true`, agents handle missing connections automatically.
 

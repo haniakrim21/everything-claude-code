@@ -133,5 +133,5 @@ try {
 
 | Resource | URL |
 |----------|-----|
-| Maven Package | https://central.sonatype.com/artifact/com.azure/azure-ai-agents-persistent |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai/azure-ai-agents-persistent |
+| Maven Package | <https://central.sonatype.com/artifact/com.azure/azure-ai-agents-persistent> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/ai/azure-ai-agents-persistent> |

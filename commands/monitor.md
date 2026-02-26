@@ -1,3 +1,7 @@
+---
+description: "Set up monitoring, alerting, and observability with Prometheus, Grafana, or Datadog including health checks, alert rules, structured logging, and distributed tracing."
+---
+
 Set up monitoring, alerting, and observability for the application.
 
 ## Steps

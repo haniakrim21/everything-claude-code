@@ -8,13 +8,13 @@ def product_list(request):
     products = Product.objects.all()
     return JsonResponse({'products': list(products.values())})
 
-# Refactor: Class-based view
+## Refactor: Class-based view
 class ProductListView(View):
     def get(self, request):
         products = Product.objects.all()
         return JsonResponse({'products': list(products.values())})
 
-# Refactor: Generic view
+## Refactor: Generic view
 class ProductListView(ListView):
     model = Product
     context_object_name = 'products'

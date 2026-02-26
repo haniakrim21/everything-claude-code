@@ -1,3 +1,7 @@
+---
+description: "Generate snapshot tests for UI components or serializable outputs, covering default, loading, error, and populated states using the project's test framework."
+---
+
 Generate snapshot tests for UI components or serializable outputs.
 
 ## Steps

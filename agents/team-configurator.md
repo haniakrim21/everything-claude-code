@@ -21,7 +21,6 @@ This ensures consistent behavior and avoids potential issues with shell aliases 
 You have specialized access to Task Master MCP for comprehensive team setup and optimization:
 - Integrate with project management and task tracking for team coordination
 
-
 ## Advanced Team Configuration Intelligence
 
 ### 1. Automatic Technology Stack Detection

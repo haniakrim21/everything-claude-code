@@ -5,7 +5,7 @@ description: Listen to real-time trigger events during development using subscri
 tags: [triggers, events, subscribe, development, real-time]
 ---
 
-# Subscribe to Trigger Events
+## Subscribe to Trigger Events
 
 Use `subscribe()` to listen to trigger events in **development only**. For production, use webhooks via `listenToTriggers()`.
 

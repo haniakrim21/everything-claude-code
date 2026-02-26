@@ -71,7 +71,7 @@ Create a better folder structure for my [work/projects/photos/etc]
 When a user requests file organization help:
 
 1. **Understand the Scope**
-   
+
    Ask clarifying questions:
    - Which directory needs organization? (Downloads, Documents, entire home folder?)
    - What's the main problem? (Can't find things, duplicates, too messy, no structure?)
@@ -79,7 +79,7 @@ When a user requests file organization help:
    - How aggressively to organize? (Conservative vs. comprehensive cleanup)
 
 2. **Analyze Current State**
-   
+
    Review the target directory:
    ```bash
    # Get overview of current structure
@@ -94,7 +94,7 @@ When a user requests file organization help:
    # Count file types
    find [target_directory] -type f | sed 's/.*\.//' | sort | uniq -c | sort -rn
    ```
-   
+
    Summarize findings:
    - Total files and folders
    - File type breakdown
@@ -103,9 +103,9 @@ When a user requests file organization help:
    - Obvious organization issues
 
 3. **Identify Organization Patterns**
-   
+
    Based on the files, determine logical groupings:
-   
+
    **By Type**:
    - Documents (PDFs, DOCX, TXT)
    - Images (JPG, PNG, SVG)
@@ -114,21 +114,21 @@ When a user requests file organization help:
    - Code/Projects (directories with code)
    - Spreadsheets (XLSX, CSV)
    - Presentations (PPTX, KEY)
-   
+
    **By Purpose**:
    - Work vs. Personal
    - Active vs. Archive
    - Project-specific
    - Reference materials
    - Temporary/scratch files
-   
+
    **By Date**:
    - Current year/month
    - Previous years
    - Very old (archive candidates)
 
 4. **Find Duplicates**
-   
+
    When requested, search for duplicates:
    ```bash
    # Find exact duplicates by hash
@@ -140,7 +140,7 @@ When a user requests file organization help:
    # Find similar-sized files
    find [directory] -type f -printf '%s %p\n' | sort -n
    ```
-   
+
    For each set of duplicates:
    - Show all file paths
    - Display sizes and modification dates
@@ -148,9 +148,9 @@ When a user requests file organization help:
    - **Important**: Always ask for confirmation before deleting
 
 5. **Propose Organization Plan**
-   
+
    Present a clear plan before making changes:
-   
+
    ```markdown
    # Organization Plan for [Directory]
    
@@ -195,9 +195,9 @@ When a user requests file organization help:
    ```
 
 6. **Execute Organization**
-   
+
    After approval, organize systematically:
-   
+
    ```bash
    # Create folder structure
    mkdir -p "path/to/new/folders"
@@ -208,7 +208,7 @@ When a user requests file organization help:
    # Rename files with consistent patterns
    # Example: "YYYY-MM-DD - Description.ext"
    ```
-   
+
    **Important Rules**:
    - Always confirm before deleting anything
    - Log all moves for potential undo
@@ -217,9 +217,9 @@ When a user requests file organization help:
    - Stop and ask if you encounter unexpected situations
 
 7. **Provide Summary and Maintenance Tips**
-   
+
    After organizing:
-   
+
    ```markdown
    # Organization Complete! ✨
    
@@ -255,7 +255,7 @@ When a user requests file organization help:
    # Find duplicates
    [custom command]
    ```
-   
+
    Want to organize another folder?
    ```
 
@@ -430,4 +430,3 @@ Documents folder.
 - Cleaning up before storage cleanup
 - Organizing shared team folders
 - Structuring new project directories
-

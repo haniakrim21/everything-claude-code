@@ -309,6 +309,7 @@ Edit files in `unpacked/word/`. See XML Reference below for patterns.
 <!-- Use these entities for professional typography -->
 <w:t>Here&#x2019;s a quote: &#x201C;Hello&#x201D;</w:t>
 ```
+
 | Entity | Character |
 |--------|-----------|
 | `&#x2018;` | ‘ (left single) |

@@ -46,10 +46,10 @@ You need raw XML access for: comments, complex formatting, document structure, e
 `python ooxml/scripts/unpack.py <office_file> <output_directory>`
 
 #### Key file structures
-* `word/document.xml` - Main document contents
-* `word/comments.xml` - Comments referenced in document.xml
-* `word/media/` - Embedded images and media files
-* Tracked changes use `<w:ins>` (insertions) and `<w:del>` (deletions) tags
+- `word/document.xml` - Main document contents
+- `word/comments.xml` - Comments referenced in document.xml
+- `word/media/` - Embedded images and media files
+- Tracked changes use `<w:ins>` (insertions) and `<w:del>` (deletions) tags
 
 ## Creating a new Word document
 
@@ -151,7 +151,6 @@ Example - Changing "30 days" to "60 days" in a sentence:
      grep "replacement phrase" verification.md  # Should find it
      ```
    - Check that no unintended changes were introduced
-
 
 ## Converting Documents to Images
 

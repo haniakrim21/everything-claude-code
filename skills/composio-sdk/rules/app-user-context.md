@@ -5,7 +5,7 @@ description: Critical patterns for user identification, multi-tenancy, and data 
 tags: [user-context, security, multi-tenancy, isolation, production]
 ---
 
-# User Context and ID Patterns
+## User Context and ID Patterns
 
 Every Composio operation requires a `userId` parameter for security and data isolation. Users can only access their own connected accounts.
 

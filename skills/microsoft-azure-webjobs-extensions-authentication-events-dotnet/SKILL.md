@@ -433,8 +433,8 @@ public static WebJobsAuthenticationEventResponse Run(
 
 | Resource | URL |
 |----------|-----|
-| NuGet Package | https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents |
-| Custom Extensions Overview | https://learn.microsoft.com/entra/identity-platform/custom-extension-overview |
-| Token Issuance Events | https://learn.microsoft.com/entra/identity-platform/custom-extension-tokenissuancestart-setup |
-| Attribute Collection Events | https://learn.microsoft.com/entra/identity-platform/custom-extension-attribute-collection |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/entra/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents |
+| NuGet Package | <https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents> |
+| Custom Extensions Overview | <https://learn.microsoft.com/entra/identity-platform/custom-extension-overview> |
+| Token Issuance Events | <https://learn.microsoft.com/entra/identity-platform/custom-extension-tokenissuancestart-setup> |
+| Attribute Collection Events | <https://learn.microsoft.com/entra/identity-platform/custom-extension-attribute-collection> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/entra/Microsoft.Azure.WebJobs.Extensions.AuthenticationEvents> |

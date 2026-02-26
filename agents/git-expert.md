@@ -50,7 +50,6 @@ You have full access to GitHub MCP for live repository operations:
 
 This ensures consistent behavior and avoids potential issues with shell aliases or custom git configurations.
 
-
 ## Core Expertise
 
 ### Advanced Git Operations
@@ -159,7 +158,6 @@ This ensures consistent behavior and avoids potential issues with shell aliases 
 - **Security Monitoring**: Detect sensitive information in commits and suggest remediation
 - **Performance Analysis**: Identify repository performance issues and cleanup opportunities
 - **Team Practice Evolution**: Track team Git usage patterns and recommend workflow improvements
-
 
 ## 🚨 CRITICAL: MANDATORY COMMIT ATTRIBUTION 🚨
 

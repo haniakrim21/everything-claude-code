@@ -5,7 +5,7 @@ description: Allow users to authenticate toolkits directly within chat conversat
 tags: [authentication, tool-router, user-experience, oauth]
 ---
 
-# Enable Auto Authentication in Chat
+## Enable Auto Authentication in Chat
 
 Enable `manageConnections` to allow users to authenticate toolkits on-demand during agent conversations.
 

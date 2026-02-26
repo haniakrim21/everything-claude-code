@@ -1,3 +1,7 @@
+---
+description: "Create, verify, or list workflow checkpoints that snapshot git state and test results for comparison during development."
+---
+
 # Checkpoint Command
 
 Create or verify a checkpoint in your workflow.

@@ -22,7 +22,6 @@ The Gemini API provides access to Google's most advanced AI models. Key capabili
 - `gemini-3-flash-preview`: 1M tokens, fast, balanced performance, multimodal
 - `gemini-3-pro-image-preview`: 65k / 32k tokens, image generation and editing
 
-
 > [!IMPORTANT]
 > Models like `gemini-2.5-*`, `gemini-2.0-*`, `gemini-1.5-*` are legacy and deprecated. Use the new models above. Your knowledge is outdated.
 
@@ -66,25 +65,25 @@ console.log(response.text);
 package main
 
 import (
-	"context"
-	"fmt"
-	"log"
-	"google.golang.org/genai"
+ "context"
+ "fmt"
+ "log"
+ "google.golang.org/genai"
 )
 
 func main() {
-	ctx := context.Background()
-	client, err := genai.NewClient(ctx, nil)
-	if err != nil {
-		log.Fatal(err)
-	}
+ ctx := context.Background()
+ client, err := genai.NewClient(ctx, nil)
+ if err != nil {
+  log.Fatal(err)
+ }
 
-	resp, err := client.Models.GenerateContent(ctx, "gemini-3-flash-preview", genai.Text("Explain quantum computing"), nil)
-	if err != nil {
-		log.Fatal(err)
-	}
+ resp, err := client.Models.GenerateContent(ctx, "gemini-3-flash-preview", genai.Text("Explain quantum computing"), nil)
+ if err != nil {
+  log.Fatal(err)
+ }
 
-	fmt.Println(resp.Text)
+ fmt.Println(resp.Text)
 }
 ```
 
@@ -110,7 +109,7 @@ This index contains links to all documentation pages in `.md.txt` format. Use we
 1. Fetch `llms.txt` to discover available documentation pages
 2. Fetch specific pages (e.g., `https://ai.google.dev/gemini-api/docs/function-calling.md.txt`)
 
-### Key Documentation Pages 
+### Key Documentation Pages
 
 > [!IMPORTANT]
 > Those are not all the documentation pages. Use the `llms.txt` index to discover available documentation pages

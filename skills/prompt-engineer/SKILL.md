@@ -56,7 +56,6 @@ Invoke this skill when:
 - **Ambiguous tasks:** Generic verbs ("help", "improve"), missing object/context
 - **Structured tasks:** Mentions steps, phases, deliverables, stakeholders
 
-
 ### Step 3: Select Framework(s)
 
 **Objective:** Map task characteristics to optimal prompting framework(s).
@@ -197,7 +196,6 @@ Output format: Technical design document with architecture diagrams, algorithm j
 ```
 ````
 
-
 ### **Example 4: Code Debugging → Chain of Thought**
 
 **User Input:**
@@ -240,7 +238,6 @@ Output format:
 Include a working example to verify the fix.
 ```
 ````
-
 
 ## Notes
 

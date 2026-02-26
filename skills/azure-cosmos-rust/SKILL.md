@@ -130,6 +130,6 @@ cargo add azure_data_cosmos --features key_auth
 
 | Resource | Link |
 |----------|------|
-| API Reference | https://docs.rs/azure_data_cosmos |
-| Source Code | https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/cosmos/azure_data_cosmos |
-| crates.io | https://crates.io/crates/azure_data_cosmos |
+| API Reference | <https://docs.rs/azure_data_cosmos> |
+| Source Code | <https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/cosmos/azure_data_cosmos> |
+| crates.io | <https://crates.io/crates/azure_data_cosmos> |

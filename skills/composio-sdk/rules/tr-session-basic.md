@@ -5,7 +5,7 @@ description: Essential pattern for initializing Tool Router sessions with proper
 tags: [tool-router, session, initialization, agents]
 ---
 
-# Create Basic Tool Router Sessions
+## Create Basic Tool Router Sessions
 
 Always create isolated Tool Router sessions per user to ensure proper data isolation and scoped tool access.
 

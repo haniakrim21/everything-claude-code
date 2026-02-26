@@ -318,6 +318,7 @@ await client.UpdateKeyRotationPolicyAsync("my-rsa-key", policy);
 ## Algorithms Reference
 
 ### Encryption Algorithms
+
 | Algorithm | Key Type | Description |
 |-----------|----------|-------------|
 | `RsaOaep` | RSA | RSA-OAEP |
@@ -327,6 +328,7 @@ await client.UpdateKeyRotationPolicyAsync("my-rsa-key", policy);
 | `A256Gcm` | Oct | AES-256-GCM |
 
 ### Signature Algorithms
+
 | Algorithm | Key Type | Description |
 |-----------|----------|-------------|
 | `RS256` | RSA | RSASSA-PKCS1-v1_5 SHA-256 |
@@ -338,6 +340,7 @@ await client.UpdateKeyRotationPolicyAsync("my-rsa-key", policy);
 | `ES512` | EC | ECDSA P-521 SHA-512 |
 
 ### Key Wrap Algorithms
+
 | Algorithm | Key Type | Description |
 |-----------|----------|-------------|
 | `RsaOaep` | RSA | RSA-OAEP |
@@ -400,7 +403,7 @@ catch (RequestFailedException ex)
 
 | Resource | URL |
 |----------|-----|
-| NuGet Package | https://www.nuget.org/packages/Azure.Security.KeyVault.Keys |
-| API Reference | https://learn.microsoft.com/dotnet/api/azure.security.keyvault.keys |
-| Quickstart | https://learn.microsoft.com/azure/key-vault/keys/quick-create-net |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault/Azure.Security.KeyVault.Keys |
+| NuGet Package | <https://www.nuget.org/packages/Azure.Security.KeyVault.Keys> |
+| API Reference | <https://learn.microsoft.com/dotnet/api/azure.security.keyvault.keys> |
+| Quickstart | <https://learn.microsoft.com/azure/key-vault/keys/quick-create-net> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/keyvault/Azure.Security.KeyVault.Keys> |

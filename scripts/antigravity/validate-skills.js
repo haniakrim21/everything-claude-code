@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 const { listSkillIds, parseFrontmatter } = require("../lib/skill-utils");
 
-const ROOT = path.resolve(__dirname, "..");
+const ROOT = path.resolve(__dirname, "../..");
 const SKILLS_DIR = path.join(ROOT, "skills");
 const BASELINE_PATH = path.join(ROOT, "validation-baseline.json");
 
@@ -108,7 +108,7 @@ function loadBaseline() {
         : [],
       longFile: Array.isArray(parsed.longFile) ? parsed.longFile : [],
     };
-  } catch (err) {
+  } catch (_err) {
     addWarning(
       "Failed to parse validation-baseline.json; strict mode may fail.",
     );

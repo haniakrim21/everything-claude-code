@@ -151,6 +151,7 @@ if __name__ == '__main__':
 ```
 
 ### Distribution
+
 | Method | Complexity | Reach |
 |--------|------------|-------|
 | npm publish | Low | Node devs |
@@ -158,6 +159,7 @@ if __name__ == '__main__':
 | Homebrew tap | Medium | Mac users |
 | Binary release | Medium | Everyone |
 | Docker image | Medium | Tech users |
+
 ```
 
 ### Local-First Apps

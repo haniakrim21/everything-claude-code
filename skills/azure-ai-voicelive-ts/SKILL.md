@@ -459,7 +459,7 @@ const audioContext = new AudioContext({ sampleRate: 24000 });
 
 | Resource | URL |
 |----------|-----|
-| npm Package | https://www.npmjs.com/package/@azure/ai-voicelive |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-voicelive |
-| Samples | https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-voicelive/samples |
-| API Reference | https://learn.microsoft.com/javascript/api/@azure/ai-voicelive |
+| npm Package | <https://www.npmjs.com/package/@azure/ai-voicelive> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-voicelive> |
+| Samples | <https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-voicelive/samples> |
+| API Reference | <https://learn.microsoft.com/javascript/api/@azure/ai-voicelive> |

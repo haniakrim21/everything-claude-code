@@ -1,3 +1,7 @@
+---
+description: "Analyze the codebase and update architecture, backend, frontend, and data model codemap documents, flagging large changes for user approval before saving."
+---
+
 # Update Codemaps
 
 Analyze the codebase structure and update architecture documentation:

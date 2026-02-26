@@ -1,3 +1,7 @@
+---
+description: "Create a tagged release with auto-generated release notes from commits, bumping the version in package files and publishing a GitHub release."
+---
+
 Create a tagged release with auto-generated release notes from recent commits.
 
 ## Steps

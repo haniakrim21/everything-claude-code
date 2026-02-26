@@ -1,3 +1,7 @@
+---
+description: "Conduct a structured design review of a module, feature, or system component, evaluating design principles, anti-patterns, and scalability with actionable recommendations."
+---
+
 Conduct a structured design review of a module, feature, or system component.
 
 ## Steps

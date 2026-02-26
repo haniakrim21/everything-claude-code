@@ -83,42 +83,42 @@ When a user requests meeting analysis:
    - Identify the user's name/identifier in transcripts
 
 2. **Clarify Analysis Goals**
-   
+
    If not specified, ask what they want to learn:
    - Specific behaviors (conflict avoidance, interruptions, filler words)
    - Communication effectiveness (clarity, directness, listening)
    - Meeting facilitation skills
    - Speaking patterns and ratios
    - Growth areas for improvement
-   
+
 3. **Analyze Patterns**
 
    For each requested insight:
-   
+
    **Conflict Avoidance**:
    - Look for hedging language ("maybe", "kind of", "I think")
    - Indirect phrasing instead of direct requests
    - Changing subject when tension arises
    - Agreeing without commitment ("yeah, but...")
    - Not addressing obvious problems
-   
+
    **Speaking Ratios**:
    - Calculate percentage of meeting spent speaking
    - Count interruptions (by and of the user)
    - Measure average speaking turn length
    - Track question vs. statement ratios
-   
+
    **Filler Words**:
    - Count "um", "uh", "like", "you know", "actually", etc.
    - Note frequency per minute or per speaking turn
    - Identify situations where they increase (nervous, uncertain)
-   
+
    **Active Listening**:
    - Questions that reference others' previous points
    - Paraphrasing or summarizing others' ideas
    - Building on others' contributions
    - Asking clarifying questions
-   
+
    **Leadership & Facilitation**:
    - Decision-making approach (directive vs. collaborative)
    - How disagreements are handled
@@ -129,7 +129,7 @@ When a user requests meeting analysis:
 4. **Provide Specific Examples**
 
    For each pattern found, include:
-   
+
    ```markdown
    ### [Pattern Name]
    
@@ -156,7 +156,7 @@ When a user requests meeting analysis:
 5. **Synthesize Insights**
 
    After analyzing all patterns, provide:
-   
+
    ```markdown
    # Meeting Insights Summary
    
@@ -211,7 +211,7 @@ When a user requests meeting analysis:
 
 **User**: "I download all of my meeting recordings and put them in a folder. Tell me all the times I've subtly avoided conflict."
 
-**Output**: 
+**Output**:
 ```markdown
 # Conflict Avoidance Patterns
 
@@ -324,4 +324,3 @@ today."
 - Coaching direct reports on their communication
 - Analyzing customer calls for sales or support patterns
 - Studying negotiation tactics and outcomes
-

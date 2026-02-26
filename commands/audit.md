@@ -1,3 +1,7 @@
+---
+description: "Perform a comprehensive security audit covering dependency vulnerabilities, secrets, OWASP Top 10, input validation, and authentication review with severity-ranked findings."
+---
+
 Perform a security audit of the codebase covering common vulnerability categories.
 
 ## Steps
@@ -10,7 +14,7 @@ Perform a security audit of the codebase covering common vulnerability categorie
 
 ### 2. Secrets Scan
 - Search for hardcoded secrets, API keys, tokens, and passwords:
-  - Patterns: `password\s*=`, `api[_-]?key`, `secret`, `token`, `Bearer `, base64-encoded strings.
+  - Patterns: `password\s*=`, `api[_-]?key`, `secret`, `token`, `Bearer`, base64-encoded strings.
   - Files: `.env` files committed to git, config files, source code.
 - Check `.gitignore` for proper exclusion of sensitive files.
 - Verify environment variables are used for all secrets.

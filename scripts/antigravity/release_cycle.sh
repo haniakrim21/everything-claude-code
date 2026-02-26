@@ -15,11 +15,11 @@ echo -e "${YELLOW}🤖 Initiating Antigravity Release Protocol...${NC}"
 # 1. Validation Chain
 echo -e "\n${YELLOW}Step 1: Running Validation Chain...${NC}"
 echo "Running validate_skills.py..."
-python3 scripts/validate_skills.py
+python3 scripts/antigravity/validate_skills.py
 echo "Running generate_index.py..."
-python3 scripts/generate_index.py
+python3 scripts/antigravity/generate_index.py
 echo "Running update_readme.py..."
-python3 scripts/update_readme.py
+python3 scripts/antigravity/update_readme.py
 
 # 2. Catalog (required for CI)
 echo -e "\n${YELLOW}Step 2: Build catalog...${NC}"

@@ -34,6 +34,12 @@ function validateSkills() {
       continue;
     }
 
+    if (!content.trim().startsWith('---')) {
+      console.error(`ERROR: ${dir}/SKILL.md - Missing frontmatter`);
+      hasErrors = true;
+      continue;
+    }
+
     validCount++;
   }
 

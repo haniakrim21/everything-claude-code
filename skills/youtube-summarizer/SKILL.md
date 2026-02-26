@@ -339,7 +339,7 @@ echo "[████████████████████] 100% - Step
 
 **User Input:**
 ```
-claude> summarize this youtube video https://youtu.be/abc123
+claude> summarize this youtube video <https://youtu.be/abc123>
 ```
 
 **Skill Response:**
@@ -363,7 +363,6 @@ Successfully installed youtube-transcript-api-0.6.1
 ✅ Installation complete! Proceeding with video summary...
 ```
 
-
 ### **Example 4: Invalid URL**
 
 **User Input:**
@@ -382,7 +381,6 @@ Expected format examples:
 
 Please provide a valid YouTube video URL.
 ```
-
 
 ## 📊 Executive Summary
 
@@ -404,7 +402,6 @@ What would you like to save?
 
 Welcome to this comprehensive tutorial on machine learning fundamentals. In today's video, we'll explore the core concepts that power modern AI systems...
 ```
-
 
 **Version:** 1.2.0
 **Last Updated:** 2026-02-02

@@ -1,3 +1,7 @@
+---
+description: "Sync documentation from package.json and .env.example, generating CONTRIB.md and RUNBOOK.md and flagging obsolete docs for review."
+---
+
 # Update Documentation
 
 Sync documentation from source-of-truth:

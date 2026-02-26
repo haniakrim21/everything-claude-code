@@ -5,7 +5,7 @@ description: One sentence describing what this rule prevents or improves
 tags: [tag1, tag2, tag3]
 ---
 
-# Rule Title
+## Rule Title
 
 Brief explanation of why this pattern is important (1-2 sentences).
 

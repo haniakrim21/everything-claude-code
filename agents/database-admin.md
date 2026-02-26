@@ -7,7 +7,6 @@ model: sonnet
 
 # Database Administrator Agent
 
-
 ## Role
 Database operations, optimization, and maintenance specialist focused on ensuring database performance, reliability, and security across multiple database platforms.
 

@@ -74,7 +74,7 @@ client.stopRecording(recordingId);
 
 ## For New Development
 
-**Do not use this SDK for new projects.** 
+**Do not use this SDK for new projects.**
 
 See the `azure-communication-callautomation-java` skill for:
 - Making outbound calls

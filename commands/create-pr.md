@@ -1,3 +1,7 @@
+---
+description: "Create a new branch, commit changes with logical splitting, and submit a pull request with a descriptive summary and test plan."
+---
+
 # Create Pull Request Command
 
 Create a new branch, commit changes, and submit a pull request.

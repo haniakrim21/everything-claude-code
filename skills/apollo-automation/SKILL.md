@@ -77,7 +77,7 @@ Get comprehensive data (email, phone, LinkedIn, company info) for a single perso
 - `email` -- Person's email address
 - `linkedin_url` -- Full LinkedIn profile URL
 - `first_name` + `last_name` + (`organization_name` or `domain`) -- Name-based matching
-- `domain` -- Bare hostname without protocol (e.g., "apollo.io", not "https://apollo.io")
+- `domain` -- Bare hostname without protocol (e.g., "apollo.io", not "<https://apollo.io>")
 - `reveal_personal_emails` -- Set true to get personal emails (may use extra credits)
 - `reveal_phone_number` -- Set true for phone numbers (requires `webhook_url`)
 

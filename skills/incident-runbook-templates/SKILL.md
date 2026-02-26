@@ -104,6 +104,7 @@ curl -s "http://prometheus:9090/api/v1/query?query=sum(rate(http_requests_total{
 - [ ] Recent changes? Check deploy history
 
 ### 3. Initial Classification
+
 | Symptom | Likely Cause | Go To Section |
 |---------|--------------|---------------|
 | All requests failing | Service down | Section 4.1 |

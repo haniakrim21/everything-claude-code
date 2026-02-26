@@ -145,7 +145,7 @@ Create webhook notifications for specific Cloudinary events.
 Use to receive callbacks when uploads complete, transformations finish, or other events occur.
 
 Example prompt:
-> "Create a webhook trigger that notifies https://my-app.com/hook on upload events"
+> "Create a webhook trigger that notifies <https://my-app.com/hook> on upload events"
 
 ---
 

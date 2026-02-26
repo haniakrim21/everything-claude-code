@@ -11,7 +11,7 @@ Set up the connect-apps plugin so Claude can take real actions in external apps 
 
 ### Step 1: Ask for API Key
 
-Ask the user for their Composio API key. If they don't have one, tell them to get a free key at: https://platform.composio.dev/?utm_source=Github&utm_content=AwesomeSkills
+Ask the user for their Composio API key. If they don't have one, tell them to get a free key at: <https://platform.composio.dev/?utm_source=Github&utm_content=AwesomeSkills>
 
 Just ask for the key directly. Don't ask if they have one first.
 

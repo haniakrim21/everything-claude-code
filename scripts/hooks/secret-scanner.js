@@ -12,7 +12,7 @@ if (binaryExts.includes(ext)) process.exit(0);
 let content;
 try {
   content = fs.readFileSync(filePath, "utf8");
-} catch (e) {
+} catch (_e) {
   process.exit(0);
 }
 

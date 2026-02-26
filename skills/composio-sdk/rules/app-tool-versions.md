@@ -5,7 +5,7 @@ description: Critical strategies for version pinning to ensure workflow stabilit
 tags: [tools, versions, stability, production, pinning]
 ---
 
-# Tool Version Management
+## Tool Version Management
 
 > **⚠️ CRITICAL:** Never assume or make up version numbers. Always use `composio.toolkits.get('toolkit_name')` to fetch available versions, or check the [dashboard](https://platform.composio.dev) to view versions and changes. Using non-existent versions will cause runtime errors.
 

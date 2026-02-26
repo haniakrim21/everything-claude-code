@@ -9,7 +9,7 @@ let context = {};
 if (fs.existsSync(contextFile)) {
   try {
     context = JSON.parse(fs.readFileSync(contextFile, "utf8"));
-  } catch (e) {}
+  } catch (_e) { /* ignore */ }
 }
 
 const sessionData = context[cwd] || {};

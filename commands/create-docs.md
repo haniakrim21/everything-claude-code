@@ -1,3 +1,7 @@
+---
+description: "Create the standard project documentation folder structure with numbered subfolders for discovery, architecture, PRDs, design, development, tests, and more."
+---
+
 Create the standard project documentation folder structure.
 
 ## Steps

@@ -1,3 +1,7 @@
+---
+description: "Manage eval-driven development workflow for running and tracking evaluations"
+---
+
 # Eval Command
 
 Manage eval-driven development workflow.

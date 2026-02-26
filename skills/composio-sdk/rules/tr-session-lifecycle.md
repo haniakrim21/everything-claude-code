@@ -5,7 +5,7 @@ description: Create new sessions frequently for better logging, debugging, and c
 tags: [tool-router, session, lifecycle, best-practices, logging]
 ---
 
-# Treat Sessions as Short-Lived and Disposable
+## Treat Sessions as Short-Lived and Disposable
 
 Tool Router sessions should be **short-lived and disposable**. Create new sessions frequently rather than caching or reusing them across different contexts.
 

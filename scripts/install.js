@@ -83,7 +83,7 @@ function log(msg)  { process.stdout.write(msg + '\n'); }
 function ok(msg)   { log(`  \u2713 ${msg}`); }
 function skip(msg) { log(`  \u2014 ${msg}`); }
 function warn(msg) { log(`  ! ${msg}`); }
-function fail(msg) { log(`  \u2717 ${msg}`); }
+function _fail(msg) { log(`  \u2717 ${msg}`); }
 
 function ensureDir(dirPath) {
   if (!fs.existsSync(dirPath) && !flags.dryRun) fs.mkdirSync(dirPath, { recursive: true });
@@ -158,7 +158,7 @@ function installHooksAndScripts() {
     if (!settings.hooks[event]) settings.hooks[event] = [];
     const existingJson = settings.hooks[event].map(h => JSON.stringify(h));
     for (const hook of hookList) {
-      JSON.stringify(hook) in new Set(existingJson) || existingJson.includes(JSON.stringify(hook))
+      existingJson.includes(JSON.stringify(hook))
         ? skipped++
         : (settings.hooks[event].push(hook), added++);
     }

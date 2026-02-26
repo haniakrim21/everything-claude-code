@@ -61,7 +61,7 @@ function parseFrontmatter(content) {
 
   const errors = [];
   const fmText = lines.slice(1, endIndex).join('\n');
-  let data = {};
+  let data;
 
   try {
     const doc = yaml.parseDocument(fmText, { prettyErrors: false });

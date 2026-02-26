@@ -1,3 +1,7 @@
+---
+description: "Create a pull request using GitHub CLI following project conventions, PR template structure, and conventional commit title format."
+---
+
 # How to Create a Pull Request Using GitHub CLI
 
 This guide explains how to create pull requests using GitHub CLI in our project.

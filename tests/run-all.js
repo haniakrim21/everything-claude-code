@@ -13,7 +13,11 @@ const testsDir = __dirname;
 const testFiles = [
   'lib/utils.test.js',
   'lib/package-manager.test.js',
-  'hooks/hooks.test.js'
+  'lib/session-manager.test.js',
+  'lib/session-aliases.test.js',
+  'hooks/hooks.test.js',
+  'hooks/hooks-extended.test.js',
+  'integration/hooks.test.js'
 ];
 
 console.log('╔══════════════════════════════════════════════════════════╗');
@@ -23,7 +27,6 @@ console.log();
 
 let totalPassed = 0;
 let totalFailed = 0;
-let totalTests = 0;
 
 for (const testFile of testFiles) {
   const testPath = path.join(testsDir, testFile);
@@ -63,7 +66,7 @@ for (const testFile of testFiles) {
   }
 }
 
-totalTests = totalPassed + totalFailed;
+const totalTests = totalPassed + totalFailed;
 
 console.log('\n╔══════════════════════════════════════════════════════════╗');
 console.log('║                     Final Results                        ║');

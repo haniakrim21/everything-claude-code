@@ -9,10 +9,10 @@ This skill defines the mandatory conventions and behavioral rules for developing
 
 ## Core Pillars
 
-1.  **Functional-Reactive MVVM**: Pure MVVM logic using DynamicData and ReactiveUI.
-2.  **Safety & Predictability**: Explicit error handling with `Result` types and avoidance of exceptions for flow control.
-3.  **Cross-Platform Excellence**: Strictly Avalonia-independent ViewModels and composition-over-inheritance.
-4.  **Zafiro First**: Leverage existing Zafiro abstractions and helpers to avoid redundancy.
+1. **Functional-Reactive MVVM**: Pure MVVM logic using DynamicData and ReactiveUI.
+2. **Safety & Predictability**: Explicit error handling with `Result` types and avoidance of exceptions for flow control.
+3. **Cross-Platform Excellence**: Strictly Avalonia-independent ViewModels and composition-over-inheritance.
+4. **Zafiro First**: Leverage existing Zafiro abstractions and helpers to avoid redundancy.
 
 ## Guides
 
@@ -24,6 +24,6 @@ This skill defines the mandatory conventions and behavioral rules for developing
 
 ## Procedure Before Writing Code
 
-1.  **Search First**: Search the codebase for similar implementations or existing Zafiro helpers.
-2.  **Reusable Extensions**: If a helper is missing, propose a new reusable extension method instead of inlining complex logic.
-3.  **Reactive Pipelines**: Ensure DynamicData operators are used instead of plain Rx where applicable.
+1. **Search First**: Search the codebase for similar implementations or existing Zafiro helpers.
+2. **Reusable Extensions**: If a helper is missing, propose a new reusable extension method instead of inlining complex logic.
+3. **Reactive Pipelines**: Ensure DynamicData operators are used instead of plain Rx where applicable.

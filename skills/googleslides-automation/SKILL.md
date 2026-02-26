@@ -102,6 +102,7 @@ Parameters:
 - Copying from a template requires the authenticated user to have at least read access to the template presentation.
 
 ## Quick Reference
+
 | Action | Tool | Key Parameters |
 |--------|------|----------------|
 | Create blank presentation | `GOOGLESLIDES_PRESENTATIONS_CREATE` | `title` |

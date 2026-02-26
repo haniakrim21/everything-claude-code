@@ -22,7 +22,6 @@ Automate WhatsApp Business operations through Composio's WhatsApp toolkit via Ru
 
 **Get Rube MCP**: Add `https://rube.app/mcp` as an MCP server in your client configuration. No API keys needed — just add the endpoint and it works.
 
-
 1. Verify Rube MCP is available by confirming `RUBE_SEARCH_TOOLS` responds
 2. Call `RUBE_MANAGE_CONNECTIONS` with toolkit `whatsapp`
 3. If connection is not ACTIVE, follow the returned auth link to complete WhatsApp Business setup
@@ -177,7 +176,7 @@ Automate WhatsApp Business operations through Composio's WhatsApp toolkit via Ru
 ## Known Pitfalls
 
 **Phone Number Format**:
-- Always use E.164 format: +[country code][number] (e.g., '+14155551234')
+- Always use E.164 format: +country_code+number (e.g., '+14155551234')
 - Do not include dashes, spaces, or parentheses
 - Country code is required; local numbers without it will fail
 

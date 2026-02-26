@@ -59,29 +59,29 @@ A DBOS application MUST create a context, register workflows, and launch before 
 package main
 
 import (
-	"context"
-	"log"
-	"os"
-	"time"
+ "context"
+ "log"
+ "os"
+ "time"
 
-	"github.com/dbos-inc/dbos-transact-golang/dbos"
+ "github.com/dbos-inc/dbos-transact-golang/dbos"
 )
 
 func main() {
-	ctx, err := dbos.NewDBOSContext(context.Background(), dbos.Config{
-		AppName:     "my-app",
-		DatabaseURL: os.Getenv("DBOS_SYSTEM_DATABASE_URL"),
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer dbos.Shutdown(ctx, 30*time.Second)
+ ctx, err := dbos.NewDBOSContext(context.Background(), dbos.Config{
+  AppName:     "my-app",
+  DatabaseURL: os.Getenv("DBOS_SYSTEM_DATABASE_URL"),
+ })
+ if err != nil {
+  log.Fatal(err)
+ }
+ defer dbos.Shutdown(ctx, 30*time.Second)
 
-	dbos.RegisterWorkflow(ctx, myWorkflow)
+ dbos.RegisterWorkflow(ctx, myWorkflow)
 
-	if err := dbos.Launch(ctx); err != nil {
-		log.Fatal(err)
-	}
+ if err := dbos.Launch(ctx); err != nil {
+  log.Fatal(err)
+ }
 }
 ```
 
@@ -91,21 +91,21 @@ Workflows are comprised of steps. Any function performing complex operations or 
 
 ```go
 func fetchData(ctx context.Context) (string, error) {
-	resp, err := http.Get("https://api.example.com/data")
-	if err != nil {
-		return "", err
-	}
-	defer resp.Body.Close()
-	body, _ := io.ReadAll(resp.Body)
-	return string(body), nil
+ resp, err := http.Get("https://api.example.com/data")
+ if err != nil {
+  return "", err
+ }
+ defer resp.Body.Close()
+ body, _ := io.ReadAll(resp.Body)
+ return string(body), nil
 }
 
 func myWorkflow(ctx dbos.DBOSContext, input string) (string, error) {
-	result, err := dbos.RunAsStep(ctx, fetchData, dbos.WithStepName("fetchData"))
-	if err != nil {
-		return "", err
-	}
-	return result, nil
+ result, err := dbos.RunAsStep(ctx, fetchData, dbos.WithStepName("fetchData"))
+ if err != nil {
+  return "", err
+ }
+ return result, nil
 }
 ```
 
@@ -129,5 +129,5 @@ references/queue-concurrency.md
 
 ## References
 
-- https://docs.dbos.dev/
-- https://github.com/dbos-inc/dbos-transact-golang
+- <https://docs.dbos.dev/>
+- <https://github.com/dbos-inc/dbos-transact-golang>

@@ -67,7 +67,6 @@ Verify security implementation:
 - Validate input handling
 - Test rate limiting
 
-
 ## Examples
 
 ### Example 1: Implementing JWT Authentication
@@ -321,7 +320,6 @@ app.post('/api/auth/refresh', async (req, res) => {
 - ✅ Implement token blacklisting for logout
 ```
 
-
 ### Example 2: Input Validation and SQL Injection Prevention
 
 ```markdown
@@ -520,7 +518,6 @@ app.post('/api/comments', authenticateToken, async (req, res) => {
 - [ ] Validate file uploads (type, size, content)
 - [ ] Use allowlists, not blocklists
 ```
-
 
 ### Example 3: Rate Limiting and DDoS Protection
 
@@ -785,8 +782,8 @@ app.delete('/api/posts/:id', authenticateToken, async (req, res) => {
   
   // Check if user owns the post or is admin
   if (post.userId !== req.user.userId && req.user.role !== 'admin') {
-    return res.status(403).json({ 
-      error: 'Not authorized to delete this post' 
+    return res.status(403).json({
+      error: 'Not authorized to delete this post'
     });
   }
   
@@ -817,16 +814,19 @@ app.post('/api/users', async (req, res) => {
     res.json(user);
   } catch (error) {
     console.error('User creation error:', error); // Log full error
-    
-    if (error.code === 'P2002') {
-      return res.status(400).json({ 
-        error: 'Email already exists' 
-      });
-    }
-    
-    res.status(500).json({ 
-      error: 'An error occurred while creating user' 
-    });
+
+```
+if (error.code === 'P2002') {
+  return res.status(400).json({ 
+    error: 'Email already exists' 
+  });
+}
+
+res.status(500).json({ 
+  error: 'An error occurred while creating user' 
+});
+```
+
   }
 });
 \`\`\`

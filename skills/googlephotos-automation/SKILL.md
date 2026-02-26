@@ -107,6 +107,7 @@ Parameters:
 - Media items created via the API may not immediately appear in the Google Photos web UI due to processing delays.
 
 ## Quick Reference
+
 | Action | Tool | Key Parameters |
 |--------|------|----------------|
 | List albums | `GOOGLEPHOTOS_LIST_ALBUMS` | `pageSize`, `pageToken` |

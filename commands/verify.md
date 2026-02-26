@@ -1,3 +1,7 @@
+---
+description: "Run comprehensive verification (build, types, lint, tests, console.log audit, git status) and produce a concise pass/fail report with PR readiness verdict."
+---
+
 # Verification Command
 
 Run comprehensive verification on current codebase state.

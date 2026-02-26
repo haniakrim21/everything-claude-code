@@ -121,6 +121,7 @@ Parameters:
 - **Embed API uses API keys only**: `GOOGLE_MAPS_MAPS_EMBED_API` requires an API key and does not support OAuth2.
 
 ## Quick Reference
+
 | Action | Tool | Key Parameters |
 |--------|------|----------------|
 | Geocode address | `GOOGLE_MAPS_GEOCODING_API` | `address` or `latlng` or `place_id` |

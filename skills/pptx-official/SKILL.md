@@ -57,20 +57,20 @@ When creating a new PowerPoint presentation from scratch, use the **html2pptx** 
 4. **State your approach**: Explain your design choices before writing code
 
 **Requirements**:
-- ✅ State your content-informed design approach BEFORE writing code
-- ✅ Use web-safe fonts only: Arial, Helvetica, Times New Roman, Georgia, Courier New, Verdana, Tahoma, Trebuchet MS, Impact
-- ✅ Create clear visual hierarchy through size, weight, and color
-- ✅ Ensure readability: strong contrast, appropriately sized text, clean alignment
-- ✅ Be consistent: repeat patterns, spacing, and visual language across slides
+* ✅ State your content-informed design approach BEFORE writing code
+* ✅ Use web-safe fonts only: Arial, Helvetica, Times New Roman, Georgia, Courier New, Verdana, Tahoma, Trebuchet MS, Impact
+* ✅ Create clear visual hierarchy through size, weight, and color
+* ✅ Ensure readability: strong contrast, appropriately sized text, clean alignment
+* ✅ Be consistent: repeat patterns, spacing, and visual language across slides
 
 #### Color Palette Selection
 
 **Choosing colors creatively**:
-- **Think beyond defaults**: What colors genuinely match this specific topic? Avoid autopilot choices.
-- **Consider multiple angles**: Topic, industry, mood, energy level, target audience, brand identity (if mentioned)
-- **Be adventurous**: Try unexpected combinations - a healthcare presentation doesn't have to be green, finance doesn't have to be navy
-- **Build your palette**: Pick 3-5 colors that work together (dominant colors + supporting tones + accent)
-- **Ensure contrast**: Text must be clearly readable on backgrounds
+* **Think beyond defaults**: What colors genuinely match this specific topic? Avoid autopilot choices.
+* **Consider multiple angles**: Topic, industry, mood, energy level, target audience, brand identity (if mentioned)
+* **Be adventurous**: Try unexpected combinations - a healthcare presentation doesn't have to be green, finance doesn't have to be navy
+* **Build your palette**: Pick 3-5 colors that work together (dominant colors + supporting tones + accent)
+* **Ensure contrast**: Text must be clearly readable on backgrounds
 
 **Example color palettes** (use these to spark creativity - choose one, adapt it, or create your own):
 
@@ -96,77 +96,77 @@ When creating a new PowerPoint presentation from scratch, use the **html2pptx** 
 #### Visual Details Options
 
 **Geometric Patterns**:
-- Diagonal section dividers instead of horizontal
-- Asymmetric column widths (30/70, 40/60, 25/75)
-- Rotated text headers at 90° or 270°
-- Circular/hexagonal frames for images
-- Triangular accent shapes in corners
-- Overlapping shapes for depth
+* Diagonal section dividers instead of horizontal
+* Asymmetric column widths (30/70, 40/60, 25/75)
+* Rotated text headers at 90° or 270°
+* Circular/hexagonal frames for images
+* Triangular accent shapes in corners
+* Overlapping shapes for depth
 
 **Border & Frame Treatments**:
-- Thick single-color borders (10-20pt) on one side only
-- Double-line borders with contrasting colors
-- Corner brackets instead of full frames
-- L-shaped borders (top+left or bottom+right)
-- Underline accents beneath headers (3-5pt thick)
+* Thick single-color borders (10-20pt) on one side only
+* Double-line borders with contrasting colors
+* Corner brackets instead of full frames
+* L-shaped borders (top+left or bottom+right)
+* Underline accents beneath headers (3-5pt thick)
 
 **Typography Treatments**:
-- Extreme size contrast (72pt headlines vs 11pt body)
-- All-caps headers with wide letter spacing
-- Numbered sections in oversized display type
-- Monospace (Courier New) for data/stats/technical content
-- Condensed fonts (Arial Narrow) for dense information
-- Outlined text for emphasis
+* Extreme size contrast (72pt headlines vs 11pt body)
+* All-caps headers with wide letter spacing
+* Numbered sections in oversized display type
+* Monospace (Courier New) for data/stats/technical content
+* Condensed fonts (Arial Narrow) for dense information
+* Outlined text for emphasis
 
 **Chart & Data Styling**:
-- Monochrome charts with single accent color for key data
-- Horizontal bar charts instead of vertical
-- Dot plots instead of bar charts
-- Minimal gridlines or none at all
-- Data labels directly on elements (no legends)
-- Oversized numbers for key metrics
+* Monochrome charts with single accent color for key data
+* Horizontal bar charts instead of vertical
+* Dot plots instead of bar charts
+* Minimal gridlines or none at all
+* Data labels directly on elements (no legends)
+* Oversized numbers for key metrics
 
 **Layout Innovations**:
-- Full-bleed images with text overlays
-- Sidebar column (20-30% width) for navigation/context
-- Modular grid systems (3×3, 4×4 blocks)
-- Z-pattern or F-pattern content flow
-- Floating text boxes over colored shapes
-- Magazine-style multi-column layouts
+* Full-bleed images with text overlays
+* Sidebar column (20-30% width) for navigation/context
+* Modular grid systems (3×3, 4×4 blocks)
+* Z-pattern or F-pattern content flow
+* Floating text boxes over colored shapes
+* Magazine-style multi-column layouts
 
 **Background Treatments**:
-- Solid color blocks occupying 40-60% of slide
-- Gradient fills (vertical or diagonal only)
-- Split backgrounds (two colors, diagonal or vertical)
-- Edge-to-edge color bands
-- Negative space as a design element
+* Solid color blocks occupying 40-60% of slide
+* Gradient fills (vertical or diagonal only)
+* Split backgrounds (two colors, diagonal or vertical)
+* Edge-to-edge color bands
+* Negative space as a design element
 
 ### Layout Tips
 **When creating slides with charts or tables:**
-- **Two-column layout (PREFERRED)**: Use a header spanning the full width, then two columns below - text/bullets in one column and the featured content in the other. This provides better balance and makes charts/tables more readable. Use flexbox with unequal column widths (e.g., 40%/60% split) to optimize space for each content type.
-- **Full-slide layout**: Let the featured content (chart/table) take up the entire slide for maximum impact and readability
-- **NEVER vertically stack**: Do not place charts/tables below text in a single column - this causes poor readability and layout issues
+* **Two-column layout (PREFERRED)**: Use a header spanning the full width, then two columns below - text/bullets in one column and the featured content in the other. This provides better balance and makes charts/tables more readable. Use flexbox with unequal column widths (e.g., 40%/60% split) to optimize space for each content type.
+* **Full-slide layout**: Let the featured content (chart/table) take up the entire slide for maximum impact and readability
+* **NEVER vertically stack**: Do not place charts/tables below text in a single column - this causes poor readability and layout issues
 
 ### Workflow
 1. **MANDATORY - READ ENTIRE FILE**: Read [`html2pptx.md`](html2pptx.md) completely from start to finish. **NEVER set any range limits when reading this file.** Read the full file content for detailed syntax, critical formatting rules, and best practices before proceeding with presentation creation.
 2. Create an HTML file for each slide with proper dimensions (e.g., 720pt × 405pt for 16:9)
-   - Use `<p>`, `<h1>`-`<h6>`, `<ul>`, `<ol>` for all text content
-   - Use `class="placeholder"` for areas where charts/tables will be added (render with gray background for visibility)
-   - **CRITICAL**: Rasterize gradients and icons as PNG images FIRST using Sharp, then reference in HTML
-   - **LAYOUT**: For slides with charts/tables/images, use either full-slide layout or two-column layout for better readability
+   * Use `<p>`, `<h1>`-`<h6>`, `<ul>`, `<ol>` for all text content
+   * Use `class="placeholder"` for areas where charts/tables will be added (render with gray background for visibility)
+   * **CRITICAL**: Rasterize gradients and icons as PNG images FIRST using Sharp, then reference in HTML
+   * **LAYOUT**: For slides with charts/tables/images, use either full-slide layout or two-column layout for better readability
 3. Create and run a JavaScript file using the [`html2pptx.js`](scripts/html2pptx.js) library to convert HTML slides to PowerPoint and save the presentation
-   - Use the `html2pptx()` function to process each HTML file
-   - Add charts and tables to placeholder areas using PptxGenJS API
-   - Save the presentation using `pptx.writeFile()`
+   * Use the `html2pptx()` function to process each HTML file
+   * Add charts and tables to placeholder areas using PptxGenJS API
+   * Save the presentation using `pptx.writeFile()`
 4. **Visual validation**: Generate thumbnails and inspect for layout issues
-   - Create thumbnail grid: `python scripts/thumbnail.py output.pptx workspace/thumbnails --cols 4`
-   - Read and carefully examine the thumbnail image for:
-     - **Text cutoff**: Text being cut off by header bars, shapes, or slide edges
-     - **Text overlap**: Text overlapping with other text or shapes
-     - **Positioning issues**: Content too close to slide boundaries or other elements
-     - **Contrast issues**: Insufficient contrast between text and backgrounds
-   - If issues found, adjust HTML margins/spacing/colors and regenerate the presentation
-   - Repeat until all slides are visually correct
+   * Create thumbnail grid: `python scripts/thumbnail.py output.pptx workspace/thumbnails --cols 4`
+   * Read and carefully examine the thumbnail image for:
+     * **Text cutoff**: Text being cut off by header bars, shapes, or slide edges
+     * **Text overlap**: Text overlapping with other text or shapes
+     * **Positioning issues**: Content too close to slide boundaries or other elements
+     * **Contrast issues**: Insufficient contrast between text and backgrounds
+   * If issues found, adjust HTML margins/spacing/colors and regenerate the presentation
+   * Repeat until all slides are visually correct
 
 ## Editing an existing PowerPoint presentation
 
@@ -205,10 +205,10 @@ When you need to create a presentation that follows an existing template's desig
      [... EVERY slide must be listed individually with its index ...]
      ```
    * **Using the thumbnail grid**: Reference the visual thumbnails to identify:
-     - Layout patterns (title slides, content layouts, section dividers)
-     - Image placeholder locations and counts
-     - Design consistency across slide groups
-     - Visual hierarchy and structure
+     * Layout patterns (title slides, content layouts, section dividers)
+     * Image placeholder locations and counts
+     * Design consistency across slide groups
+     * Visual hierarchy and structure
    * This inventory file is REQUIRED for selecting appropriate templates in the next step
 
 3. **Create presentation outline based on template inventory**:
@@ -216,14 +216,14 @@ When you need to create a presentation that follows an existing template's desig
    * Choose an intro or title template for the first slide. This should be one of the first templates.
    * Choose safe, text-based layouts for the other slides.
    * **CRITICAL: Match layout structure to actual content**:
-     - Single-column layouts: Use for unified narrative or single topic
-     - Two-column layouts: Use ONLY when you have exactly 2 distinct items/concepts
-     - Three-column layouts: Use ONLY when you have exactly 3 distinct items/concepts
-     - Image + text layouts: Use ONLY when you have actual images to insert
-     - Quote layouts: Use ONLY for actual quotes from people (with attribution), never for emphasis
-     - Never use layouts with more placeholders than you have content
-     - If you have 2 items, don't force them into a 3-column layout
-     - If you have 4+ items, consider breaking into multiple slides or using a list format
+     * Single-column layouts: Use for unified narrative or single topic
+     * Two-column layouts: Use ONLY when you have exactly 2 distinct items/concepts
+     * Three-column layouts: Use ONLY when you have exactly 3 distinct items/concepts
+     * Image + text layouts: Use ONLY when you have actual images to insert
+     * Quote layouts: Use ONLY for actual quotes from people (with attribution), never for emphasis
+     * Never use layouts with more placeholders than you have content
+     * If you have 2 items, don't force them into a 3-column layout
+     * If you have 4+ items, consider breaking into multiple slides or using a list format
    * Count your actual content pieces BEFORE selecting the layout
    * Verify each placeholder in the chosen layout will be filled with meaningful content
    * Select one option representing the **best** layout for each content section.
@@ -292,42 +292,42 @@ When you need to create a presentation that follows an existing template's desig
       ```
 
    * Key features:
-     - **Slides**: Named as "slide-0", "slide-1", etc.
-     - **Shapes**: Ordered by visual position (top-to-bottom, left-to-right) as "shape-0", "shape-1", etc.
-     - **Placeholder types**: TITLE, CENTER_TITLE, SUBTITLE, BODY, OBJECT, or null
-     - **Default font size**: `default_font_size` in points extracted from layout placeholders (when available)
-     - **Slide numbers are filtered**: Shapes with SLIDE_NUMBER placeholder type are automatically excluded from inventory
-     - **Bullets**: When `bullet: true`, `level` is always included (even if 0)
-     - **Spacing**: `space_before`, `space_after`, and `line_spacing` in points (only included when set)
-     - **Colors**: `color` for RGB (e.g., "FF0000"), `theme_color` for theme colors (e.g., "DARK_1")
-     - **Properties**: Only non-default values are included in the output
+     * **Slides**: Named as "slide-0", "slide-1", etc.
+     * **Shapes**: Ordered by visual position (top-to-bottom, left-to-right) as "shape-0", "shape-1", etc.
+     * **Placeholder types**: TITLE, CENTER_TITLE, SUBTITLE, BODY, OBJECT, or null
+     * **Default font size**: `default_font_size` in points extracted from layout placeholders (when available)
+     * **Slide numbers are filtered**: Shapes with SLIDE_NUMBER placeholder type are automatically excluded from inventory
+     * **Bullets**: When `bullet: true`, `level` is always included (even if 0)
+     * **Spacing**: `space_before`, `space_after`, and `line_spacing` in points (only included when set)
+     * **Colors**: `color` for RGB (e.g., "FF0000"), `theme_color` for theme colors (e.g., "DARK_1")
+     * **Properties**: Only non-default values are included in the output
 
 6. **Generate replacement text and save the data to a JSON file**
    Based on the text inventory from the previous step:
-   - **CRITICAL**: First verify which shapes exist in the inventory - only reference shapes that are actually present
-   - **VALIDATION**: The replace.py script will validate that all shapes in your replacement JSON exist in the inventory
-     - If you reference a non-existent shape, you'll get an error showing available shapes
-     - If you reference a non-existent slide, you'll get an error indicating the slide doesn't exist
-     - All validation errors are shown at once before the script exits
-   - **IMPORTANT**: The replace.py script uses inventory.py internally to identify ALL text shapes
-   - **AUTOMATIC CLEARING**: ALL text shapes from the inventory will be cleared unless you provide "paragraphs" for them
-   - Add a "paragraphs" field to shapes that need content (not "replacement_paragraphs")
-   - Shapes without "paragraphs" in the replacement JSON will have their text cleared automatically
-   - Paragraphs with bullets will be automatically left aligned. Don't set the `alignment` property on when `"bullet": true`
-   - Generate appropriate replacement content for placeholder text
-   - Use shape size to determine appropriate content length
-   - **CRITICAL**: Include paragraph properties from the original inventory - don't just provide text
-   - **IMPORTANT**: When bullet: true, do NOT include bullet symbols (•, -, *) in text - they're added automatically
-   - **ESSENTIAL FORMATTING RULES**:
-     - Headers/titles should typically have `"bold": true`
-     - List items should have `"bullet": true, "level": 0` (level is required when bullet is true)
-     - Preserve any alignment properties (e.g., `"alignment": "CENTER"` for centered text)
-     - Include font properties when different from default (e.g., `"font_size": 14.0`, `"font_name": "Lora"`)
-     - Colors: Use `"color": "FF0000"` for RGB or `"theme_color": "DARK_1"` for theme colors
-     - The replacement script expects **properly formatted paragraphs**, not just text strings
-     - **Overlapping shapes**: Prefer shapes with larger default_font_size or more appropriate placeholder_type
-   - Save the updated inventory with replacements to `replacement-text.json`
-   - **WARNING**: Different template layouts have different shape counts - always check the actual inventory before creating replacements
+   * **CRITICAL**: First verify which shapes exist in the inventory - only reference shapes that are actually present
+   * **VALIDATION**: The replace.py script will validate that all shapes in your replacement JSON exist in the inventory
+     * If you reference a non-existent shape, you'll get an error showing available shapes
+     * If you reference a non-existent slide, you'll get an error indicating the slide doesn't exist
+     * All validation errors are shown at once before the script exits
+   * **IMPORTANT**: The replace.py script uses inventory.py internally to identify ALL text shapes
+   * **AUTOMATIC CLEARING**: ALL text shapes from the inventory will be cleared unless you provide "paragraphs" for them
+   * Add a "paragraphs" field to shapes that need content (not "replacement_paragraphs")
+   * Shapes without "paragraphs" in the replacement JSON will have their text cleared automatically
+   * Paragraphs with bullets will be automatically left aligned. Don't set the `alignment` property on when `"bullet": true`
+   * Generate appropriate replacement content for placeholder text
+   * Use shape size to determine appropriate content length
+   * **CRITICAL**: Include paragraph properties from the original inventory - don't just provide text
+   * **IMPORTANT**: When bullet: true, do NOT include bullet symbols (•, -, *) in text - they're added automatically
+   * **ESSENTIAL FORMATTING RULES**:
+     * Headers/titles should typically have `"bold": true`
+     * List items should have `"bullet": true, "level": 0` (level is required when bullet is true)
+     * Preserve any alignment properties (e.g., `"alignment": "CENTER"` for centered text)
+     * Include font properties when different from default (e.g., `"font_size": 14.0`, `"font_name": "Lora"`)
+     * Colors: Use `"color": "FF0000"` for RGB or `"theme_color": "DARK_1"` for theme colors
+     * The replacement script expects **properly formatted paragraphs**, not just text strings
+     * **Overlapping shapes**: Prefer shapes with larger default_font_size or more appropriate placeholder_type
+   * Save the updated inventory with replacements to `replacement-text.json`
+   * **WARNING**: Different template layouts have different shape counts - always check the actual inventory before creating replacements
 
    Example paragraphs field showing proper formatting:
    ```json
@@ -373,11 +373,11 @@ When you need to create a presentation that follows an existing template's desig
    ```
 
    **Common formatting patterns for presentations**:
-   - Title slides: Bold text, sometimes centered
-   - Section headers within slides: Bold text
-   - Bullet lists: Each item needs `"bullet": true, "level": 0`
-   - Body text: Usually no special properties needed
-   - Quotes: May have special alignment or font properties
+   * Title slides: Bold text, sometimes centered
+   * Section headers within slides: Bold text
+   * Bullet lists: Each item needs `"bullet": true, "level": 0`
+   * Body text: Usually no special properties needed
+   * Quotes: May have special alignment or font properties
 
 7. **Apply replacements using the `replace.py` script**
    ```bash
@@ -385,13 +385,13 @@ When you need to create a presentation that follows an existing template's desig
    ```
 
    The script will:
-   - First extract the inventory of ALL text shapes using functions from inventory.py
-   - Validate that all shapes in the replacement JSON exist in the inventory
-   - Clear text from ALL shapes identified in the inventory
-   - Apply new text only to shapes with "paragraphs" defined in the replacement JSON
-   - Preserve formatting by applying paragraph properties from the JSON
-   - Handle bullets, alignment, font properties, and colors automatically
-   - Save the updated presentation
+   * First extract the inventory of ALL text shapes using functions from inventory.py
+   * Validate that all shapes in the replacement JSON exist in the inventory
+   * Clear text from ALL shapes identified in the inventory
+   * Apply new text only to shapes with "paragraphs" defined in the replacement JSON
+   * Preserve formatting by applying paragraph properties from the JSON
+   * Handle bullets, alignment, font properties, and colors automatically
+   * Save the updated presentation
 
    Example validation errors:
    ```
@@ -414,19 +414,19 @@ python scripts/thumbnail.py template.pptx [output_prefix]
 ```
 
 **Features**:
-- Creates: `thumbnails.jpg` (or `thumbnails-1.jpg`, `thumbnails-2.jpg`, etc. for large decks)
-- Default: 5 columns, max 30 slides per grid (5×6)
-- Custom prefix: `python scripts/thumbnail.py template.pptx my-grid`
-  - Note: The output prefix should include the path if you want output in a specific directory (e.g., `workspace/my-grid`)
-- Adjust columns: `--cols 4` (range: 3-6, affects slides per grid)
-- Grid limits: 3 cols = 12 slides/grid, 4 cols = 20, 5 cols = 30, 6 cols = 42
-- Slides are zero-indexed (Slide 0, Slide 1, etc.)
+* Creates: `thumbnails.jpg` (or `thumbnails-1.jpg`, `thumbnails-2.jpg`, etc. for large decks)
+* Default: 5 columns, max 30 slides per grid (5×6)
+* Custom prefix: `python scripts/thumbnail.py template.pptx my-grid`
+  * Note: The output prefix should include the path if you want output in a specific directory (e.g., `workspace/my-grid`)
+* Adjust columns: `--cols 4` (range: 3-6, affects slides per grid)
+* Grid limits: 3 cols = 12 slides/grid, 4 cols = 20, 5 cols = 30, 6 cols = 42
+* Slides are zero-indexed (Slide 0, Slide 1, etc.)
 
 **Use cases**:
-- Template analysis: Quickly understand slide layouts and design patterns
-- Content review: Visual overview of entire presentation
-- Navigation reference: Find specific slides by their visual appearance
-- Quality check: Verify all slides are properly formatted
+* Template analysis: Quickly understand slide layouts and design patterns
+* Content review: Visual overview of entire presentation
+* Navigation reference: Find specific slides by their visual appearance
+* Quality check: Verify all slides are properly formatted
 
 **Examples**:
 ```bash
@@ -453,11 +453,11 @@ To visually analyze PowerPoint slides, convert them to images using a two-step p
    This creates files like `slide-1.jpg`, `slide-2.jpg`, etc.
 
 Options:
-- `-r 150`: Sets resolution to 150 DPI (adjust for quality/size balance)
-- `-jpeg`: Output JPEG format (use `-png` for PNG if preferred)
-- `-f N`: First page to convert (e.g., `-f 2` starts from page 2)
-- `-l N`: Last page to convert (e.g., `-l 5` stops at page 5)
-- `slide`: Prefix for output files
+* `-r 150`: Sets resolution to 150 DPI (adjust for quality/size balance)
+* `-jpeg`: Output JPEG format (use `-png` for PNG if preferred)
+* `-f N`: First page to convert (e.g., `-f 2` starts from page 2)
+* `-l N`: Last page to convert (e.g., `-l 5` stops at page 5)
+* `slide`: Prefix for output files
 
 Example for specific range:
 ```bash
@@ -466,19 +466,19 @@ pdftoppm -jpeg -r 150 -f 2 -l 5 template.pdf slide  # Converts only pages 2-5
 
 ## Code Style Guidelines
 **IMPORTANT**: When generating code for PPTX operations:
-- Write concise code
-- Avoid verbose variable names and redundant operations
-- Avoid unnecessary print statements
+* Write concise code
+* Avoid verbose variable names and redundant operations
+* Avoid unnecessary print statements
 
 ## Dependencies
 
 Required dependencies (should already be installed):
 
-- **markitdown**: `pip install "markitdown[pptx]"` (for text extraction from presentations)
-- **pptxgenjs**: `npm install -g pptxgenjs` (for creating presentations via html2pptx)
-- **playwright**: `npm install -g playwright` (for HTML rendering in html2pptx)
-- **react-icons**: `npm install -g react-icons react react-dom` (for icons)
-- **sharp**: `npm install -g sharp` (for SVG rasterization and image processing)
-- **LibreOffice**: `sudo apt-get install libreoffice` (for PDF conversion)
-- **Poppler**: `sudo apt-get install poppler-utils` (for pdftoppm to convert PDF to images)
-- **defusedxml**: `pip install defusedxml` (for secure XML parsing)
+* **markitdown**: `pip install "markitdown[pptx]"` (for text extraction from presentations)
+* **pptxgenjs**: `npm install -g pptxgenjs` (for creating presentations via html2pptx)
+* **playwright**: `npm install -g playwright` (for HTML rendering in html2pptx)
+* **react-icons**: `npm install -g react-icons react react-dom` (for icons)
+* **sharp**: `npm install -g sharp` (for SVG rasterization and image processing)
+* **LibreOffice**: `sudo apt-get install libreoffice` (for PDF conversion)
+* **Poppler**: `sudo apt-get install poppler-utils` (for pdftoppm to convert PDF to images)
+* **defusedxml**: `pip install defusedxml` (for secure XML parsing)

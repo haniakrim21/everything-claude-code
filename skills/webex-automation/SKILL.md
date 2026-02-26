@@ -83,7 +83,7 @@ Supporting tools:
 - `WEBEX_WEBHOOKS_GET_WEBHOOK` -- inspect a specific webhook by `webhookId`
 
 Example prompt:
-> "Create a webhook called 'New Messages' that POSTs to https://my-app.com/hook whenever a message is created in room Y2lz..."
+> "Create a webhook called 'New Messages' that POSTs to <https://my-app.com/hook> whenever a message is created in room Y2lz..."
 
 ---
 
@@ -102,7 +102,7 @@ Key parameters:
 Use `WEBEX_LIST_TEAMS` to discover available teams first.
 
 Example prompt:
-> "Add alice@example.com as a moderator to team Y2lz..."
+> "Add <alice@example.com> as a moderator to team Y2lz..."
 
 ---
 
@@ -133,7 +133,7 @@ Look up people in your Webex organization by email, display name, or ID.
 Use to resolve names to person IDs before sending direct messages or adding team members.
 
 Example prompt:
-> "Find the Webex person ID for bob@company.com"
+> "Find the Webex person ID for <bob@company.com>"
 
 ---
 

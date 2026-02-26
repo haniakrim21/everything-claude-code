@@ -1,3 +1,7 @@
+---
+description: "Follow the RED-GREEN-REFACTOR TDD cycle, selecting items from todo.md, planning, branching, implementing, and committing changes."
+---
+
 Follow RED-GREEN-REFACTOR cycle approch based on @~/.claude/CLAUDE.md:
 1. Open todo.md and select the first unchecked items to work on.
 2. Carefully plan each item, then share your plan

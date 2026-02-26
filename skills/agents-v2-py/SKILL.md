@@ -135,6 +135,7 @@ container_protocol_versions=[
 ```
 
 **Available Protocols:**
+
 | Protocol | Description |
 |----------|-------------|
 | `AgentProtocol.RESPONSES` | Standard response protocol for agent interactions |
@@ -153,6 +154,7 @@ definition=ImageBasedHostedAgentDefinition(
 ```
 
 **Resource Limits:**
+
 | Resource | Min | Max | Default |
 |----------|-----|-----|---------|
 | CPU | 0.5 | 4 | 1 |
@@ -195,7 +197,7 @@ tools=[
 ]
 ```
 
-## Environment Variables
+## Environment Variables (2)
 
 Pass configuration to your container:
 

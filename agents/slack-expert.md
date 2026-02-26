@@ -208,7 +208,7 @@ Delivery notification:
 
 Always use:
 - Block Kit over legacy attachments
-- conversations.* APIs (not deprecated channels.*)
+- conversations.*APIs (not deprecated channels.*)
 - chat.postMessage with blocks
 - response_url for deferred responses
 - Exponential backoff for rate limits

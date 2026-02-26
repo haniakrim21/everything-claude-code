@@ -436,7 +436,7 @@ require(['core/ajax'], function(ajax) {
 ## Common Pitfalls & Solutions
 
 ### 1. "Function not found" Error
-**Solution**: 
+**Solution**:
 - Purge caches: **Site administration > Development > Purge all caches**
 - Verify function name in services.php matches exactly
 - Check namespace and class name are correct

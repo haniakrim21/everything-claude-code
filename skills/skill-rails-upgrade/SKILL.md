@@ -216,14 +216,13 @@ List the most important changes the user needs to handle:
 
 ### Resources
 
-- Rails Upgrade Guide: https://guides.rubyonrails.org/upgrading_ruby_on_rails.html
-- Rails Diff: https://railsdiff.org/{current}/{target}
-- Release Notes: https://github.com/rails/rails/releases/tag/v{target}
+- Rails Upgrade Guide: <https://guides.rubyonrails.org/upgrading_ruby_on_rails.html>
+- Rails Diff: <https://railsdiff.org/{current}/{target}>
+- Release Notes: <https://github.com/rails/rails/releases/tag/v{target}>
 
 ---
 
-
-## When to Use This Skill
+## When to Use This Skill (Step 8: Generate Upgrade Summary)
 
 Analyze Rails apps and provide upgrade assessments
 
@@ -386,8 +385,7 @@ After verifying the app works:
 
 ---
 
-
-## When to Use This Skill
+## When to Use This Skill (Step 10: Finalize Framework Defaults)
 
 Analyze Rails apps and provide upgrade assessments
 

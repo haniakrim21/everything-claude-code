@@ -1,3 +1,7 @@
+---
+description: "Analyze the diff from main and rename the current branch to a descriptive name that reflects the changes being made."
+---
+
 # Update Branch Name
 
 Follow these steps to update the current branch name:

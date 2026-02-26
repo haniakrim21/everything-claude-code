@@ -5,7 +5,7 @@ description: Essential patterns for discovering and retrieving tools from Compos
 tags: [tools, fetch, discovery, apps, providers]
 ---
 
-# Fetching Tools for Applications
+## Fetching Tools for Applications
 
 When building traditional applications (non-agent workflows), use direct tool fetching methods to discover and retrieve tools from Composio.
 

@@ -1,3 +1,7 @@
+---
+description: "Generate a developer onboarding guide with prerequisites, setup steps, project structure overview, and development workflow for new team members."
+---
+
 Generate an onboarding guide for new developers joining the project.
 
 ## Steps

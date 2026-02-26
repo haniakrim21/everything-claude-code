@@ -742,8 +742,8 @@ Before deploying Python Code nodes, verify:
 - [STANDARD_LIBRARY.md](STANDARD_LIBRARY.md) - Complete standard library reference
 
 ### n8n Documentation
-- Code Node Guide: https://docs.n8n.io/code/code-node/
-- Python in n8n: https://docs.n8n.io/code/builtin/python-modules/
+- Code Node Guide: <https://docs.n8n.io/code/code-node/>
+- Python in n8n: <https://docs.n8n.io/code/builtin/python-modules/>
 
 ---
 

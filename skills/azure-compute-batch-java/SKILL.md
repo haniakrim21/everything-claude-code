@@ -371,9 +371,9 @@ try {
 
 | Resource | URL |
 |----------|-----|
-| Maven Package | https://central.sonatype.com/artifact/com.azure/azure-compute-batch |
-| GitHub | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/batch/azure-compute-batch |
-| API Documentation | https://learn.microsoft.com/java/api/com.azure.compute.batch |
-| Product Docs | https://learn.microsoft.com/azure/batch/ |
-| REST API | https://learn.microsoft.com/rest/api/batchservice/ |
-| Samples | https://github.com/azure/azure-batch-samples |
+| Maven Package | <https://central.sonatype.com/artifact/com.azure/azure-compute-batch> |
+| GitHub | <https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/batch/azure-compute-batch> |
+| API Documentation | <https://learn.microsoft.com/java/api/com.azure.compute.batch> |
+| Product Docs | <https://learn.microsoft.com/azure/batch/> |
+| REST API | <https://learn.microsoft.com/rest/api/batchservice/> |
+| Samples | <https://github.com/azure/azure-batch-samples> |

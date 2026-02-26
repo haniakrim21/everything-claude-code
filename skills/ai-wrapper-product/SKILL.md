@@ -85,12 +85,14 @@ async function generateContent(userInput, context) {
 ```
 
 ### Model Selection
+
 | Model | Cost | Speed | Quality | Use Case |
 |-------|------|-------|---------|----------|
 | GPT-4o | $$$ | Fast | Best | Complex tasks |
 | GPT-4o-mini | $ | Fastest | Good | Most tasks |
 | Claude 3.5 Sonnet | $$ | Fast | Excellent | Balanced |
 | Claude 3 Haiku | $ | Fastest | Good | High volume |
+
 ```
 
 ### Prompt Engineering for Products
@@ -147,6 +149,7 @@ function parseAIOutput(text) {
 ```
 
 ### Quality Control
+
 | Technique | Purpose |
 |-----------|---------|
 | Examples in prompt | Guide output style |
@@ -154,6 +157,7 @@ function parseAIOutput(text) {
 | Validation | Catch malformed responses |
 | Retry logic | Handle failures |
 | Fallback models | Reliability |
+
 ```
 
 ### Cost Management
@@ -194,6 +198,7 @@ function calculateCost(usage) {
 ```
 
 ### Cost Reduction Strategies
+
 | Strategy | Savings |
 |----------|---------|
 | Use cheaper models | 10-50x |

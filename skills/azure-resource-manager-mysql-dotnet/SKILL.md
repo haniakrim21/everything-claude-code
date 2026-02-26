@@ -386,7 +386,7 @@ string connectionString = $"Server={server.Data.FullyQualifiedDomainName};" +
 
 | Resource | URL |
 |----------|-----|
-| NuGet Package | https://www.nuget.org/packages/Azure.ResourceManager.MySql |
-| API Reference | https://learn.microsoft.com/dotnet/api/azure.resourcemanager.mysql |
-| Product Documentation | https://learn.microsoft.com/azure/mysql/flexible-server/ |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mysql/Azure.ResourceManager.MySql |
+| NuGet Package | <https://www.nuget.org/packages/Azure.ResourceManager.MySql> |
+| API Reference | <https://learn.microsoft.com/dotnet/api/azure.resourcemanager.mysql> |
+| Product Documentation | <https://learn.microsoft.com/azure/mysql/flexible-server/> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/mysql/Azure.ResourceManager.MySql> |

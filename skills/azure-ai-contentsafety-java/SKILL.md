@@ -57,6 +57,7 @@ ContentSafetyClient client = new ContentSafetyClientBuilder()
 ## Key Concepts
 
 ### Harm Categories
+
 | Category | Description |
 |----------|-------------|
 | Hate | Discriminatory language based on identity groups |

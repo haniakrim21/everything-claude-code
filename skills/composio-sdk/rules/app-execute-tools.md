@@ -5,7 +5,7 @@ description: Core patterns for manually executing Composio tools in traditional 
 tags: [tools, execute, execution, apps, manual]
 ---
 
-# Direct Tool Execution for Applications
+## Direct Tool Execution for Applications
 
 When building traditional applications without agent frameworks, use `composio.tools.execute()` to manually execute tools.
 

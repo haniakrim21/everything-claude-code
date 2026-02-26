@@ -5,7 +5,7 @@ description: Connect Tool Router sessions with popular AI frameworks using MCP o
 tags: [tool-router, frameworks, integration, vercel, openai, langchain, claude, crewai]
 ---
 
-# Integrate Tool Router with AI Frameworks
+## Integrate Tool Router with AI Frameworks
 
 Tool Router works with any AI framework through two methods: **Native Tools** (recommended for speed) or **MCP** (for framework flexibility). Choose native tools when available for better performance and control.
 

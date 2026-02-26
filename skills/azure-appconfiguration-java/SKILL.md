@@ -462,9 +462,9 @@ try {
 
 | Resource | URL |
 |----------|-----|
-| Maven Package | https://central.sonatype.com/artifact/com.azure/azure-data-appconfiguration |
-| GitHub | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appconfiguration/azure-data-appconfiguration |
-| API Documentation | https://aka.ms/java-docs |
-| Product Docs | https://learn.microsoft.com/azure/azure-app-configuration |
-| Samples | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appconfiguration/azure-data-appconfiguration/src/samples |
-| Troubleshooting | https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/appconfiguration/azure-data-appconfiguration/TROUBLESHOOTING.md |
+| Maven Package | <https://central.sonatype.com/artifact/com.azure/azure-data-appconfiguration> |
+| GitHub | <https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appconfiguration/azure-data-appconfiguration> |
+| API Documentation | <https://aka.ms/java-docs> |
+| Product Docs | <https://learn.microsoft.com/azure/azure-app-configuration> |
+| Samples | <https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/appconfiguration/azure-data-appconfiguration/src/samples> |
+| Troubleshooting | <https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/appconfiguration/azure-data-appconfiguration/TROUBLESHOOTING.md> |

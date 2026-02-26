@@ -470,8 +470,8 @@ import {
 
 | Resource | URL |
 |----------|-----|
-| node-postgres Docs | https://node-postgres.com |
-| npm Package | https://www.npmjs.com/package/pg |
-| GitHub Repository | https://github.com/brianc/node-postgres |
-| Azure PostgreSQL Docs | https://learn.microsoft.com/azure/postgresql/flexible-server/ |
-| Passwordless Connection | https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-connect-with-managed-identity |
+| node-postgres Docs | <https://node-postgres.com> |
+| npm Package | <https://www.npmjs.com/package/pg> |
+| GitHub Repository | <https://github.com/brianc/node-postgres> |
+| Azure PostgreSQL Docs | <https://learn.microsoft.com/azure/postgresql/flexible-server/> |
+| Passwordless Connection | <https://learn.microsoft.com/azure/postgresql/flexible-server/how-to-connect-with-managed-identity> |

@@ -1,3 +1,7 @@
+---
+description: "Generate Mermaid diagrams (flowchart, sequence, class, ER, graph, state) from codebase analysis or a description."
+---
+
 Generate Mermaid diagrams from codebase analysis or description.
 
 ## Steps

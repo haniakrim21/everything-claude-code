@@ -282,9 +282,9 @@ await foreach (var activity in client.AskQuestionAsync("Hello!", null))
 
 | Resource | URL |
 | --- | --- |
-| Microsoft 365 Agents SDK | https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/ |
-| AddAgent API | https://learn.microsoft.com/en-us/dotnet/api/microsoft.agents.hosting.aspnetcore.servicecollectionextensions.addagent?view=m365-agents-sdk |
-| AgentApplication API | https://learn.microsoft.com/en-us/dotnet/api/microsoft.agents.builder.app.agentapplication?view=m365-agents-sdk |
-| Auth configuration options | https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/microsoft-authentication-library-configuration-options |
-| Copilot Studio integration | https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/integrate-with-mcs |
-| GitHub samples | https://github.com/microsoft/agents |
+| Microsoft 365 Agents SDK | <https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/> |
+| AddAgent API | <https://learn.microsoft.com/en-us/dotnet/api/microsoft.agents.hosting.aspnetcore.servicecollectionextensions.addagent?view=m365-agents-sdk> |
+| AgentApplication API | <https://learn.microsoft.com/en-us/dotnet/api/microsoft.agents.builder.app.agentapplication?view=m365-agents-sdk> |
+| Auth configuration options | <https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/microsoft-authentication-library-configuration-options> |
+| Copilot Studio integration | <https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/integrate-with-mcs> |
+| GitHub samples | <https://github.com/microsoft/agents> |

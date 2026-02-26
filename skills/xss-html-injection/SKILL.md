@@ -334,7 +334,7 @@ Fake login form or misleading content here
 
 ```html
 <!-- Tab/newline insertion -->
-<img src=x	onerror
+<img src=x onerror
 =alert(1)>
 
 <!-- JavaScript comments -->

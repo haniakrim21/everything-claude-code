@@ -22,7 +22,6 @@ Key benefits:
 
 Available in: Python, JavaScript (Node.js), Java
 
-
 **When to use**: ['Starting any new Slack app', 'Migrating from legacy Slack APIs', 'Building production Slack integrations']
 
 ```python
@@ -99,8 +98,7 @@ Limits:
 - Up to 100 blocks in modals/Home tabs
 - Block text limited to 3000 characters
 
-Use Block Kit Builder to prototype: https://app.slack.com/block-kit-builder
-
+Use Block Kit Builder to prototype: <https://app.slack.com/block-kit-builder>
 
 **When to use**: ['Building rich message layouts', 'Adding interactive components to messages', 'Creating forms in modals', 'Building Home tab experiences']
 
@@ -186,7 +184,6 @@ Key OAuth concepts:
 
 70% of users abandon installation when confronted with excessive
 permission requests - request only what you need!
-
 
 **When to use**: ['Distributing app to multiple workspaces', 'Building public Slack apps', 'Enterprise-grade integrations']
 

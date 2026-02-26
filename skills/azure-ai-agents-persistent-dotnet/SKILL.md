@@ -343,7 +343,7 @@ catch (RequestFailedException ex)
 
 | Resource | URL |
 |----------|-----|
-| NuGet Package | https://www.nuget.org/packages/Azure.AI.Agents.Persistent |
-| API Reference | https://learn.microsoft.com/dotnet/api/azure.ai.agents.persistent |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent |
-| Samples | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent/samples |
+| NuGet Package | <https://www.nuget.org/packages/Azure.AI.Agents.Persistent> |
+| API Reference | <https://learn.microsoft.com/dotnet/api/azure.ai.agents.persistent> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent> |
+| Samples | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/ai/Azure.AI.Agents.Persistent/samples> |

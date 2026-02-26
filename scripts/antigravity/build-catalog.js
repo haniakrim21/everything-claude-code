@@ -5,9 +5,9 @@ const {
   readSkill,
   tokenize,
   unique,
-} = require("../lib/skill-utils");
+} = require("./lib/skill-utils");
 
-const ROOT = path.resolve(__dirname, "..");
+const ROOT = path.resolve(__dirname, "../..");
 const SKILLS_DIR = path.join(ROOT, "skills");
 
 const STOPWORDS = new Set([
@@ -624,7 +624,7 @@ function buildCatalog() {
   const catalog = {
     generatedAt: process.env.SOURCE_DATE_EPOCH
       ? new Date(process.env.SOURCE_DATE_EPOCH * 1000).toISOString()
-      : "2026-02-08T00:00:00.000Z",
+      : new Date().toISOString(),
     total: catalogSkills.length,
     skills: catalogSkills.sort((a, b) =>
       a.id < b.id ? -1 : a.id > b.id ? 1 : 0,

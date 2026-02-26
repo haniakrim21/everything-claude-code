@@ -1,15 +1,17 @@
 {
   "scripts": {
-    "install-skills": "node scripts/install.js",
-    "install-all": "node scripts/install.js",
+    "install-skills": "node scripts/install.js --commands --skills",
+    "install-all": "node scripts/install.js --agents --commands --skills",
     "install-copy": "node scripts/install.js --copy",
     "uninstall": "node scripts/install.js --uninstall",
-    "status": "node scripts/install.js --status"
+    "status": "node scripts/install.js --status",
+    "catalog": "node scripts/antigravity/build-catalog.js"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "eslint": "^9.39.2",
+    "@eslint/js": "^10.0.0",
+    "eslint": "^10.0.1",
     "globals": "^17.1.0",
-    "markdownlint-cli": "^0.47.0"
+    "markdownlint-cli": "^0.47.0",
+    "yaml": "^2.7.0"
   }
 }

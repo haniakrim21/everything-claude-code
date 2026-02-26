@@ -5,7 +5,7 @@ description: Use session configuration options to control toolkit access, tools,
 tags: [tool-router, configuration, toolkits, tools, session]
 ---
 
-# Configure Tool Router Sessions Properly
+## Configure Tool Router Sessions Properly
 
 Tool Router sessions support rich configuration for fine-grained control over toolkit and tool access.
 

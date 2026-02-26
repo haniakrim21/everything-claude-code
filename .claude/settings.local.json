@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo view:*)",
+      "Bash(gh api:*)",
+      "Bash(for skill in ask-questions-if-underspecified audit-context-building building-secure-contracts burpsuite-project-parser claude-in-chrome-troubleshooting constant-time-analysis culture-index devcontainer-setup differential-review dwarf-expert entry-point-analyzer firebase-apk-scanner fix-review insecure-defaults modern-python property-based-testing second-opinion semgrep-rule-creator semgrep-rule-variant-creator sharp-edges spec-to-code-compliance static-analysis testing-handbook-skills variant-analysis yara-authoring)",
+      "Bash(npx markdownlint-cli:*)",
+      "Bash(npx markdownlint-cli2:*)",
+      "Bash(git remote rename:*)",
+      "Bash(git remote add:*)"
+    ]
+  }
+}

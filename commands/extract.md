@@ -1,3 +1,7 @@
+---
+description: "Extract a function, component, hook, or module from existing code into its own unit, preserving behavior and updating all imports and call sites."
+---
+
 Extract a function, component, or module from existing code into its own unit.
 
 ## Steps

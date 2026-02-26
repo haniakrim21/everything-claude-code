@@ -4,8 +4,8 @@ Use this reference when the user asks for an LTX2 prompt.
 
 Sources:
 
-- Prompting Guide for LTX-2 at https://ltx.io/model/model-blog/prompting-guide-for-ltx-2.
-- Prompt Instructions in https://github.com/Lightricks/ComfyUI-LTXVideo/tree/master/system_prompts
+- Prompting Guide for LTX-2 at <https://ltx.io/model/model-blog/prompting-guide-for-ltx-2>.
+- Prompt Instructions in <https://github.com/Lightricks/ComfyUI-LTXVideo/tree/master/system_prompts>
 
 ## Overview
 

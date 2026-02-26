@@ -105,7 +105,6 @@ const doc = new Document({
 - **Use colors sparingly**: Default to black (000000) and shades of gray for titles and headings (heading 1, heading 2, etc.)
 - **Set consistent margins** (1440 = 1 inch is standard)
 
-
 ## Lists (ALWAYS USE PROPER LISTS - NEVER USE UNICODE BULLETS)
 ```javascript
 // Bullets - ALWAYS use the numbering config, NOT unicode symbols

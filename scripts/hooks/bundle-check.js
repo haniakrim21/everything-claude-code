@@ -1,4 +1,3 @@
-const { execFileSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
@@ -16,7 +15,7 @@ if (!fs.existsSync(pkgJson)) process.exit(0);
 let pkg;
 try {
   pkg = JSON.parse(fs.readFileSync(pkgJson, "utf8"));
-} catch (e) {
+} catch (_e) {
   process.exit(0);
 }
 
@@ -39,7 +38,7 @@ function getDirSize(dir) {
         size += fs.statSync(fullPath).size;
       }
     }
-  } catch (e) {}
+  } catch (_e) { /* ignore */ }
   return size;
 }
 

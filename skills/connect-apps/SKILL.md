@@ -40,7 +40,7 @@ If it works, you're connected!
 
 | Ask Claude to... | What happens |
 |------------------|--------------|
-| "Send email to sarah@acme.com about the launch" | Actually sends the email |
+| "Send email to <sarah@acme.com> about the launch" | Actually sends the email |
 | "Create GitHub issue: fix login bug" | Creates the issue |
 | "Post to Slack #general: deploy complete" | Posts the message |
 | "Add meeting notes to Notion" | Adds to Notion |

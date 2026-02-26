@@ -23,6 +23,7 @@ description: Multi-agent autonomous startup system for Claude Code. Triggers on 
 8. **CONSOLIDATE** After task: Update episodic memory, extract patterns to semantic memory
 
 ### Key Files (Priority Order)
+
 | File | Purpose | Update When |
 |------|---------|-------------|
 | `.loki/CONTINUITY.md` | Working memory - what am I doing NOW? | Every turn |
@@ -684,6 +685,7 @@ Loki Mode with PRD at path/to/prd   # Start with PRD
 ```
 
 **Skill Metadata:**
+
 | Field | Value |
 |-------|-------|
 | Trigger | "Loki Mode" or "Loki Mode with PRD at [path]" |

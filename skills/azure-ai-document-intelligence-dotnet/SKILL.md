@@ -330,8 +330,8 @@ catch (RequestFailedException ex)
 
 | Resource | URL |
 |----------|-----|
-| NuGet Package | https://www.nuget.org/packages/Azure.AI.DocumentIntelligence |
-| API Reference | https://learn.microsoft.com/dotnet/api/azure.ai.documentintelligence |
-| GitHub Samples | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/samples |
-| Document Intelligence Studio | https://documentintelligence.ai.azure.com/ |
-| Prebuilt Models | https://aka.ms/azsdk/formrecognizer/models |
+| NuGet Package | <https://www.nuget.org/packages/Azure.AI.DocumentIntelligence> |
+| API Reference | <https://learn.microsoft.com/dotnet/api/azure.ai.documentintelligence> |
+| GitHub Samples | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/documentintelligence/Azure.AI.DocumentIntelligence/samples> |
+| Document Intelligence Studio | <https://documentintelligence.ai.azure.com/> |
+| Prebuilt Models | <https://aka.ms/azsdk/formrecognizer/models> |

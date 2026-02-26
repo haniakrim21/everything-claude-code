@@ -7,7 +7,8 @@ const fs = require('fs');
 const path = require('path');
 
 const AGENTS_DIR = path.join(__dirname, '../../agents');
-const REQUIRED_FIELDS = ['model', 'tools'];
+const PLUGIN_JSON = path.join(__dirname, '../../.claude-plugin/plugin.json');
+const REQUIRED_FIELDS = ['name', 'description', 'tools', 'model'];
 
 function extractFrontmatter(content) {
   // Strip BOM if present (UTF-8 BOM: \uFEFF)
@@ -59,6 +60,30 @@ function validateAgents() {
 
   if (hasErrors) {
     process.exit(1);
+  }
+
+  // Cross-check plugin.json registers agents
+  if (fs.existsSync(PLUGIN_JSON)) {
+    let plugin;
+    try {
+      plugin = JSON.parse(fs.readFileSync(PLUGIN_JSON, 'utf-8'));
+    } catch (e) {
+      console.error(`ERROR: Invalid JSON in plugin.json: ${e.message}`);
+      process.exit(1);
+    }
+
+    if (!plugin.agents) {
+      console.error('ERROR: plugin.json is missing "agents" field — agents will not be registered');
+      process.exit(1);
+    }
+
+    const agentsEntry = plugin.agents;
+    const hasDirectoryEntry = Array.isArray(agentsEntry) &&
+      agentsEntry.some(e => typeof e === 'string' && e.includes('agents'));
+    if (!hasDirectoryEntry) {
+      console.error('ERROR: plugin.json "agents" field does not reference the agents/ directory');
+      process.exit(1);
+    }
   }
 
   console.log(`Validated ${files.length} agent files`);

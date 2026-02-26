@@ -1,3 +1,7 @@
+---
+description: "Rename a symbol (variable, function, class, or file) across the entire codebase including source, tests, config, and documentation, with preview and verification."
+---
+
 Rename a symbol (variable, function, class, file) across the entire codebase.
 
 ## Steps

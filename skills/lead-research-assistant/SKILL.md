@@ -98,7 +98,7 @@ When a user requests lead research:
      - Timing indicators
 
 5. **Provide Actionable Output**
-   
+
    For each lead, provide:
    - **Company Name** and website
    - **Why They're a Good Fit**: Specific reasons based on their business

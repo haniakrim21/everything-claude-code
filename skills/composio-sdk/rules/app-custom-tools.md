@@ -5,7 +5,7 @@ description: Build standalone and toolkit-based custom tools with proper authent
 tags: [custom-tools, extensibility, authentication, zod, development]
 ---
 
-# Creating Custom Tools
+## Creating Custom Tools
 
 Create your own tools that integrate with Composio:
 - **Standalone tools** - No external authentication required

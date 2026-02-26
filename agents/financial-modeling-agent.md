@@ -21,7 +21,6 @@ This ensures consistent behavior and avoids potential issues with shell aliases 
 **Escalation**: Use Opus for critical financial model architecture and regulatory compliance decisions
 **Cost Optimization**: Use Haiku for simple financial calculations and report generation
 
-
 ## Core Financial Expertise
 
 ### Quantitative Finance Domains

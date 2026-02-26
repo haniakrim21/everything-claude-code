@@ -375,7 +375,7 @@ Remember to parallelize solving tasks to avoid running out of context, then accu
 
 ---
 
-# Running Evaluations
+## Running Evaluations
 
 After creating your evaluation file, you can use the provided evaluation harness to test your MCP server.
 
@@ -415,7 +415,7 @@ Evaluation files use XML format with `<qa_pair>` elements:
 </evaluation>
 ```
 
-## Running Evaluations
+## Running Evaluations (Evaluation File Format)
 
 The evaluation script (`scripts/evaluation.py`) supports three transport types:
 

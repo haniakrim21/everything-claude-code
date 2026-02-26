@@ -8,14 +8,14 @@ allowed-tools: Read, Glob, Grep, Bash
 
 > **MANDATORY:** Run appropriate validation tools after EVERY code change. Do not finish a task until the code is error-free.
 
-### Procedures by Ecosystem
+## Procedures by Ecosystem
 
-#### Node.js / TypeScript
+### Node.js / TypeScript
 1. **Lint/Fix:** `npm run lint` or `npx eslint "path" --fix`
 2. **Types:** `npx tsc --noEmit`
 3. **Security:** `npm audit --audit-level=high`
 
-#### Python
+### Python
 1. **Linter (Ruff):** `ruff check "path" --fix` (Fast & Modern)
 2. **Security (Bandit):** `bandit -r "path" -ll`
 3. **Types (MyPy):** `mypy "path"`
@@ -42,4 +42,3 @@ allowed-tools: Read, Glob, Grep, Bash
 |--------|---------|---------|
 | `scripts/lint_runner.py` | Unified lint check | `python scripts/lint_runner.py <project_path>` |
 | `scripts/type_coverage.py` | Type coverage analysis | `python scripts/type_coverage.py <project_path>` |
-

@@ -78,7 +78,7 @@ Set up real-time event notifications by subscribing your endpoint URL to specifi
 **Tool:** `GUMROAD_SUBSCRIBE_TO_RESOURCE`
 
 **Example prompt:**
-> "Subscribe my webhook https://example.com/hook to Gumroad sale events"
+> "Subscribe my webhook <https://example.com/hook> to Gumroad sale events"
 
 **Key parameters (all required):**
 - `resource_name` -- One of: `sale`, `refund`, `dispute`, `dispute_won`, `cancellation`, `subscription_updated`, `subscription_ended`, `subscription_restarted`

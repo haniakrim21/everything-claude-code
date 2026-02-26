@@ -313,22 +313,21 @@ indexer_client.create_or_update_indexer(indexer)
 | [references/semantic-ranking.md](references/semantic-ranking.md) | Semantic configuration, captions, answers, hybrid patterns |
 | [scripts/setup_vector_index.py](scripts/setup_vector_index.py) | CLI script to create vector-enabled search index |
 
-
 ---
 
 ## Additional Azure AI Search Patterns
 
-# Azure AI Search Python SDK
+## Azure AI Search Python SDK
 
 Write clean, idiomatic Python code for Azure AI Search using `azure-search-documents`.
 
-## Installation
+## Installation (2)
 
 ```bash
 pip install azure-search-documents azure-identity
 ```
 
-## Environment Variables
+## Environment Variables (2)
 
 ```bash
 AZURE_SEARCH_ENDPOINT=https://<search-service>.search.windows.net
@@ -337,7 +336,7 @@ AZURE_SEARCH_INDEX_NAME=<index-name>
 AZURE_SEARCH_API_KEY=<api-key>
 ```
 
-## Authentication
+## Authentication (2)
 
 **DefaultAzureCredential (preferred)**:
 ```python
@@ -488,7 +487,7 @@ async with SearchClient(endpoint, index_name, credential) as client:
         print(result["title"])
 ```
 
-## Best Practices
+## Best Practices (2)
 
 1. **Use environment variables** for endpoints, keys, and deployment names
 2. **Prefer `DefaultAzureCredential`** over API keys for production

@@ -1,3 +1,7 @@
+---
+description: "Auto-analyze project and generate PM2 service config and management commands"
+---
+
 # PM2 Init
 
 Auto-analyze project and generate PM2 service commands.
@@ -209,6 +213,7 @@ Based on `$ARGUMENTS`, execute init:
 
 ---
 
+<!-- markdownlint-disable MD025 -->
 ## Post-Init: Update CLAUDE.md
 
 After generating files, append PM2 section to project's `CLAUDE.md` (create if not exists):
@@ -247,6 +252,7 @@ After all files generated, output:
 ## PM2 Init Complete
 
 **Services:**
+
 | Port | Name | Type |
 |------|------|------|
 | {port} | {name} | {type} |

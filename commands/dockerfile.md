@@ -1,3 +1,7 @@
+---
+description: "Generate an optimized multi-stage Dockerfile and .dockerignore for the current project with layer caching, non-root user, and health checks."
+---
+
 Generate an optimized Dockerfile for the current project.
 
 ## Steps

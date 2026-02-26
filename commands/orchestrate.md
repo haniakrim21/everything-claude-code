@@ -1,3 +1,7 @@
+---
+description: "Sequential and parallel agent workflow orchestration for complex multi-step tasks"
+---
+
 # Orchestrate Command
 
 Sequential and parallel agent workflow for complex tasks.

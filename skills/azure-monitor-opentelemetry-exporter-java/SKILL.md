@@ -276,9 +276,9 @@ The `azure-monitor-opentelemetry-autoconfigure` package provides:
 
 | Resource | URL |
 |----------|-----|
-| Maven Package | https://central.sonatype.com/artifact/com.azure/azure-monitor-opentelemetry-exporter |
-| GitHub | https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter |
-| Migration Guide | https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/MIGRATION.md |
-| Autoconfigure Package | https://central.sonatype.com/artifact/com.azure/azure-monitor-opentelemetry-autoconfigure |
-| OpenTelemetry Java | https://opentelemetry.io/docs/languages/java/ |
-| Application Insights | https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview |
+| Maven Package | <https://central.sonatype.com/artifact/com.azure/azure-monitor-opentelemetry-exporter> |
+| GitHub | <https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter> |
+| Migration Guide | <https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/MIGRATION.md> |
+| Autoconfigure Package | <https://central.sonatype.com/artifact/com.azure/azure-monitor-opentelemetry-autoconfigure> |
+| OpenTelemetry Java | <https://opentelemetry.io/docs/languages/java/> |
+| Application Insights | <https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview> |

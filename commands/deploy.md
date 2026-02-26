@@ -1,3 +1,7 @@
+---
+description: "Deploy the application to staging, production, or preview with pre-deployment checks, health verification, and rollback instructions."
+---
+
 Deploy the application to a target environment with pre/post checks.
 
 ## Steps

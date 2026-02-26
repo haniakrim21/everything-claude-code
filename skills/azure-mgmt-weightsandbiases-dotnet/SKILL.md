@@ -322,7 +322,7 @@ run.finish()
 
 | Resource | URL |
 |----------|-----|
-| NuGet Package | https://www.nuget.org/packages/Azure.ResourceManager.WeightsAndBiases |
-| W&B Documentation | https://docs.wandb.ai/ |
-| Azure Marketplace | https://azuremarketplace.microsoft.com/marketplace/apps/wandb.wandb-pay-as-you-go |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/weightsandbiases |
+| NuGet Package | <https://www.nuget.org/packages/Azure.ResourceManager.WeightsAndBiases> |
+| W&B Documentation | <https://docs.wandb.ai/> |
+| Azure Marketplace | <https://azuremarketplace.microsoft.com/marketplace/apps/wandb.wandb-pay-as-you-go> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/weightsandbiases> |

@@ -38,9 +38,11 @@ process.stdin.on('end', () => {
     // If stdin isn't valid JSON, pass empty object to script
   }
 
-  // Extract tool_input for the target script (argv[2] format)
+  // Extract tool_input for the target script (argv[2] format).
+  // Also merge tool_output so PostToolUse scripts can access command results.
   const toolInput = hookData.tool_input || {};
-  const inputArg = JSON.stringify(toolInput);
+  const toolOutput = hookData.tool_output || {};
+  const inputArg = JSON.stringify({ ...toolInput, tool_output: toolOutput });
 
   // Spawn the target script with tool_input as argv[2]
   const child = spawn(process.execPath, [scriptPath, inputArg], {

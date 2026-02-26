@@ -5,7 +5,7 @@ description: Advanced patterns for customizing tool behavior with schema modific
 tags: [modifiers, hooks, customization, schema, execution]
 ---
 
-# Tool Modifiers
+## Tool Modifiers
 
 Modifiers customize tool behavior through schema transformations, pre-execution hooks, and post-execution hooks.
 

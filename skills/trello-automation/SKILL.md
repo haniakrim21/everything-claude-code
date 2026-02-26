@@ -21,7 +21,6 @@ Automate Trello board management, card creation, and team workflows through Comp
 
 **Get Rube MCP**: Add `https://rube.app/mcp` as an MCP server in your client configuration. No API keys needed — just add the endpoint and it works.
 
-
 1. Verify Rube MCP is available by confirming `RUBE_SEARCH_TOOLS` responds
 2. Call `RUBE_MANAGE_CONNECTIONS` with toolkit `trello`
 3. If connection is not ACTIVE, follow the returned auth link to complete Trello auth
@@ -181,5 +180,6 @@ Most list endpoints return all items. For boards with 1000+ cards, use `limit` a
 | Attach file/URL | TRELLO_ADD_CARDS_ATTACHMENTS_BY_ID_CARD | idCard, url OR file |
 | Get board members | TRELLO_GET_BOARDS_MEMBERS_BY_ID_BOARD | idBoard |
 | Batch read | TRELLO_GET_BATCH | urls (comma-separated paths) |
+
 ---
 *Powered by [Composio](https://composio.dev)*

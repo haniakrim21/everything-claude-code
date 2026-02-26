@@ -1,3 +1,7 @@
+---
+description: "Backend-focused development workflow with Research, Ideation, Plan, Execute, Optimize, and Review phases"
+---
+
 # Backend - Backend-Focused Development
 
 Backend-focused workflow (Research → Ideation → Plan → Execute → Optimize → Review), Codex-led.

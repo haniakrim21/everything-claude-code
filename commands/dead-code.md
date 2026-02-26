@@ -1,3 +1,7 @@
+---
+description: "Find and remove unused imports, unexported symbols, unreachable code, and dead feature flags, verified with tests and a clean build."
+---
+
 Find and remove dead code from the codebase.
 
 ## Steps

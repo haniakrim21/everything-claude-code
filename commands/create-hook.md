@@ -1,3 +1,7 @@
+---
+description: "Analyze the project, suggest practical Claude Code hooks based on detected tooling, then create and validate the hook with proper testing."
+---
+
 # Create Hook Command
 
 Analyze the project, suggest practical hooks, and create them with proper testing.
@@ -174,11 +178,11 @@ This is where most hook implementations fail. Pay extra attention to:
 # Exit 2 to block, 0 to continue
 ```
 
-_Complete templates available at: https://docs.claude.com/en/docs/claude-code/hooks#examples_
+_Complete templates available at: <https://docs.claude.com/en/docs/claude-code/hooks#examples>_
 
 ## Quick Reference
 
-**📖 Official Docs**: https://docs.claude.com/en/docs/claude-code/hooks.md
+**📖 Official Docs**: <https://docs.claude.com/en/docs/claude-code/hooks.md>
 
 **Common Patterns:**
 

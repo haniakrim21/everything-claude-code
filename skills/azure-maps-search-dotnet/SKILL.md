@@ -487,8 +487,8 @@ catch (RequestFailedException ex)
 
 | Resource | URL |
 |----------|-----|
-| Azure Maps Documentation | https://learn.microsoft.com/azure/azure-maps/ |
-| Search API Reference | https://learn.microsoft.com/dotnet/api/azure.maps.search |
-| Routing API Reference | https://learn.microsoft.com/dotnet/api/azure.maps.routing |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps |
-| Pricing | https://azure.microsoft.com/pricing/details/azure-maps/ |
+| Azure Maps Documentation | <https://learn.microsoft.com/azure/azure-maps/> |
+| Search API Reference | <https://learn.microsoft.com/dotnet/api/azure.maps.search> |
+| Routing API Reference | <https://learn.microsoft.com/dotnet/api/azure.maps.routing> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/maps> |
+| Pricing | <https://azure.microsoft.com/pricing/details/azure-maps/> |

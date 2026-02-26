@@ -328,7 +328,7 @@ catch (RequestFailedException ex)
 
 | Resource | URL |
 |----------|-----|
-| NuGet Package | https://www.nuget.org/packages/Azure.ResourceManager.BotService |
-| API Reference | https://learn.microsoft.com/dotnet/api/azure.resourcemanager.botservice |
-| GitHub Source | https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/botservice/Azure.ResourceManager.BotService |
-| Azure Bot Service Docs | https://learn.microsoft.com/azure/bot-service/ |
+| NuGet Package | <https://www.nuget.org/packages/Azure.ResourceManager.BotService> |
+| API Reference | <https://learn.microsoft.com/dotnet/api/azure.resourcemanager.botservice> |
+| GitHub Source | <https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/botservice/Azure.ResourceManager.BotService> |
+| Azure Bot Service Docs | <https://learn.microsoft.com/azure/bot-service/> |

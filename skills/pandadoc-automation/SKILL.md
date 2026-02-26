@@ -46,7 +46,7 @@ Key parameters:
 - `tags` -- array of strings for categorization
 - `owner` -- document owner (email or membership_id)
 
-Example prompt: *"Create a PandaDoc document from contract.pdf with john@example.com as signer and jane@example.com as approver"*
+Example prompt: *"Create a PandaDoc document from contract.pdf with <john@example.com> as signer and <jane@example.com> as approver"*
 
 ---
 
@@ -79,7 +79,7 @@ Key parameters:
 - `phone` -- phone number
 - `street_address`, `city`, `state`, `postal_code`, `country` -- address fields
 
-Example prompt: *"Create a PandaDoc contact for john.doe@example.com at Acme Corp as Software Engineer"*
+Example prompt: *"Create a PandaDoc contact for <john.doe@example.com> at Acme Corp as Software Engineer"*
 
 ---
 
@@ -110,7 +110,7 @@ Key parameters:
 - `active` (default true) -- enable/disable the webhook
 - `payload` -- additional data to include: `fields`, `products`, `metadata`, `tokens`, `pricing`
 
-Example prompt: *"Set up a PandaDoc webhook to notify https://api.example.com/hooks when documents change state or recipients complete"*
+Example prompt: *"Set up a PandaDoc webhook to notify <https://api.example.com/hooks> when documents change state or recipients complete"*
 
 ---
 

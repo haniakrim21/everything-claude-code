@@ -1,3 +1,7 @@
+---
+description: "Simplify code by reducing nesting, extracting functions, improving naming, removing duplication, and simplifying conditionals while preserving all behavior."
+---
+
 Simplify code to improve readability and maintainability.
 
 ## Steps

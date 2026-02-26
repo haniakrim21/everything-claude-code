@@ -37,22 +37,22 @@ Unlike SQL (where you model data entities), or document stores (like MongoDB), t
 You typically cannot "add a query later" without migration or creating a new table/index.
 
 **Process:**
-1.  **List all Entities** (User, Order, Product).
-2.  **List all Access Patterns** ("Get User by Email", "Get Orders by User sorted by Date").
-3.  **Design Table(s)** specifically to serve those patterns with a single lookup.
+1. **List all Entities** (User, Order, Product).
+2. **List all Access Patterns** ("Get User by Email", "Get Orders by User sorted by Date").
+3. **Design Table(s)** specifically to serve those patterns with a single lookup.
 
 ### 2. The Partition Key is King
 
 Data is distributed across physical nodes based on the **Partition Key (PK)**.
--   **Goal:** Even distribution of data and traffic.
--   **Anti-Pattern:** Using a low-cardinality PK (e.g., `status="active"` or `gender="m"`) creates **Hot Partitions**, limiting throughput to a single node's capacity.
--   **Best Practice:** Use high-cardinality keys (User IDs, Device IDs, Composite Keys).
+- **Goal:** Even distribution of data and traffic.
+- **Anti-Pattern:** Using a low-cardinality PK (e.g., `status="active"` or `gender="m"`) creates **Hot Partitions**, limiting throughput to a single node's capacity.
+- **Best Practice:** Use high-cardinality keys (User IDs, Device IDs, Composite Keys).
 
 ### 3. Clustering / Sort Keys
 
 Within a partition, data is sorted on disk by the **Clustering Key (Cassandra)** or **Sort Key (DynamoDB)**.
--   This allows for efficient **Range Queries** (e.g., `WHERE user_id=X AND date > Y`).
--   It effectively pre-sorts your data for specific retrieval requirements.
+- This allows for efficient **Range Queries** (e.g., `WHERE user_id=X AND date > Y`).
+- It effectively pre-sorts your data for specific retrieval requirements.
 
 ### 4. Single-Table Design (Adjacency Lists)
 
@@ -66,14 +66,14 @@ Storing multiple entity types in one table to enable pre-joined reads.
 | `USER#123` | `ORDER#998` | `{ total: 50.00, status: "shipped" }` |
 | `USER#123` | `ORDER#999` | `{ total: 12.00, status: "pending" }` |
 
--   **Query:** `PK="USER#123"`
--   **Result:** Fetches User Profile AND all Orders in **one network request**.
+- **Query:** `PK="USER#123"`
+- **Result:** Fetches User Profile AND all Orders in **one network request**.
 
 ### 5. Denormalization & Duplication
 
 Don't be afraid to store the same data in multiple tables to serve different query patterns.
--   **Table A:** `users_by_id` (PK: uuid)
--   **Table B:** `users_by_email` (PK: email)
+- **Table A:** `users_by_id` (PK: uuid)
+- **Table B:** `users_by_email` (PK: email)
 
 *Trade-off: You must manage data consistency across tables (often using eventual consistency or batch writes).*
 
@@ -81,28 +81,28 @@ Don't be afraid to store the same data in multiple tables to serve different que
 
 ### Apache Cassandra / ScyllaDB
 
--   **Primary Key Structure:** `((Partition Key), Clustering Columns)`
--   **No Joins, No Aggregates:** Do not try to `JOIN` or `GROUP BY`. Pre-calculate aggregates in a separate counter table.
--   **Avoid `ALLOW FILTERING`:** If you see this in production, your data model is wrong. It implies a full cluster scan.
--   **Writes are Cheap:** Inserts and Updates are just appends to the LSM tree. Don't worry about write volume as much as read efficiency.
--   **Tombstones:** Deletes are expensive markers. Avoid high-velocity delete patterns (like queues) in standard tables.
+- **Primary Key Structure:** `((Partition Key), Clustering Columns)`
+- **No Joins, No Aggregates:** Do not try to `JOIN` or `GROUP BY`. Pre-calculate aggregates in a separate counter table.
+- **Avoid `ALLOW FILTERING`:** If you see this in production, your data model is wrong. It implies a full cluster scan.
+- **Writes are Cheap:** Inserts and Updates are just appends to the LSM tree. Don't worry about write volume as much as read efficiency.
+- **Tombstones:** Deletes are expensive markers. Avoid high-velocity delete patterns (like queues) in standard tables.
 
 ### AWS DynamoDB
 
--   **GSI (Global Secondary Index):** Use GSIs to create alternative views of your data (e.g., "Search Orders by Date" instead of by User).
-    -   *Note:* GSIs are eventually consistent.
--   **LSI (Local Secondary Index):** Sorts data differently *within* the same partition. Must be created at table creation time.
--   **WCU / RCU:** Understand capacity modes. Single-table design helps optimize consumed capacity units.
--   **TTL:** Use Time-To-Live attributes to automatically expire old data (free delete) without creating tombstones.
+- **GSI (Global Secondary Index):** Use GSIs to create alternative views of your data (e.g., "Search Orders by Date" instead of by User).
+  - *Note:* GSIs are eventually consistent.
+- **LSI (Local Secondary Index):** Sorts data differently *within* the same partition. Must be created at table creation time.
+- **WCU / RCU:** Understand capacity modes. Single-table design helps optimize consumed capacity units.
+- **TTL:** Use Time-To-Live attributes to automatically expire old data (free delete) without creating tombstones.
 
 ## Expert Checklist
 
 Before finalizing your NoSQL schema:
 
--   [ ] **Access Pattern Coverage:** Does every query pattern map to a specific table or index?
--   [ ] **Cardinality Check:** Does the Partition Key have enough unique values to spread traffic evenly?
--   [ ] **Split Partition Risk:** For any single partition (e.g., a single user's orders), will it grow indefinitely? (If > 10GB, you need to "shard" the partition, e.g., `USER#123#2024-01`).
--   [ ] **Consistency Requirement:** Can the application tolerate eventual consistency for this read pattern?
+- [ ] **Access Pattern Coverage:** Does every query pattern map to a specific table or index?
+- [ ] **Cardinality Check:** Does the Partition Key have enough unique values to spread traffic evenly?
+- [ ] **Split Partition Risk:** For any single partition (e.g., a single user's orders), will it grow indefinitely? (If > 10GB, you need to "shard" the partition, e.g., `USER#123#2024-01`).
+- [ ] **Consistency Requirement:** Can the application tolerate eventual consistency for this read pattern?
 
 ## Common Anti-Patterns
 

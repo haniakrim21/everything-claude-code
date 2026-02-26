@@ -1,3 +1,7 @@
+---
+description: "Generate integration tests for a module that exercise real component interactions including databases, APIs, and external systems with proper setup and teardown."
+---
+
 Generate integration tests for a module, testing real interactions between components.
 
 ## Steps

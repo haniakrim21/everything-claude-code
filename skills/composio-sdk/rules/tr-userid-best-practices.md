@@ -5,7 +5,7 @@ description: Use proper user IDs to ensure data isolation, security, and correct
 tags: [tool-router, user-id, security, authentication, multi-tenant]
 ---
 
-# Choose User IDs Carefully for Security and Isolation
+## Choose User IDs Carefully for Security and Isolation
 
 User IDs are the **foundation of Tool Router isolation**. They determine which user's connections, data, and permissions are used for tool execution. Choose them carefully to ensure security and proper data isolation.
 

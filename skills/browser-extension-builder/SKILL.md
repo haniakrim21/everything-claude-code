@@ -192,6 +192,7 @@ chrome.storage.onChanged.addListener((changes, area) => {
 ```
 
 ### Storage Limits
+
 | Type | Limit |
 |------|-------|
 | local | 5MB |

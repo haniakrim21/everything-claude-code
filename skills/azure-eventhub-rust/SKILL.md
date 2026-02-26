@@ -122,6 +122,6 @@ cargo add azure_messaging_eventhubs_checkpointstore_blob
 
 | Resource | Link |
 |----------|------|
-| API Reference | https://docs.rs/azure_messaging_eventhubs |
-| Source Code | https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/eventhubs/azure_messaging_eventhubs |
-| crates.io | https://crates.io/crates/azure_messaging_eventhubs |
+| API Reference | <https://docs.rs/azure_messaging_eventhubs> |
+| Source Code | <https://github.com/Azure/azure-sdk-for-rust/tree/main/sdk/eventhubs/azure_messaging_eventhubs> |
+| crates.io | <https://crates.io/crates/azure_messaging_eventhubs> |

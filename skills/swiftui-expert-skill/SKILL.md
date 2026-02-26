@@ -125,6 +125,7 @@ Use this skill when:
 ## Quick Reference
 
 ### Property Wrapper Selection (Modern)
+
 | Wrapper | Use When |
 |---------|----------|
 | `@State` | Internal view state (must be `private`), or owned `@Observable` class |
@@ -134,12 +135,14 @@ Use this skill when:
 | `var` | Read-only value watched via `.onChange()` |
 
 **Legacy (Pre-iOS 17):**
+
 | Wrapper | Use When |
 |---------|----------|
 | `@StateObject` | View owns an `ObservableObject` (use `@State` with `@Observable` instead) |
 | `@ObservedObject` | View receives an `ObservableObject` |
 
 ### Modern API Replacements
+
 | Deprecated | Modern Alternative |
 |------------|-------------------|
 | `foregroundColor()` | `foregroundStyle()` |

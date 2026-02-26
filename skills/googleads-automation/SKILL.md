@@ -111,6 +111,7 @@ Note: Call RUBE_SEARCH_TOOLS to get the full schema for this tool.
 - **Max 9 dimensions and 10 metrics** per report request.
 
 ## Quick Reference
+
 | Action | Tool | Key Parameters |
 |--------|------|----------------|
 | List Ads links | `GOOGLE_ANALYTICS_ANALYTICS_ADMIN_PROPERTIES_GOOGLE_ADS` | `parent` |
