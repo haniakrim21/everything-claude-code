@@ -15,7 +15,9 @@
 
 ### The most comprehensive Claude Code plugin ever built.
 
-**196 agents** &middot; **1,789 skills** &middot; **89 commands** &middot; **29 rules** &middot; **22 hooks**
+**Core Plugin:** 196 agents &middot; 1,789 skills &middot; 89 commands &middot; 29 rules &middot; 22 hooks
+
+**Extended Ecosystem:** 621 agents &middot; 639+ skills &middot; 350 commands &middot; 66 MCPs &middot; 41 hooks (across 9 plugins)
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)
@@ -288,6 +290,83 @@ Event-driven automations that fire on tool use and session lifecycle:
 | **Stop** | 2 | Final verification, audit staged files |
 
 All hooks are implemented as cross-platform Node.js scripts — no bash dependencies.
+
+---
+
+## Extended Ecosystem (9 Integrated Plugins)
+
+This configuration includes **9 major Claude Code plugin repositories**, providing a comprehensive ecosystem of **621 agents, 350 commands, 639+ skills, 66 MCPs, and 41 hooks**.
+
+### All Installed Plugins
+
+| Plugin | Agents | Commands | Skills | MCPs | Purpose |
+|:--|--:|--:|--:|--:|:--|
+| **everything-claude-code** | 196 | 89 | 14+ | - | Core plugin (this repo) |
+| **superpowers** | 1 | 3 | 14 | - | Advanced agent capabilities |
+| **plugins-plus-skills** | - | - | 500 | - | Massive skill library |
+| **pm-claude-skills** | - | - | 23 | - | Product management workflows |
+| **oh-my-claude** | 5 | 1 | 11 | - | Agent team orchestration |
+| **Claude-Skills (borghei)** | 5 | - | 91 | - | Additional skill repository |
+| **claude-code-templates** | 416 | 228 | - | 66 | Full-stack templates & MCPs |
+| **get-shit-done** ⭐ | 11 | 30 | - | - | Task execution & workflow |
+| **vibe-kanban** ⭐ | - | - | - | - | Reference project |
+
+### Component Totals
+
+```
+Agents:  621     (core 196 + extensions)
+Commands: 350    (core 89 + extensions)
+Skills:  639     (core 14 + superpowers 14 + plugins 500 + pm 23 + oh-my-claude 11 + borghei 91 + others)
+MCPs:     66     (from claude-code-templates)
+Hooks:    41     (integrated from 8 sources)
+```
+
+### Auto-Install in All Projects
+
+When starting new projects with Claude Code, the following are always installed:
+- ✅ **get-shit-done** — Task execution and workflow automation
+- ✅ **vibe-kanban** — Collaborative kanban board reference
+
+These are configured in `~/.claude/settings.json` and will be symlinked to any new project.
+
+### How to Use the Extended Ecosystem
+
+The plugins work transparently with everything-claude-code:
+
+```bash
+# All agents are available
+/orchestrate              # Uses agents from all plugins
+
+# Commands coordinate across plugins
+/commit                   # Uses validators from get-shit-done
+
+# Skills auto-loaded
+# TDD workflow from everything-claude-code + PM planning from pm-claude-skills
+
+# MCPs auto-registered
+# 66 Model Context Protocols available in Claude Code
+```
+
+### File Organization
+
+```
+~/.claude/
+├── agents/           # 621 agents (symlinked)
+├── commands/         # 350 commands (symlinked)
+├── skills/           # 639+ skills (symlinked)
+├── mcps/             # 66 MCPs (symlinked)
+├── plugins/
+│   ├── everything-claude-code/
+│   ├── superpowers/
+│   ├── plugins-plus-skills/
+│   ├── pm-claude-skills/
+│   ├── oh-my-claude/
+│   ├── claude-skills-borghei/
+│   ├── claude-code-templates/
+│   ├── get-shit-done/
+│   └── vibe-kanban/
+└── settings.json     # Plugin roots + hooks configuration
+```
 
 ---
 
